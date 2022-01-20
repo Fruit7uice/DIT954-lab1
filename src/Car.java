@@ -47,7 +47,11 @@ public abstract class Car implements Moveable{
         currentSpeed = 0;
     }
 
-    public void move(){}
+    public void move(){
+        setxCord(getxCord() + xCord);
+        setyCord(getyCord() + yCord);
+        
+    }
 
 
     public void turnLeft(){
