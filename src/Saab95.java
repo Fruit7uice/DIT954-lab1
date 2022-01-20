@@ -26,11 +26,19 @@ public class Saab95 extends Car{
     }
 
     private void incrementSpeed(double amount){
+        double preCurrentSpeed = getCurrentSpeed();
         currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+        if (currentSpeed > enginePower){
+            currentSpeed = preCurrentSpeed;
+        }
     }
 
     private void decrementSpeed(double amount){
+        double preCurrentSpeed = getCurrentSpeed();
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+        if (currentSpeed < 0){
+            currentSpeed = preCurrentSpeed;
+        }
     }
 
     // TODO fix this method according to lab pm

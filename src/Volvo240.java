@@ -31,11 +31,9 @@ public class Volvo240 extends Car{
     }
 
     public void gas(double amount){
-        if(!(amount < 0 || amount > 1))
-        incrementSpeed(amount);
-
-
-
+        if(!(amount < 0 || amount > 1)) {
+            incrementSpeed(amount);
+        }
 
     }
 
