@@ -56,7 +56,6 @@ public abstract class Car implements Moveable {
     }
 
 
-
     // Depending on the graphical direction of dY, -dX might be dX
     // Depending on the graphical direction of dY, -dY might be dY
 
@@ -71,48 +70,48 @@ public abstract class Car implements Moveable {
     }
 
 
-        // If turning is wrong, changes to setdX() and setdY() :s parameters might have to be negative.
-        public void turnLeft () {
-            if ((dX > 0 || dX < 0) && dY == 0) {
-                setdX(0);
-                setdY(dX);
-            } else if ((dY > 0 || dY < 0) && dX == 0) {
-                setdY(0);
-                setdX(dY);
+    // If turning is wrong, changes to setdX() and setdY() :s parameters might have to be negative.
+    public void turnLeft() {
+        if ((dX > 0 || dX < 0) && dY == 0) {
+            setdX(0);
+            setdY(dX);
+        } else if ((dY > 0 || dY < 0) && dX == 0) {
+            setdY(0);
+            setdX(dY);
 
-            }
-        }
-
-
-        public double getxCord () {
-            return xCord;
-        }
-
-        public void setxCord ( double xCord){
-            this.xCord = xCord;
-        }
-
-        public double getyCord () {
-            return yCord;
-        }
-
-        public void setyCord ( double yCord){
-            this.yCord = yCord;
-        }
-
-        public double getdX () {
-            return dX;
-        }
-
-        public void setdX ( double dX){
-            this.dX = dX;
-        }
-
-        public double getdY () {
-            return dY;
-        }
-
-        public void setdY ( double dY){
-            this.dY = dY;
         }
     }
+
+
+    public double getxCord() {
+        return xCord;
+    }
+
+    public void setxCord(double xCord) {
+        this.xCord = xCord;
+    }
+
+    public double getyCord() {
+        return yCord;
+    }
+
+    public void setyCord(double yCord) {
+        this.yCord = yCord;
+    }
+
+    public double getdX() {
+        return dX;
+    }
+
+    public void setdX(double dX) {
+        this.dX = dX;
+    }
+
+    public double getdY() {
+        return dY;
+    }
+
+    public void setdY(double dY) {
+        this.dY = dY;
+    }
+}
