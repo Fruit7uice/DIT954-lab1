@@ -7,13 +7,17 @@ public abstract class Car implements Moveable{
     public double currentSpeed; // The current speed of the car
     private Color color; // Color of the car
     public String modelName; // The car model name
+    private double xCord;
+    private double yCord;
 
 
-    public Car(int nrDoors, double enginePower, Color color, String modelName) {
+    public Car(int nrDoors, double enginePower, Color color, String modelName, double xCord, double yCord) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
+        this.xCord = xCord;
+        this.yCord = yCord;
     }
 
     public int getNrDoors(){
@@ -42,15 +46,30 @@ public abstract class Car implements Moveable{
     public void stopEngine(){
         currentSpeed = 0;
     }
+
     public void move(){}
 
 
+    public void turnLeft(){
+        double currentSpeed = getCurrentSpeed();
 
-    public void turnLeft(){}
-
+    }
 
     public void turnRight(){}
 
+    public double getxCord() {
+        return xCord;
+    }
 
+    public void setxCord(double xCord) {
+        this.xCord = xCord;
+    }
 
+    public double getyCord() {
+        return yCord;
+    }
+
+    public void setyCord(double yCord) {
+        this.yCord = yCord;
+    }
 }
