@@ -76,4 +76,6 @@ public class Saab95{
     public void brake(double amount){
         decrementSpeed(amount);
     }
+
+
 }
