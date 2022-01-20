@@ -22,6 +22,10 @@ public abstract class Car implements Moveable {
         this.yCord = yCord;
     }
 
+    /**
+     * A getter for the amount of doors on car.
+     * @return the amount of doors.
+     */
     public int getNrDoors() {
         return nrDoors;
     }
@@ -35,6 +39,10 @@ public abstract class Car implements Moveable {
         return enginePower;
     }
 
+    /**
+     * A getter for the current speed of the car.
+     * @return current speed of the car.
+     */
     public double getCurrentSpeed() {
         return currentSpeed;
     }
@@ -48,6 +56,10 @@ public abstract class Car implements Moveable {
         return color;
     }
 
+    /**
+     * Sets the color of the car to whatever is the input
+     * @param clr is the color which is inputted.
+     */
     public void setColor(Color clr) {
         color = clr;
     }
@@ -61,6 +73,10 @@ public abstract class Car implements Moveable {
         currentSpeed = 0.1;
     }
 
+    /**
+     * A representation of turning of a car engine.
+     * Sets current speed of car to 0.
+     */
     public void stopEngine() {
         currentSpeed = 0;
     }
@@ -80,9 +96,14 @@ public abstract class Car implements Moveable {
     }
 
 
-    // Depending on the graphical direction of dY, -dX might be dX
-    // Depending on the graphical direction of dY, -dY might be dY
 
+
+
+    /**
+     * A representation of turning a car right accordingly to a Cartesian coordinate system.
+     * // Depending on the graphical direction of dY, -dX might be dX
+     * // Depending on the graphical direction of dY, -dY might be dY
+     */
     public void turnRight() {
         if ((dX > 0 || dX < 0) && dY == 0) {
             setdX(0);
@@ -123,6 +144,10 @@ public abstract class Car implements Moveable {
     }
 
 
+    /**
+     * A getter for the cars current X-Coordinate in a Cartesian coordinate system.
+     * @return current X-Coordinate
+     */
     public double getxCord() {
         return xCord;
     }
@@ -136,6 +161,10 @@ public abstract class Car implements Moveable {
         this.xCord = xCord;
     }
 
+    /**
+     * A getter for the cars current Y-Coordinate in a Cartesian coordinate system.
+     * @return current Y-Coordinate
+     */
     public double getyCord() {
         return yCord;
     }
@@ -148,6 +177,10 @@ public abstract class Car implements Moveable {
         this.yCord = yCord;
     }
 
+    /**
+     * A getter for the cars current representation of X-Coordinate direction where dX ∈ [-1, 1] & dX ∈ N
+     * @return current representation of X-Coordinate direction
+     */
     public double getdX() {
         return dX;
     }
@@ -159,6 +192,10 @@ public abstract class Car implements Moveable {
         this.dX = dX;
     }
 
+    /**
+     * A getter for the cars current representation of Y-Coordinate direction where dY ∈ [-1, 1] & dY ∈ N
+     * @return current representation of Y-Coordinate direction
+     */
     public double getdY() {
         return dY;
     }
@@ -169,4 +206,6 @@ public abstract class Car implements Moveable {
     public void setdY(double dY) {
         this.dY = dY;
     }
+
+
 }
