@@ -31,4 +31,6 @@ public class Volvo240 extends Car{
     public void brake(double amount){
         decrementSpeed(amount);
     }
+
+
 }
