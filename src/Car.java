@@ -50,14 +50,20 @@ public abstract class Car implements Moveable{
     }
 
     public void move(){
-        setxCord(getxCord() + xCord);
-        setyCord(getyCord() + yCord);
+        setxCord(getxCord() + dX);
+        setyCord(getyCord() + dY);
         
     }
 
-
+    // If turning is wrong, changes to setdX() and setdY() :s parameters might have to be negative.
     public void turnLeft(){
-
+        if ((dX > 0 || dX < 0) && dY == 0){
+            setdX(0);
+            setdY(dX);
+        } else if ((dY > 0 || dY < 0) && dX == 0){
+            setdY(0);
+            setdX(dY);
+        }
     }
 
     public void turnRight(){}
