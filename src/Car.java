@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public abstract class Car implements Moveable{
+public abstract class Car implements Moveable {
 
     private int nrDoors; // Number of doors on the car
     public double enginePower; // Engine power of the car
@@ -22,45 +22,58 @@ public abstract class Car implements Moveable{
         this.yCord = yCord;
     }
 
-    public int getNrDoors(){
+    public int getNrDoors() {
         return nrDoors;
     }
-    public double getEnginePower(){
+
+    public double getEnginePower() {
         return enginePower;
     }
 
-    public double getCurrentSpeed(){
+    public double getCurrentSpeed() {
         return currentSpeed;
     }
 
-    public Color getColor(){
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(Color clr){
+    public void setColor(Color clr) {
         color = clr;
     }
 
-    public void startEngine(){
+    public void startEngine() {
         currentSpeed = 0.1;
     }
 
-    public void stopEngine(){
+    public void stopEngine() {
         currentSpeed = 0;
     }
 
-    public void move(){
-        setxCord(getxCord() + xCord);
-        setyCord(getyCord() + yCord);
-        
+    public void move() {
+        setxCord(getxCord() + dX * currentSpeed);
+        setyCord(getyCord() + dY * currentSpeed);
     }
 
 
-    public void turnLeft(){
+    public void turnLeft() {
 
     }
+    // Depending on the graphical direction of dY, -dX might be dX
+    // Depending on the graphical direction of dY, -dY might be dY
 
-    public void turnRight(){}
+    public void turnRight() {
+        if ((dX > 0 || dX < 0) && dY == 0){
+            setdX(0);
+            setdY(-dX);
+        } else if ((dY < 0 || dY > 0) && dX == 0){
+            setdY(0);
+            setdX(-dY);
+        }
+    }
+
+
+
 
     public double getxCord() {
         return xCord;
