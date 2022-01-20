@@ -33,6 +33,7 @@ public class Saab95 extends Car{
         }
     }
 
+    
     private void decrementSpeed(double amount){
         double preCurrentSpeed = getCurrentSpeed();
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
