@@ -9,6 +9,8 @@ public abstract class Car implements Moveable{
     public String modelName; // The car model name
     private double xCord;
     private double yCord;
+    private double dX;
+    private double dY;
 
 
     public Car(int nrDoors, double enginePower, Color color, String modelName, double xCord, double yCord) {
@@ -51,7 +53,6 @@ public abstract class Car implements Moveable{
 
 
     public void turnLeft(){
-        double currentSpeed = getCurrentSpeed();
 
     }
 
@@ -71,5 +72,21 @@ public abstract class Car implements Moveable{
 
     public void setyCord(double yCord) {
         this.yCord = yCord;
+    }
+
+    public double getdX() {
+        return dX;
+    }
+
+    public void setdX(double dX) {
+        this.dX = dX;
+    }
+
+    public double getdY() {
+        return dY;
+    }
+
+    public void setdY(double dY) {
+        this.dY = dY;
     }
 }
