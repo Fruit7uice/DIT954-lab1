@@ -38,7 +38,6 @@ public class Volvo240 extends Car {
     }
 
 
-
     // TODO fix this method according to lab pm
     public void brake(double amount) {
         if (!(amount < 0 || amount > 1)) {

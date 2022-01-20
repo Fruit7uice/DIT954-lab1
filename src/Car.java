@@ -26,6 +26,11 @@ public abstract class Car implements Moveable {
         return nrDoors;
     }
 
+    /**
+     * A getter for the enginePower of a car, it then
+     * @returns the enginePower for a given car.
+     */
+
     public double getEnginePower() {
         return enginePower;
     }
@@ -33,6 +38,11 @@ public abstract class Car implements Moveable {
     public double getCurrentSpeed() {
         return currentSpeed;
     }
+
+    /**
+     * A getter for the color of a car
+     * @returns the color for a given car
+     */
 
     public Color getColor() {
         return color;
@@ -42,6 +52,11 @@ public abstract class Car implements Moveable {
         color = clr;
     }
 
+    /**
+     * A method that "starts" the car by setting the @currentSpeed of
+     * a car to 0.1.
+     */
+
     public void startEngine() {
         currentSpeed = 0.1;
     }
@@ -49,6 +64,15 @@ public abstract class Car implements Moveable {
     public void stopEngine() {
         currentSpeed = 0;
     }
+
+
+    /**
+     * A method that is going to move the car in a direction.
+     *
+     * At any given time the method is going to set the coordinates of the car.
+     * It will do this by getting the previous coordinates x && y, of the car, and by then adding
+     * the product of the direction * currentSpeed individually to the coordinates of x && y.
+     */
 
     public void move() {
         setxCord(getxCord() + dX * currentSpeed);
@@ -69,6 +93,22 @@ public abstract class Car implements Moveable {
         }
     }
 
+    /**
+     *
+     * The method of turnLeft is going to allow the car to move to the left.
+     *
+     * There are 4 different outcomes of the turning action that depends on the direction
+     * of the car on the y-axis and x-axis.
+     *
+     * i.e If the direction x-wise is larger than zero and direction y-wise is equal to 0 a call on
+     * the turnLeft() method is going to set the dX to zero and change the direction of dY to the previous
+     * direction of dX which would result in a leftHand turn.
+     *
+     * Potential error in code:
+     * - Depending on the graphical direction of dY, -dX might be dX
+     * - Depending on the graphical direction of dY, -dY might be dY
+     */
+
 
     // If turning is wrong, changes to setdX() and setdY() :s parameters might have to be negative.
     public void turnLeft() {
@@ -87,6 +127,11 @@ public abstract class Car implements Moveable {
         return xCord;
     }
 
+
+    /**
+     * A setter for the coordinate of the car regarding the x-position.
+     */
+
     public void setxCord(double xCord) {
         this.xCord = xCord;
     }
@@ -95,6 +140,10 @@ public abstract class Car implements Moveable {
         return yCord;
     }
 
+    /**
+     * A setter for the coordinate of the car regarding the y-position.
+     */
+
     public void setyCord(double yCord) {
         this.yCord = yCord;
     }
@@ -102,6 +151,9 @@ public abstract class Car implements Moveable {
     public double getdX() {
         return dX;
     }
+    /**
+     * A setter for the direction of the car regarding the dY-direction.
+     */
 
     public void setdX(double dX) {
         this.dX = dX;
@@ -110,6 +162,9 @@ public abstract class Car implements Moveable {
     public double getdY() {
         return dY;
     }
+    /**
+     * A setter for the direction of the car regarding the dX-direction.
+     */
 
     public void setdY(double dY) {
         this.dY = dY;
