@@ -4,7 +4,10 @@ public class Volvo240 extends Car {
 
     public final static double trimFactor = 1.25;
 
-
+    /**
+     * Constructor for the Volvo240 class. The class calls for the superclass, car, which enables Volvo240 to access the
+     * data and methods declared in Car.
+     */
     public Volvo240() {
         super(4, 100, Color.black, "Volvo240", 0, 0);
         stopEngine();
@@ -38,7 +41,6 @@ public class Volvo240 extends Car {
     }
 
 
-    // TODO fix this method according to lab pm
     public void brake(double amount) {
         if (!(amount < 0 || amount > 1)) {
             decrementSpeed(amount);
