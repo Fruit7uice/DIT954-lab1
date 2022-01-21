@@ -22,6 +22,10 @@ public class tests {
 
 
 
+    public void getNrDoorsTest(){
+        Volvo240 car = new Volvo240();
+        assertTrue(car.getNrDoors() == 4);
+    }
 
 
 
