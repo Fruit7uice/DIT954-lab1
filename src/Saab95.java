@@ -9,8 +9,8 @@ public class Saab95 extends Car{
 
 
     /**
-     * Constructor for the Saab95 class. The class calls for the superclass, car, which enables Saab95 to access the
-     * data and methods declared in Car.
+     * Constructor for the Saab95 class. The class calls for the superclass, Car, which enables Saab95 to inherit
+     * variables declared in Car.
      */
 
     public Saab95(){
