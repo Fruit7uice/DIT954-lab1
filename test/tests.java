@@ -15,6 +15,25 @@ public class tests {
 
 
     
+    @Test
+    public void volvo240SpeedAtStart(){
+        Volvo240 volvo240 = new Volvo240();
+        Saab95 saab95 = new Saab95();
+        volvo240.startEngine();
+        saab95.startEngine();
+        assertTrue(volvo240.currentSpeed == 0.1 && saab95.currentSpeed == 0.1);
+    }
+
+    @Test
+    public void speedAfterGas(){
+        Volvo240 volvo240 = new Volvo240();
+        Saab95 saab95 = new Saab95();
+        volvo240.startEngine();
+        saab95.startEngine();
+        saab95.gas(1);
+        volvo240.gas(1);
+        assertTrue(volvo240.currentSpeed == 1.35 && saab95.currentSpeed == 1.35);
+    }
 
 
 
@@ -22,6 +41,10 @@ public class tests {
 
 
 
+
+
+
+    @Test
     public void getNrDoorsTest(){
         Volvo240 car = new Volvo240();
         assertTrue(car.getNrDoors() == 4);
