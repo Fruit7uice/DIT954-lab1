@@ -97,8 +97,6 @@ public abstract class Car implements Moveable {
 
 
 
-
-
     /**
      * Represents the turning a car right accordingly to a Cartesian coordinate system.
      */
