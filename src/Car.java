@@ -23,7 +23,7 @@ public abstract class Car implements Moveable {
     }
 
     /**
-     * A getter for the amount of doors on car.
+     * Gets the amount of doors on car.
      * @return the amount of doors.
      */
     public int getNrDoors() {
@@ -31,8 +31,8 @@ public abstract class Car implements Moveable {
     }
 
     /**
-     * A getter for the enginePower of a car, it then
-     * @returns the enginePower for a given car.
+     * Gets the enginePower of a car, it then
+     * @returns enginePower for a given car.
      */
 
     public double getEnginePower() {
@@ -40,16 +40,16 @@ public abstract class Car implements Moveable {
     }
 
     /**
-     * A getter for the current speed of the car.
-     * @return current speed of the car.
+     * Gets the current speed of the car.
+     * @return currentSpeed of the car.
      */
     public double getCurrentSpeed() {
         return currentSpeed;
     }
 
     /**
-     * A getter for the color of a car
-     * @returns the color for a given car
+     * Gets the color of a car
+     * @returns color for a given car
      */
 
     public Color getColor() {
@@ -100,7 +100,7 @@ public abstract class Car implements Moveable {
 
 
     /**
-     * A representation of turning a car right accordingly to a Cartesian coordinate system.
+     * Represents the turning a car right accordingly to a Cartesian coordinate system.
      * // Depending on the graphical direction of dY, -dX might be dX
      * // Depending on the graphical direction of dY, -dY might be dY
      */

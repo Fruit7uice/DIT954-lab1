@@ -56,6 +56,18 @@ public class tests {
         assertTrue(car.getNrDoors() == 4);
     }
 
+    @Test
+    public void speedAfterBrakeTest(){
+        Volvo240 volvo240 = new Volvo240();
+        Saab95 saab95 = new Saab95();
+        volvo240.startEngine();
+        saab95.startEngine();
+        volvo240.gas(1);
+        saab95.gas(1);
+        volvo240.brake(0.1);
+        saab95.brake(0.1);
+        assertTrue(volvo240.currentSpeed == 1.225 && saab95.currentSpeed == 1.225);
+    }
 
 
 
