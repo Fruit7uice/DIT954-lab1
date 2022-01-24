@@ -6,6 +6,15 @@ import static org.junit.Assert.*;
 public class tests {
 
 
+
+    @Test
+    public void checkEnginePower(){
+        Volvo240 volvo240 = new Volvo240();
+        Saab95 saab95 = new Saab95();
+        assertTrue(saab95.getEnginePower() == 125 && volvo240.getEnginePower() == 100);
+    }
+
+
     @Test
     public void testEnginePower(){
         Saab95 saab95 = new Saab95();
@@ -14,7 +23,6 @@ public class tests {
     }
 
 
-    
     @Test
     public void speedAtStart(){
         Volvo240 volvo240 = new Volvo240();
@@ -42,14 +50,11 @@ public class tests {
 
 
 
-
-
     @Test
     public void getNrDoorsTest(){
         Volvo240 car = new Volvo240();
         assertTrue(car.getNrDoors() == 4);
     }
-
 
 
 
