@@ -1,10 +1,26 @@
 import org.junit.Test;
+
+import java.awt.*;
+
 import static org.junit.Assert.*;
 
 
 
 public class tests {
 
+
+
+
+
+    @Test
+    public void checkColorOfCars(){
+        Volvo240 volvo240 = new Volvo240();
+        Saab95 saab95 = new Saab95();
+        assertTrue(saab95.getColor() == Color.red && volvo240.getColor() == Color.black);
+
+
+
+    }
 
 
     @Test
@@ -33,7 +49,7 @@ public class tests {
     }
 
     @Test
-    public void speedAfterGas(){
+    public void speedAfterGasing(){
         Volvo240 volvo240 = new Volvo240();
         Saab95 saab95 = new Saab95();
         volvo240.startEngine();
@@ -55,6 +71,7 @@ public class tests {
         Volvo240 car = new Volvo240();
         assertTrue(car.getNrDoors() == 4);
     }
+
 
 
 
