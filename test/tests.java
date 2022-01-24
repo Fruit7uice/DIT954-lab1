@@ -16,7 +16,7 @@ public class tests {
 
     
     @Test
-    public void volvo240SpeedAtStart(){
+    public void speedAtStart(){
         Volvo240 volvo240 = new Volvo240();
         Saab95 saab95 = new Saab95();
         volvo240.startEngine();
