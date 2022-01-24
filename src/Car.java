@@ -101,16 +101,14 @@ public abstract class Car implements Moveable {
 
     /**
      * Represents the turning a car right accordingly to a Cartesian coordinate system.
-     * // Depending on the graphical direction of dY, -dX might be dX
-     * // Depending on the graphical direction of dY, -dY might be dY
      */
     public void turnRight() {
         if ((dX > 0 || dX < 0) && dY == 0) {
+            setdY(dX * -1);
             setdX(0);
-            setdY(-dX);
         } else if ((dY < 0 || dY > 0) && dX == 0) {
+            setdX(dY);
             setdY(0);
-            setdX(-dY);
         }
     }
 
@@ -124,24 +122,23 @@ public abstract class Car implements Moveable {
      * i.e If the direction x-wise is larger than zero and direction y-wise is equal to 0 a call on
      * the turnLeft() method is going to set the dX to zero and change the direction of dY to the previous
      * direction of dX which would result in a leftHand turn.
-     *
-     * Potential error in code:
-     * - Depending on the graphical direction of dY, -dX might be dX
-     * - Depending on the graphical direction of dY, -dY might be dY
      */
 
 
     // If turning is wrong, changes to setdX() and setdY() :s parameters might have to be negative.
     public void turnLeft() {
         if ((dX > 0 || dX < 0) && dY == 0) {
-            setdX(0);
             setdY(dX);
-        } else if ((dY > 0 || dY < 0) && dX == 0) {
-            setdY(0);
-            setdX(dY);
+            setdX(0);
 
+        } else if ((dY > 0 || dY < 0) && dX == 0) {
+            setdX(dY * -1);
+            setdY(0);
         }
     }
+
+
+
 
 
     /**

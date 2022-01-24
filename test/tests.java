@@ -8,6 +8,39 @@ import static org.junit.Assert.*;
 
 public class tests {
 
+    @Test
+    public void paintjobColor(){
+        Saab95 saab95 = new Saab95();
+        assertSame(saab95.getColor(), Color.red);
+        saab95.setColor(Color.blue);
+        assertEquals(Color.blue, saab95.getColor());
+
+
+
+
+    }
+    @Test
+    public void stopEngineSpeed(){
+        Volvo240 volvo240 = new Volvo240();
+        volvo240.startEngine();
+        volvo240.stopEngine();
+        assertEquals(0, volvo240.getCurrentSpeed(), 0.0);
+    }
+
+    @Test
+    public void controlTurning(){
+        Saab95 saab95 = new Saab95();
+        saab95.startEngine();
+        saab95.gas(1);
+        saab95.setdY(0);
+        saab95.setdX(1);
+        saab95.turnLeft();
+        assertTrue(saab95.getdY() == 1 && saab95.getdX() == 0);
+        saab95.turnRight();
+        assertTrue(saab95.getdY() == 0 && saab95.getdX() == 1);
+        saab95.turnRight();
+        assertTrue(saab95.getdY() == -1 && saab95.getdX() == 0);
+    }
 
 
 
@@ -69,7 +102,7 @@ public class tests {
     @Test
     public void getNrDoorsTest(){
         Volvo240 car = new Volvo240();
-        assertTrue(car.getNrDoors() == 4);
+        assertEquals(4, car.getNrDoors());
     }
 
     @Test
