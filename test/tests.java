@@ -99,8 +99,21 @@ public class tests {
         volvo240.gas(1);
         assertTrue(volvo240.currentSpeed == 1.35 && saab95.currentSpeed == 1.35);
     }
-
-
+    @Test
+    public void turnRightTest(){
+        Volvo240 volvo240 = new Volvo240();
+        Saab95 saab95 = new Saab95();
+        volvo240.startEngine();
+        saab95.startEngine();
+        volvo240.setdX(1);
+        volvo240.setdY(0);
+        saab95.setdX(1);
+        saab95.setdY(0);
+        volvo240.turnRight();
+        saab95.turnRight();
+        assertTrue(volvo240.getdX() == 0 && volvo240.getdY() == -1 &&
+                saab95.getdX() == 0 && saab95.getdY() == -1);
+    }
     @Test
     public void getNrDoorsTest() {
         Volvo240 car = new Volvo240();

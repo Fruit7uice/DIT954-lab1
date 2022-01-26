@@ -1,5 +1,12 @@
 import java.awt.*;
 
+/**
+ * A specification of the car class, describing a Volvo240.
+ *
+ * @author Johannes Höher
+ * @author Jeffrey Wolff
+ * @author Joel Leiditz Thorsson
+ */
 public class Volvo240 extends Car {
 
     public final static double trimFactor = 1.25; // A decimal which determine the speed factor of the car.
@@ -14,7 +21,8 @@ public class Volvo240 extends Car {
     }
 
     /**
-     * Speed factor of a car is a representation of a factor which can be used to increase the speed of the car.
+     * Represents a factor which can be used to increase the speed of the car.
+     *
      * @return the calculated factor of which the speed increases by.
      */
     private double speedFactor() {
@@ -46,8 +54,9 @@ public class Volvo240 extends Car {
     }
 
     /**
-     * A representation of pressing the gas.
+     * Represents the pressing of the gas-pedal.
      * Calls incrementSpeed() when amount is within a certain interval.
+     *
      * @param amount is the amount pressed on the gas represented by a decimal number.
      */
     public void gas(double amount) {
@@ -57,8 +66,9 @@ public class Volvo240 extends Car {
     }
 
     /**
-     * A representation of pressing the brake.
+     * Represents the pressing of the brake-pedal.
      * Calls decrementSpeed() when amount is within a certain interval.
+     *
      * @param amount is the amount pressed on the brake represented by a decimal number.
      */
     public void brake(double amount) {

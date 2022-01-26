@@ -1,5 +1,12 @@
 import java.awt.*;
 
+/**
+ * A representation of what attributes and methods a car should have.
+ *
+ * @author Johannes Höher
+ * @author Jeffrey Wolff
+ * @author Joel Leiditz Thorsson
+ */
 public abstract class Car implements Moveable {
 
     private int nrDoors; // Number of doors on the car
@@ -12,7 +19,16 @@ public abstract class Car implements Moveable {
     private double dX;
     private double dY;
 
-
+    /**
+     * The constructor of the car class.
+     *
+     * @param nrDoors number of doors.
+     * @param enginePower Power of the engine.
+     * @param color Color of the car.
+     * @param modelName Name of the car.
+     * @param xCord x coordinate of the car.
+     * @param yCord y coordinate of the car.
+     */
     public Car(int nrDoors, double enginePower, Color color, String modelName, double xCord, double yCord) {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
@@ -34,7 +50,6 @@ public abstract class Car implements Moveable {
      * Gets the enginePower of a car, it then
      * @returns enginePower for a given car.
      */
-
     public double getEnginePower() {
         return enginePower;
     }
@@ -65,31 +80,28 @@ public abstract class Car implements Moveable {
     }
 
     /**
-     * A method that "starts" the car by setting the @currentSpeed of
+     * Starts the car by setting the @currentSpeed of
      * a car to 0.1.
      */
-
     public void startEngine() {
         currentSpeed = 0.1;
     }
 
     /**
-     * A representation of turning of a car engine.
+     * Turns of a car engine.
      * Sets current speed of car to 0.
      */
     public void stopEngine() {
         currentSpeed = 0;
     }
 
-
     /**
-     * A method that is going to move the car in a direction.
+     * Moves the car in a direction.
      *
      * At any given time the method is going to set the coordinates of the car.
      * It will do this by getting the previous coordinates x && y, of the car, and by then adding
      * the product of the direction * currentSpeed individually to the coordinates of x && y.
      */
-
     public void move() {
         setxCord(getxCord() + dX * currentSpeed);
         setyCord(getyCord() + dY * currentSpeed);
@@ -98,7 +110,7 @@ public abstract class Car implements Moveable {
 
 
     /**
-     * Represents the turning a car right accordingly to a Cartesian coordinate system.
+     * Turns the car right according to a Cartesian coordinate system.
      */
     public void turnRight() {
         if ((dX > 0 || dX < 0) && dY == 0) {
@@ -111,19 +123,8 @@ public abstract class Car implements Moveable {
     }
 
     /**
-     *
-     * The method of turnLeft is going to allow the car to move to the left.
-     *
-     * There are 4 different outcomes of the turning action that depends on the direction
-     * of the car on the y-axis and x-axis.
-     *
-     * i.e If the direction x-wise is larger than zero and direction y-wise is equal to 0 a call on
-     * the turnLeft() method is going to set the dX to zero and change the direction of dY to the previous
-     * direction of dX which would result in a leftHand turn.
+     * Turns the car left according to a cartesian coordinate system.
      */
-
-
-    // If turning is wrong, changes to setdX() and setdY() :s parameters might have to be negative.
     public void turnLeft() {
         if ((dX > 0 || dX < 0) && dY == 0) {
             setdY(dX);
