@@ -8,11 +8,12 @@ import static org.junit.Assert.*;
 public class tests {
 
     @Test
-    public void paintjobColor() {
+    public void setColorTest() {
         Saab95 saab95 = new Saab95();
         assertSame(saab95.getColor(), Color.red);
         saab95.setColor(Color.blue);
         assertEquals(Color.blue, saab95.getColor());
+
 
 
     }
