@@ -85,7 +85,7 @@ public class Saab95 extends Car{
 
 
     public void gas(double amount){
-        if (!(amount < 0 || amount > 1)) {
+        if (!(amount <= 0 || amount >= 1)) {
             incrementSpeed(amount);
         }
     }
@@ -98,7 +98,7 @@ public class Saab95 extends Car{
 
 
     public void brake(double amount){
-        if (!(amount < 0 || amount > 1)) {
+        if (!(amount <= 0 || amount >= 1)) {
             decrementSpeed(amount);
         }
     }

@@ -13,9 +13,6 @@ public class tests {
         assertSame(saab95.getColor(), Color.red);
         saab95.setColor(Color.blue);
         assertEquals(Color.blue, saab95.getColor());
-
-
-
     }
 
     @Test

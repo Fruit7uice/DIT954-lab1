@@ -48,7 +48,7 @@ public abstract class Car implements Moveable {
 
     /**
      * Gets the enginePower of a car, it then
-     * @returns enginePower for a given car.
+     * @return enginePower for a given car.
      */
     public double getEnginePower() {
         return enginePower;
@@ -64,7 +64,7 @@ public abstract class Car implements Moveable {
 
     /**
      * Gets the color of a car
-     * @returns color for a given car
+     * @return color for a given car
      */
 
     public Color getColor() {
@@ -99,8 +99,8 @@ public abstract class Car implements Moveable {
      * Moves the car in a direction.
      *
      * At any given time the method is going to set the coordinates of the car.
-     * It will do this by getting the previous coordinates x && y, of the car, and by then adding
-     * the product of the direction * currentSpeed individually to the coordinates of x && y.
+     * It will do this by getting the previous coordinates x and y, of the car, and by then adding
+     * the product of the direction * currentSpeed individually to the coordinates of x and y.
      */
     public void move() {
         setxCord(getxCord() + dX * currentSpeed);
@@ -174,7 +174,7 @@ public abstract class Car implements Moveable {
     }
 
     /**
-     * A getter for the cars current representation of X-Coordinate direction where dX ∈ [-1, 1] & dX ∈ N
+     * A getter for the cars current representation of X-Coordinate direction where dX belongs [-1, 1] and dX belongs N
      * @return current representation of X-Coordinate direction
      */
     public double getdX() {
@@ -189,7 +189,7 @@ public abstract class Car implements Moveable {
     }
 
     /**
-     * A getter for the cars current representation of Y-Coordinate direction where dY ∈ [-1, 1] & dY ∈ N
+     * A getter for the cars current representation of Y-Coordinate direction where dY belongs [-1, 1] and dY belongs N
      * @return current representation of Y-Coordinate direction
      */
     public double getdY() {
