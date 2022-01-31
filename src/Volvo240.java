@@ -60,7 +60,7 @@ public class Volvo240 extends Car {
      * @param amount is the amount pressed on the gas represented by a decimal number.
      */
     public void gas(double amount) {
-        if (!(amount < 0 || amount > 1)) {
+        if (!(amount <= 0 || amount >= 1)) {
             incrementSpeed(amount);
         }
     }
@@ -72,7 +72,7 @@ public class Volvo240 extends Car {
      * @param amount is the amount pressed on the brake represented by a decimal number.
      */
     public void brake(double amount) {
-        if (!(amount < 0 || amount > 1)) {
+        if (!(amount <= 0 || amount >= 1)) {
             decrementSpeed(amount);
         }
     }
