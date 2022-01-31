@@ -56,4 +56,10 @@ public class Scania extends Car {
     protected double speedFactor() {
         return 0;
     }
+
+    @Override
+    public void move() {
+        setxCord(getxCord() + getdX() * currentSpeed);
+        setyCord(getyCord() + getdY() * currentSpeed);
+    }
 }
