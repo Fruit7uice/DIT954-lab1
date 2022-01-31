@@ -58,8 +58,10 @@ public class Scania extends Truck {
     /*
     @Override
     public void move() {
-        setxCord(getxCord() + getdX() * currentSpeed);
-        setyCord(getyCord() + getdY() * currentSpeed);
+        if (truckBedAngle == 0) {
+            setxCord(getxCord() + getdX() * currentSpeed);
+            setyCord(getyCord() + getdY() * currentSpeed);
+        }
     }
 
      */
