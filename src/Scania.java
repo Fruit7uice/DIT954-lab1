@@ -19,7 +19,10 @@ public class Scania extends Car {
         truckBedAngle = 70;
     }
 
-
+    /**
+     * Raises the truck bed with an angle of 10 degrees at a time. The truck bed
+     * cannot be raised more than 70 degrees and the car has to stand still.
+     */
     public void raiseTruckBed(){
         if (!(truckBedAngle >= 70) && getCurrentSpeed() == 0){
             truckBedAngle += 10;
@@ -28,6 +31,11 @@ public class Scania extends Car {
             System.out.println("Not possible");
         }
     }
+
+    /**
+     * Lowers the truck bed with an angle of 10 degrees at a time.
+     * The truck bed cannot be lowered more than 0 degrees.
+     */
     public void lowerTruckBed(){
         if (!(truckBedAngle <= 0) && getCurrentSpeed() == 0){
             truckBedAngle -= 10;
