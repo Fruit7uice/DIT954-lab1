@@ -10,6 +10,7 @@ import java.awt.*;
 public class Scania extends Car {
 
     private double truckBedAngle;
+    private boolean turboOn;
 
     /**
      * The constructor of the car class.
@@ -17,6 +18,22 @@ public class Scania extends Car {
     public Scania() {
         super(2, 770, Color.WHITE, "Scania", 0, 0);
         truckBedAngle = 70;
+        turboOn = false;
+    }
+    /**
+     * Turns on the turbo for the created object
+     * by calling for the rule of the variable turboOn to be TRUE.
+     */
+    private void setTurboOn(){
+        turboOn = true;
+    }
+
+    /**
+     * Turns off the turbo for the created object
+     * by calling for the rule of the variable turboOn to be FALSE.
+     */
+    private void setTurboOff(){
+        turboOn = false;
     }
 
     /**
@@ -53,7 +70,12 @@ public class Scania extends Car {
     }
 
     @Override
-    protected double speedFactor() {
-        return 0;
+    protected double speedFactor(){
+        double turbo = 1;
+        if(turboOn) turbo = 1.4;
+        return enginePower * 0.01 * turbo;
     }
+
+
+
 }
