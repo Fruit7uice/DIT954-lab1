@@ -45,63 +45,16 @@ public class Saab95 extends Car{
      * the speed.
      * @return the factor of what the speed is either going to be increased/decreased with.
      */
-    private double speedFactor(){
+    @Override
+    protected double speedFactor(){
         double turbo = 1;
         if(turboOn) turbo = 1.3;
         return enginePower * 0.01 * turbo;
     }
 
-    /**
-     * Sets the currentSpeed to a speed of a higher value in comparison
-     * with the speed in the previous state.
-     * @param amount is the amount of speed that the current speed is going to be increased by.
-     */
-    private void incrementSpeed(double amount){
-        double preCurrentSpeed = getCurrentSpeed();
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
-        if (currentSpeed > enginePower){
-            currentSpeed = preCurrentSpeed;
-        }
-    }
-
-    /**
-     * Sets the currentSpeed to a speed of a lower value in comparison
-     * with the speed in the previous state.
-     * @param amount is the amount of speed that the current speed is going to be decreased by.
-     */
-    private void decrementSpeed(double amount){
-        double preCurrentSpeed = getCurrentSpeed();
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
-        if (currentSpeed < 0){
-            currentSpeed = preCurrentSpeed;
-        }
-    }
-
-    /**
-     * Represents the increase of speed for the car by calling incrementSpeed();.
-     * @param amount is the amount of speed that the car is going to be increased by within
-     * a certain interval.
-     */
 
 
-    public void gas(double amount){
-        if (!(amount <= 0 || amount >= 1)) {
-            incrementSpeed(amount);
-        }
-    }
 
-    /**
-     * Represent the decrease of speed for the car by calling decrementSpeed();.
-     * @param amount is the amount of speed that the car is going to be decreased by within
-     * a certain interval.
-     */
-
-
-    public void brake(double amount){
-        if (!(amount <= 0 || amount >= 1)) {
-            decrementSpeed(amount);
-        }
-    }
 
 
 

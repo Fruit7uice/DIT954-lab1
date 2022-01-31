@@ -44,4 +44,8 @@ public class Scania extends Car {
 
     }
 
+    @Override
+    protected double speedFactor() {
+        return 0;
+    }
 }

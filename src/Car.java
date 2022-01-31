@@ -204,6 +204,46 @@ public abstract class Car implements Moveable {
     }
 
 
+    /**
+     * Represents the pressing of the gas-pedal.
+     * Calls incrementSpeed() when amount is within a certain interval.
+     *
+     * @param amount is the amount pressed on the gas represented by a decimal number.
+     */
+    public void gas(double amount) {
+        if (!(amount < 0 || amount > 1)) {
+            incrementSpeed(amount);
+        }
+    }
+
+    /**
+     * Represents the pressing of the brake-pedal.
+     * Calls decrementSpeed() when amount is within a certain interval.
+     *
+     * @param amount is the amount pressed on the brake represented by a decimal number.
+     */
+    public void brake(double amount) {
+        if (!(amount < 0 || amount > 1)) {
+            decrementSpeed(amount);
+        }
+    }
 
 
+    /**
+     * Sets the speed(increasing) of the car controlled by the amount inputted.
+     * @param amount is the restricted amount which can be multiplied to increase speed.
+     */
+    private void incrementSpeed(double amount) {
+        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower);
+    }
+
+    /**
+     * Sets the speed(decreasing) of the car controlled by the amount inputted.
+     * @param amount is the restricted amount which can be multiplied to decrease speed.
+     */
+    private void decrementSpeed(double amount) {
+        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
+    }
+
+    protected abstract double speedFactor();
 }

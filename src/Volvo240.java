@@ -25,57 +25,11 @@ public class Volvo240 extends Car {
      *
      * @return the calculated factor of which the speed increases by.
      */
-    private double speedFactor() {
+    @Override
+    protected double speedFactor() {
         return enginePower * 0.01 * trimFactor;
     }
 
-    /**
-     * Sets the speed(increasing) of the car controlled by the amount inputted.
-     * @param amount is the restricted amount which can be multiplied to increase speed.
-     */
-    private void incrementSpeed(double amount) {
-        double preCurrentSpeed = getCurrentSpeed();
-        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower);
-        if (currentSpeed > enginePower) {
-            currentSpeed = preCurrentSpeed;
-        }
-    }
-
-    /**
-     * Sets the speed(decreasing) of the car controlled by the amount inputted.
-     * @param amount is the restricted amount which can be multiplied to decrease speed.
-     */
-    private void decrementSpeed(double amount) {
-        double preCurrentSpeed = getCurrentSpeed();
-        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
-        if (currentSpeed < 0) {
-            currentSpeed = preCurrentSpeed;
-        }
-    }
-
-    /**
-     * Represents the pressing of the gas-pedal.
-     * Calls incrementSpeed() when amount is within a certain interval.
-     *
-     * @param amount is the amount pressed on the gas represented by a decimal number.
-     */
-    public void gas(double amount) {
-        if (!(amount <= 0 || amount >= 1)) {
-            incrementSpeed(amount);
-        }
-    }
-
-    /**
-     * Represents the pressing of the brake-pedal.
-     * Calls decrementSpeed() when amount is within a certain interval.
-     *
-     * @param amount is the amount pressed on the brake represented by a decimal number.
-     */
-    public void brake(double amount) {
-        if (!(amount <= 0 || amount >= 1)) {
-            decrementSpeed(amount);
-        }
-    }
 
 
 }

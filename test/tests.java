@@ -48,6 +48,8 @@ public class tests {
         volvo240.setdY(1);
         volvo240.gas(1);
         volvo240.move();
+        System.out.println(volvo240.getxCord());
+        System.out.println(volvo240.getyCord());
         assertTrue(volvo240.getxCord() == 1 && volvo240.getyCord() == 2.35);
     }
 
@@ -95,6 +97,7 @@ public class tests {
         saab95.startEngine();
         saab95.gas(1);
         volvo240.gas(1);
+        System.out.println(volvo240.currentSpeed);
         assertTrue(volvo240.currentSpeed == 1.35 && saab95.currentSpeed == 1.35);
     }
     @Test
