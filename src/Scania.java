@@ -7,34 +7,18 @@ import java.awt.*;
  * @author Jeffrey Wolff
  * @author Joel Leiditz Thorsson
  */
-public class Scania extends Car {
+public class Scania extends Truck {
 
     private double truckBedAngle;
-    private boolean turboOn;
 
     /**
      * The constructor of the car class.
      */
     public Scania() {
-        super(2, 770, Color.WHITE, "Scania", 0, 0);
-        truckBedAngle = 70;
-        turboOn = false;
-    }
-    /**
-     * Turns on the turbo for the created object
-     * by calling for the rule of the variable turboOn to be TRUE.
-     */
-    private void setTurboOn(){
-        turboOn = true;
+        super(true,2, 770, Color.WHITE, "Scania", 0, 0);
+        truckBedAngle = 0;
     }
 
-    /**
-     * Turns off the turbo for the created object
-     * by calling for the rule of the variable turboOn to be FALSE.
-     */
-    private void setTurboOff(){
-        turboOn = false;
-    }
 
     /**
      * Raises the truck bed with an angle of 10 degrees at a time. The truck bed
@@ -69,18 +53,15 @@ public class Scania extends Car {
 
     }
 
-    @Override
-    protected double speedFactor(){
-        double turbo = 1;
-        if(turboOn) turbo = 1.4;
-        return enginePower * 0.01 * turbo;
-    }
 
 
+    /*
     @Override
     public void move() {
         setxCord(getxCord() + getdX() * currentSpeed);
         setyCord(getyCord() + getdY() * currentSpeed);
     }
+
+     */
 
 }

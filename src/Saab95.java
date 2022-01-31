@@ -19,7 +19,7 @@ public class Saab95 extends Car{
      * variables declared in Car.
      */
     public Saab95(){
-        super(2, 125, Color.red, "Saab95", 0, 0);
+        super(2, 125, 0, Color.red, "Saab95", 0, 0);
         turboOn = false;
         stopEngine();
     }
@@ -49,7 +49,7 @@ public class Saab95 extends Car{
     protected double speedFactor(){
         double turbo = 1;
         if(turboOn) turbo = 1.3;
-        return enginePower * 0.01 * turbo;
+        return getEnginePower() * 0.01 * turbo;
     }
 
 

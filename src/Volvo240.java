@@ -16,7 +16,7 @@ public class Volvo240 extends Car {
      * variables declared in Car.
      */
     public Volvo240() {
-        super(4, 100, Color.black, "Volvo240", 0, 0);
+        super(4, 100, 0, Color.black, "Volvo240", 0, 0);
         stopEngine();
     }
 
@@ -27,7 +27,7 @@ public class Volvo240 extends Car {
      */
     @Override
     protected double speedFactor() {
-        return enginePower * 0.01 * trimFactor;
+        return getEnginePower() * 0.01 * trimFactor;
     }
 
 

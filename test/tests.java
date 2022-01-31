@@ -76,7 +76,7 @@ public class tests {
     public void testEnginePower() {
         Saab95 saab95 = new Saab95();
         Volvo240 volvo240 = new Volvo240();
-        assertTrue(volvo240.enginePower < saab95.enginePower);
+        assertTrue(volvo240.getEnginePower() < saab95.getEnginePower());
     }
 
 
