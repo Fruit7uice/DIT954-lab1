@@ -15,26 +15,27 @@ public class Transporter extends Truck{
     private Deque<Car> cargo = new ArrayDeque<>(maxCars);
 
 
-
-
     private enum RampPosition{
         UP,DOWN;
     }
 
     public Transporter() {
-        super(true, 0, 500, Color.BLACK, "Scania-R-Topline", 0, 0);
+        super(0, 500, Color.BLACK, "Scania-R-Topline", 0, 0, 2.5, 4, 20, true, false);
         rampPos = RampPosition.UP;
         loadable = true;
         this.maxCars = 10;
     }
 
-    public Transporter(int maxCars, boolean hasTruckBed, double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord) {
-        super(hasTruckBed, currentSpeed, enginePower, color, modelName, xCord, yCord);
-        rampPos = RampPosition.UP;
-        loadable = true;
+    public Transporter(double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord, double width, double height, double lenght, boolean hasTruckBed, boolean turboOn, RampPosition rampPos, boolean loadable, int maxCars, double maxCarWidth, double maxCaHeight, double maxCarlenght) {
+        super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, lenght, hasTruckBed, turboOn);
+        this.rampPos = rampPos;
+        this.loadable = loadable;
         this.maxCars = maxCars;
-    }
+        this.maxCarWidth = maxCarWidth;
+        this.maxCaHeight = maxCaHeight;
+        this.maxCarlenght = maxCarlenght;
 
+    }
 
     public RampPosition getRampPos() {
         return rampPos;

@@ -6,10 +6,10 @@ public abstract class Truck extends Vehicle {
     private boolean turboOn;
 
 
-    public Truck(boolean hasTruckBed, double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord) {
-        super(currentSpeed, enginePower, color, modelName, xCord, yCord);
+    public Truck(double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord, double width, double height, double lenght, boolean hasTruckBed, boolean turboOn) {
+        super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, lenght);
         this.hasTruckBed = hasTruckBed;
-        this.turboOn = false;
+        this.turboOn = turboOn;
     }
 
     /**
