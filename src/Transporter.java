@@ -26,15 +26,11 @@ public class Transporter extends Truck{
         this.maxCars = 10;
     }
 
-    public Transporter(double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord, double width, double height, double lenght, boolean hasTruckBed, boolean turboOn, RampPosition rampPos, boolean loadable, int maxCars, double maxCarWidth, double maxCaHeight, double maxCarlenght) {
+    public Transporter(double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord, double width, double height, double lenght, boolean hasTruckBed, boolean turboOn, RampPosition rampPos, boolean loadable, int maxCars) {
         super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, lenght, hasTruckBed, turboOn);
         this.rampPos = rampPos;
         this.loadable = loadable;
         this.maxCars = maxCars;
-        this.maxCarWidth = maxCarWidth;
-        this.maxCaHeight = maxCaHeight;
-        this.maxCarlenght = maxCarlenght;
-
     }
 
     public RampPosition getRampPos() {
