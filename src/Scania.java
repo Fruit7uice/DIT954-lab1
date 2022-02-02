@@ -53,6 +53,9 @@ public class Scania extends Truck {
 
     }
 
+    /**
+     * Moves the Scania truck but only if the truck bed is at degree 0.
+     */
     @Override
     public void move() {
         if (truckBedAngle == 0) {

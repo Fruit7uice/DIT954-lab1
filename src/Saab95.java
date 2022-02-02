@@ -54,8 +54,4 @@ public class Saab95 extends Car{
 
 
 
-
-
-
-
 }
