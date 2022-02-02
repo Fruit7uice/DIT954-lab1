@@ -13,18 +13,21 @@ public abstract class Car extends Vehicle {
 
 
     /**
-     * The constructor of the car class.
+     * * The constructor of the car class.
      *
-     * @param nrDoors number of doors.
-     * @param enginePower Power of the engine.
      * @param currentSpeed initial speed.
+     * @param enginePower Power of the engine.
      * @param color Color of the car.
      * @param modelName Name of the car.
      * @param xCord x coordinate of the car.
      * @param yCord y coordinate of the car.
+     * @param width of the car.
+     * @param height of the car.
+     * @param lenght of the car.
+     * @param nrDoors number of doors.
      */
-    public Car(int nrDoors,double enginePower, double currentSpeed, Color color, String modelName, double xCord, double yCord){
-        super(currentSpeed, enginePower, color, modelName, xCord, yCord);
+    public Car(double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord, double width, double height, double lenght, int nrDoors) {
+        super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, lenght);
         this.nrDoors = nrDoors;
     }
 

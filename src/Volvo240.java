@@ -16,7 +16,12 @@ public class Volvo240 extends Car {
      * variables declared in Car.
      */
     public Volvo240() {
-        super(4, 100, 0, Color.black, "Volvo240", 0, 0);
+        super(0, 100, Color.black, "Volvo240", 0, 0, 1.8, 1.9, 5.8, 4);
+        stopEngine();
+    }
+
+    public Volvo240(double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord, double width, double height, double lenght, int nrDoors) {
+        super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, lenght, nrDoors);
         stopEngine();
     }
 
