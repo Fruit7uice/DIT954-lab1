@@ -16,6 +16,7 @@ public class Transporter extends Truck{
 
 
 
+
     private enum RampPosition{
         UP,DOWN;
     }

@@ -60,6 +60,11 @@ public class Scania extends Truck {
         }
     }
 
+    public double getTruckBedAngle() {
+        return truckBedAngle;
+    }
 
-
+    public void setTruckBedAngle(double truckBedAngle) {
+        this.truckBedAngle = truckBedAngle;
+    }
 }
