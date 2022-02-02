@@ -10,7 +10,7 @@ public class Transporter extends Truck{
     private int maxCars;
     private double maxCarWidth = 2.0;
     private double maxCaHeight = 2.0;
-    private double maxCarlenght = 5.8;
+    private double maxCarLength = 5.8;
     private double loadingDistance = 1.0;
     private Deque<Car> cargo = new ArrayDeque<>(maxCars);
 
