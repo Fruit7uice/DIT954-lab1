@@ -19,9 +19,14 @@ public class Saab95 extends Car{
      * variables declared in Car.
      */
     public Saab95(){
-        super(2, 125, 0, Color.red, "Saab95", 0, 0);
+        super(0, 125, Color.red, "Saab95", 0, 0, 2, 1.9, 5.9, 4);
         turboOn = false;
         stopEngine();
+    }
+
+    public Saab95(double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord, double width, double height, double lenght, int nrDoors, boolean turboOn) {
+        super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, lenght, nrDoors);
+        this.turboOn = turboOn;
     }
 
     /**

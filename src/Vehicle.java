@@ -10,15 +10,24 @@ public abstract class Vehicle implements Moveable{
     private double yCord;
     private double dX;
     private double dY;
+    private double width;
+    private double height;
+    private double lenght;
 
-    public Vehicle(double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord) {
+    public Vehicle(double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord,
+                   double width, double height, double lenght) {
+
         this.currentSpeed = currentSpeed;
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
         this.xCord = xCord;
         this.yCord = yCord;
+        this.width = width;
+        this.height = height;
+        this.lenght = lenght;
     }
+
 
     /**
      * Gets the color of a car
@@ -220,6 +229,5 @@ public abstract class Vehicle implements Moveable{
     }
 
     protected abstract double speedFactor();
-
 
 }

@@ -5,6 +5,7 @@ public abstract class Truck extends Vehicle {
     private boolean hasTruckBed;
     private boolean turboOn;
 
+
     public Truck(boolean hasTruckBed, double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord) {
         super(currentSpeed, enginePower, color, modelName, xCord, yCord);
         this.hasTruckBed = hasTruckBed;
