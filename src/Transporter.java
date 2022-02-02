@@ -2,8 +2,6 @@ import java.awt.*;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-import java.util.Stack;
-
 
 public class Transporter extends Truck{
 
@@ -57,10 +55,26 @@ public class Transporter extends Truck{
         } else return false;
     }
 
+    private boolean isUnloadable(){
+        return rampPos == RampPosition.DOWN;
+    }
+
+
     public void loadTransporter(Car car){
         if (isLoadable(car)){
             cargo.push(car);
+            car.setxCord(this.getxCord());
+            car.setyCord(this.getyCord());
         }
+    }
+
+
+    public void unloadTransporter(Car car){
+        if (isUnloadable()){
+            cargo.pop();
+        }
+        car.setxCord(this.getxCord()+1);
+        car.setyCord(this.getyCord()+1);
     }
 
     @Override
