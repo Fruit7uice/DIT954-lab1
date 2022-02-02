@@ -1,3 +1,5 @@
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.awt.*;
@@ -6,10 +8,17 @@ import static org.junit.Assert.*;
 
 
 public class tests {
+    Saab95 saab95;
+    Volvo240 volvo240;
+
+    @Before
+    public void setUp(){
+        saab95 = new Saab95();
+        volvo240 = new Volvo240();
+    }
 
     @Test
     public void setColorTest() {
-        Saab95 saab95 = new Saab95();
         assertSame(saab95.getColor(), Color.red);
         saab95.setColor(Color.blue);
         assertEquals(Color.blue, saab95.getColor());
@@ -17,7 +26,6 @@ public class tests {
 
     @Test
     public void stopEngineSpeed() {
-        Volvo240 volvo240 = new Volvo240();
         volvo240.startEngine();
         volvo240.stopEngine();
         assertEquals(0, volvo240.getCurrentSpeed(), 0.0);
@@ -25,7 +33,6 @@ public class tests {
 
     @Test
     public void controlTurning() {
-        Saab95 saab95 = new Saab95();
         saab95.startEngine();
         saab95.gas(1);
         saab95.setdY(0);
@@ -40,7 +47,6 @@ public class tests {
 
     @Test
     public void testMove() {
-        Volvo240 volvo240 = new Volvo240();
         volvo240.startEngine();
         volvo240.setxCord(1);
         volvo240.setyCord(1);
@@ -56,8 +62,6 @@ public class tests {
 
     @Test
     public void checkColorOfCars() {
-        Volvo240 volvo240 = new Volvo240();
-        Saab95 saab95 = new Saab95();
         assertTrue(saab95.getColor() == Color.red && volvo240.getColor() == Color.black);
 
 
@@ -66,24 +70,18 @@ public class tests {
 
     @Test
     public void checkEnginePower() {
-        Volvo240 volvo240 = new Volvo240();
-        Saab95 saab95 = new Saab95();
         assertTrue(saab95.getEnginePower() == 125 && volvo240.getEnginePower() == 100);
     }
 
 
     @Test
     public void testEnginePower() {
-        Saab95 saab95 = new Saab95();
-        Volvo240 volvo240 = new Volvo240();
         assertTrue(volvo240.getEnginePower() < saab95.getEnginePower());
     }
 
 
     @Test
     public void speedAtStart() {
-        Volvo240 volvo240 = new Volvo240();
-        Saab95 saab95 = new Saab95();
         volvo240.startEngine();
         saab95.startEngine();
         assertTrue(volvo240.currentSpeed == 0.1 && saab95.currentSpeed == 0.1);
@@ -91,8 +89,6 @@ public class tests {
 
     @Test
     public void speedAfterGasing() {
-        Volvo240 volvo240 = new Volvo240();
-        Saab95 saab95 = new Saab95();
         volvo240.startEngine();
         saab95.startEngine();
         saab95.gas(1);
@@ -102,8 +98,6 @@ public class tests {
     }
     @Test
     public void turnRightTest(){
-        Volvo240 volvo240 = new Volvo240();
-        Saab95 saab95 = new Saab95();
         volvo240.startEngine();
         saab95.startEngine();
         volvo240.setdX(1);
@@ -117,14 +111,11 @@ public class tests {
     }
     @Test
     public void getNrDoorsTest() {
-        Volvo240 car = new Volvo240();
-        assertEquals(4, car.getNrDoors());
+        assertEquals(4, volvo240.getNrDoors());
     }
 
     @Test
     public void speedAfterBrakeTest() {
-        Volvo240 volvo240 = new Volvo240();
-        Saab95 saab95 = new Saab95();
         volvo240.startEngine();
         saab95.startEngine();
         volvo240.gas(1);
@@ -133,6 +124,17 @@ public class tests {
         saab95.brake(0.1);
         assertTrue(volvo240.currentSpeed == 1.225 && saab95.currentSpeed == 1.225);
     }
+
+    @Test
+    public void scaniaTest(){
+        Scania scania = new Scania();
+        scania.startEngine();
+        if(scania.getTruckBedAngle() == 40){
+            assertEquals(0, scania.getCurrentSpeed(), 0.0);
+        }
+    }
+
+
 
 
 }

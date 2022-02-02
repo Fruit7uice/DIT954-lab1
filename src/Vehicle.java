@@ -221,5 +221,4 @@ public abstract class Vehicle implements Moveable{
 
     protected abstract double speedFactor();
 
-
 }

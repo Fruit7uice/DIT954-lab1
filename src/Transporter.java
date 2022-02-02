@@ -4,7 +4,7 @@ public class Transporter extends Truck{
 
     private RampPosition rampPos;
     private boolean loadable;
-    private double 
+    //private double
 
 
     private enum RampPosition{
