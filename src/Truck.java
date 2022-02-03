@@ -1,5 +1,12 @@
 import java.awt.*;
 
+/**
+ * A representation of what attributes and methods a truck should have.
+ *
+ * @author Jeffrey Wolff
+ * @author Johannes Höher
+ * @author Joel Leiditz Thorsson
+ */
 public abstract class Truck extends Vehicle {
 
     private boolean hasTruckBed;
@@ -28,6 +35,11 @@ public abstract class Truck extends Vehicle {
         turboOn = false;
     }
 
+    /**
+     * Represents the factor which the speed increases and depends on the power of the engine
+     * and the tubo.
+     * @return the speedFactor.
+     */
     protected double speedFactor(){
         double turbo = 1;
         if(turboOn) turbo = 1.4;
