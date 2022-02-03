@@ -4,14 +4,13 @@ import java.util.List;
 public class CarWorkshop <T extends Car>{
     private double maxCapacity;
     private double nCarsInWorkshop;
+    private List<T> carWorkshop = new ArrayList<>(5);
 
     public CarWorkshop(List<T> carWorkshop, int maxCapacity, int nCarsInWorkshop) {
         this.carWorkshop = carWorkshop;
         this.maxCapacity = maxCapacity;
         this.nCarsInWorkshop = nCarsInWorkshop;
     }
-
-    private List<T> carWorkshop = new ArrayList<>(5);
 
     T retrieveCar() {
         return carWorkshop.remove(0);
