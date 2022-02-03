@@ -15,6 +15,10 @@ public class CarWorkshop <T extends Car>{
     private double maxCapacity;
     private List<T> carWorkshop;
 
+    /**
+     *The contructor of a car workshop.
+     * @param maxCapacity maximum capacity of this.
+     */
     public CarWorkshop(int maxCapacity) {
         this.carWorkshop = new ArrayList<>(maxCapacity);
         this.maxCapacity = maxCapacity;
