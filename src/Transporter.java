@@ -9,7 +9,7 @@ import java.util.Deque;
  * @author Johannes Höher
  * @author Joel Leiditz Thorsson
  */
-public class Transporter extends Truck{
+public class Transporter extends Truck implements ILoadable{
 
     private RampPosition rampPos;
     private boolean loadable;
@@ -74,13 +74,15 @@ public class Transporter extends Truck{
         }
     }
 
+
     /**
      * Decides if a car is loadable on the transporter. The distance between the transporter and the car
      * must be maximum 1.0 meters away and the position of the ramp must be down.
      * @param car Only cars are loadable on the car transporter.
      * @return true if and only if the car is loadable.
      */
-    private boolean isLoadable(Car car){
+    @Override
+    public boolean isLoadable(Car car) {
         boolean isCorrectSize = (car.getWidth() <= maxCarWidth &&
                 car.getHeight() <= maxCarHeight && car.getLength() <= maxCarLength);
 
@@ -92,18 +94,22 @@ public class Transporter extends Truck{
         } else return false;
     }
 
+
     /**
      * Decides if something is unloadable.
      * @return true if and only if the ramp position is down.
      */
-    private boolean isUnloadable(){
+    @Override
+    public boolean isUnloadable(){
         return rampPos == RampPosition.DOWN;
     }
+
 
     /**
      * Loads the transporter with a car.
      * @param car the car that gets loaded
      */
+    @Override
     public void load(Car car){
         if (isLoadable(car)){
             cargo.push(car);
@@ -124,7 +130,6 @@ public class Transporter extends Truck{
             car.setxCord(this.getxCord()+1);
             car.setyCord(this.getyCord()+1);
         }
-
     }
 
     /**
