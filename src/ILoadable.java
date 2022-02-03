@@ -1,18 +1,18 @@
 import java.util.Deque;
 
-public interface ILoadable {
+public interface ILoadable<T extends Car> {
 
 
     RampPosition getRampPos();
 
     void setRampPos(RampPosition rampPos);
 
-    boolean isLoadable();
+    boolean isLoadable(T car);
+
 
     boolean isUnloadable();
 
-    void load();
-
+    void load(T car);
 
     void unload();
 
