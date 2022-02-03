@@ -12,10 +12,10 @@ public abstract class Vehicle implements Moveable{
     private double dY;
     private double width;
     private double height;
-    private double lenght;
+    private double length;
 
     public Vehicle(double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord,
-                   double width, double height, double lenght) {
+                   double width, double height, double length) {
 
         this.currentSpeed = currentSpeed;
         this.enginePower = enginePower;
@@ -25,7 +25,7 @@ public abstract class Vehicle implements Moveable{
         this.yCord = yCord;
         this.width = width;
         this.height = height;
-        this.lenght = lenght;
+        this.length = length;
     }
 
 
