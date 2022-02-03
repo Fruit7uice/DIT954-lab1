@@ -50,12 +50,6 @@ public class Scania extends Truck {
         }
     }
 
-    public static void main(String[] args) { // Testing methods
-        Scania scania = new Scania();
-        scania.lowerTruckBed();
-        scania.raiseTruckBed();
-
-    }
 
     /**
      * Moves the Scania truck but only if the truck bed is at degree 0.
