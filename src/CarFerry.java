@@ -6,7 +6,6 @@ public class CarFerry<T extends Car> extends Vehicle {
 
 
     private double maxCapacity;
-    private double nCarsInWorkshop = 0;
     private List<T> ferryCargo;
 
 
@@ -26,4 +25,5 @@ public class CarFerry<T extends Car> extends Vehicle {
     protected double speedFactor() {
         return 5;
     }
+
 }

@@ -157,7 +157,6 @@ public abstract class Vehicle implements Moveable {
 
     /**
      * A getter for the cars current Y-Coordinate in a Cartesian coordinate system.
-     *
      * @return current Y-Coordinate
      */
     public double getyCord() {

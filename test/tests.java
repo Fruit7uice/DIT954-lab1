@@ -23,7 +23,7 @@ public class tests {
     @After
     public void cleanTransporter(){
         transporter.stopEngine();
-        transporter.setRampPos(Transporter.RampPosition.UP);
+        transporter.setRampPos(RampPosition.UP);
     }
 
     @Test
@@ -147,22 +147,22 @@ public class tests {
     @Test
     public void transporterSetRamp(){
         transporter.startEngine();
-        transporter.setRampPos(Transporter.RampPosition.DOWN);
-        assertEquals(transporter.getRampPos(), Transporter.RampPosition.UP);
+        transporter.setRampPos(RampPosition.DOWN);
+        assertEquals(transporter.getRampPos(), RampPosition.UP);
     }
 
     @Test
     public void loadTransporter(){
-        transporter.setRampPos(Transporter.RampPosition.DOWN);
-        transporter.loadTransporter(volvo240);
+        transporter.setRampPos(RampPosition.DOWN);
+        transporter.load(volvo240);
         assertEquals(volvo240 ,transporter.getCargo().getFirst());
     }
 
     @Test
     public void unloadTransporter(){
-        transporter.setRampPos(Transporter.RampPosition.DOWN);
-        transporter.loadTransporter(volvo240);
-        transporter.unloadTransporter();
+        transporter.setRampPos(RampPosition.DOWN);
+        transporter.load(volvo240);
+        transporter.unload();
         assertEquals(null, transporter.getCargo().peek());
     }
 

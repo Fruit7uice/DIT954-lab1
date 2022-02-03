@@ -22,13 +22,6 @@ public class Transporter extends Truck{
 
 
     /**
-     * The position of the ramp can either be up or down.
-     */
-    enum RampPosition{
-        UP,DOWN;
-    }
-
-    /**
      * The default constructor of the transporter class.
      */
     public Transporter() {
@@ -111,7 +104,7 @@ public class Transporter extends Truck{
      * Loads the transporter with a car.
      * @param car the car that gets loaded
      */
-    public void loadTransporter(Car car){
+    public void load(Car car){
         if (isLoadable(car)){
             cargo.push(car);
             car.setxCord(this.getxCord());
@@ -124,7 +117,7 @@ public class Transporter extends Truck{
      * Unloads the transporter with the last car the got loaded is the first to get
      * unloaded.
      */
-    public void unloadTransporter(){
+    public void unload(){
         Car car;
         if (isUnloadable()){
             car = cargo.pop();
