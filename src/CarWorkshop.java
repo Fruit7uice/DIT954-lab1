@@ -11,14 +11,12 @@ import java.util.List;
  * @author Joel Leiditz Thorsson
  */
 public class CarWorkshop <T extends Car>{
-    private double maxCapacity;
-    private double nCarsInWorkshop;
+    private final int maxCapacity;
+    private int nCarsInWorkshop = 0;
     private List<T> carWorkshop = new ArrayList<>(5);
 
-    public CarWorkshop(List<T> carWorkshop, int maxCapacity, int nCarsInWorkshop) {
-        this.carWorkshop = carWorkshop;
+    public CarWorkshop(int maxCapacity) {
         this.maxCapacity = maxCapacity;
-        this.nCarsInWorkshop = nCarsInWorkshop;
     }
 
     /**
@@ -26,8 +24,9 @@ public class CarWorkshop <T extends Car>{
      *
      * @return T the type of car.
      */
-    public T retrieveCar() {
-        return carWorkshop.remove(0);
+    public T retrieveCar(T car) {
+        int indexOf = carWorkshop.indexOf(car);
+        return carWorkshop.remove(indexOf);
     }
 
     /**
@@ -35,7 +34,12 @@ public class CarWorkshop <T extends Car>{
      * @param car the car to be added into the workshop.
      */
     void handInCar(T car) {
-        carWorkshop.add(car);
+        if (nCarsInWorkshop >= maxCapacity){
+            System.out.println("The workshop is full");
+        }else {
+            carWorkshop.add(car);
+            nCarsInWorkshop++;
+        }
     }
 
     /**
@@ -47,26 +51,22 @@ public class CarWorkshop <T extends Car>{
     }
 
     /**
-     * Sets the max capacity of a workshop.
-     * @param maxCapacity the maximum capacity of a workshop.
+     * Getter for the amount of cars in the workshop.
+     * @return the amount of car
      */
-    public void setMaxCapacity(double maxCapacity) {
-        this.maxCapacity = maxCapacity;
-    }
-
     public double getNCarsInWorkshop() {
         return nCarsInWorkshop;
     }
 
-    public void setNCarsInWorkshop(double nCarsInWorkshop) {
-        this.nCarsInWorkshop = nCarsInWorkshop;
-    }
 
     public static void main(String[] args) {
-        CarWorkshop<Saab95> saab95Workshop = new ArrayList<>();
+        CarWorkshop<Saab95> saab95Workshop = new CarWorkshop<>(5);
         Volvo240 volvo240 = new Volvo240();
         Saab95 saab95 = new Saab95();
         saab95Workshop.handInCar(volvo240);
         saab95Workshop.handInCar(saab95);
+        saab95Workshop.retrieveCar(volvo240);
+        saab95Workshop.retrieveCar(saab95);
+
     }
 }
