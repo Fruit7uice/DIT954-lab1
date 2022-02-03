@@ -11,11 +11,12 @@ import java.util.List;
  * @author Joel Leiditz Thorsson
  */
 public class CarWorkshop <T extends Car>{
-    private final int maxCapacity;
-    private int nCarsInWorkshop = 0;
-    private List<T> carWorkshop = new ArrayList<>(5);
+
+    private double maxCapacity;
+    private List<T> carWorkshop;
 
     public CarWorkshop(int maxCapacity) {
+        this.carWorkshop = new ArrayList<>(maxCapacity);
         this.maxCapacity = maxCapacity;
     }
 
@@ -35,11 +36,10 @@ public class CarWorkshop <T extends Car>{
      * @param car the car to be added into the workshop.
      */
     void handInCar(T car) {
-        if (nCarsInWorkshop >= maxCapacity){
+        if (carWorkshop.size() >= maxCapacity){
             System.out.println("The workshop is full");
         }else {
             carWorkshop.add(car);
-            nCarsInWorkshop++;
         }
     }
 
@@ -51,12 +51,13 @@ public class CarWorkshop <T extends Car>{
         return maxCapacity;
     }
 
+
     /**
      * Getter for the amount of cars in the workshop.
      * @return the amount of car
      */
     public double getNCarsInWorkshop() {
-        return nCarsInWorkshop;
+        return carWorkshop.size();
     }
 
 
@@ -64,10 +65,12 @@ public class CarWorkshop <T extends Car>{
         CarWorkshop<Saab95> saab95Workshop = new CarWorkshop<>(5);
         Volvo240 volvo240 = new Volvo240();
         Saab95 saab95 = new Saab95();
-        //saab95Workshop.handInCar(volvo240);
         saab95Workshop.handInCar(saab95);
-        //saab95Workshop.retrieveCar(volvo240);
         saab95Workshop.retrieveCar(saab95);
+
+        CarWorkshop<Car> workshop = new CarWorkshop<>(5);
+        workshop.handInCar(volvo240);
+
 
     }
 }
