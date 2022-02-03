@@ -23,7 +23,7 @@ public class Transporter extends Truck{
     }
 
     /**
-     * The deafault constructor of the transporter class.
+     * The default constructor of the transporter class.
      */
     public Transporter() {
         super(0, 500, Color.BLACK, "Scania-R-Topline", 0, 0, 2.5, 4, 20, true, false);
