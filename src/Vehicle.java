@@ -22,13 +22,27 @@ public abstract class Vehicle implements Moveable {
     private double height;
     private double length;
 
+    /**
+     * Getter for the width of the vehicle.
+     * @return the width of the vehicle.
+     */
     public double getWidth() {
         return width;
     }
 
+    /**
+     * Getter for the height of the vehicle.
+     * @return the height of the vehicle.
+     */
+
     public double getHeight() {
         return height;
     }
+
+    /**
+     * Getter for the length of the vehicle.
+     * @return the length of the vehicle.
+     */
 
     public double getLength() {
         return length;
