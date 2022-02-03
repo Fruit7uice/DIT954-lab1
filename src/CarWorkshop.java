@@ -13,7 +13,8 @@ public class CarWorkshop <T extends Car>{
 
     private List<T> carWorkshop = new ArrayList<>(5);
 
-    Car retrieveCar() {
+
+        T retrieveCar() {
         return carWorkshop.remove(0);
     }
 
@@ -39,7 +40,7 @@ public class CarWorkshop <T extends Car>{
     }
 
     public static void main(String[] args) {
-        CarWorkshop<Saab95> saab95Workshop = new CarWorkshop<>(1, );
+        CarWorkshop<Saab95> saab95Workshop = new CarWorkshop<>(,5,0);
         Volvo240 volvo240 = new Volvo240();
         Saab95 saab95 = new Saab95();
         //saab95Workshop.handInCar(volvo240);
