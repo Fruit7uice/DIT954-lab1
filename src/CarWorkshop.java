@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarWorkshop <T extends Car>{
+public class CarWorkshop<T extends Car> {
     private double maxCapacity;
     private double nCarsInWorkshop = 0;
 
-    public CarWorkshop(List<T> carWorkshop, int maxCapacity, int nCarsInWorkshop) {
-        this.carWorkshop = carWorkshop;
+
+    public CarWorkshop(int maxCapacity, int nCarsInWorkshop) {
         this.maxCapacity = maxCapacity;
         this.nCarsInWorkshop = nCarsInWorkshop;
     }
@@ -14,7 +14,7 @@ public class CarWorkshop <T extends Car>{
     private List<T> carWorkshop = new ArrayList<>(5);
 
 
-        T retrieveCar() {
+    T retrieveCar() {
         return carWorkshop.remove(0);
     }
 
@@ -40,7 +40,7 @@ public class CarWorkshop <T extends Car>{
     }
 
     public static void main(String[] args) {
-        CarWorkshop<Saab95> saab95Workshop = new CarWorkshop<>(,5,0);
+        CarWorkshop<Saab95> saab95Workshop = new CarWorkshop<>(5,0);
         Volvo240 volvo240 = new Volvo240();
         Saab95 saab95 = new Saab95();
         //saab95Workshop.handInCar(volvo240);
