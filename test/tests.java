@@ -1,3 +1,4 @@
+import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -10,11 +11,19 @@ import static org.junit.Assert.*;
 public class tests {
     Saab95 saab95;
     Volvo240 volvo240;
+    Transporter transporter;
 
     @Before
     public void setUp(){
         saab95 = new Saab95();
         volvo240 = new Volvo240();
+        transporter = new Transporter();
+    }
+
+    @After
+    public void cleanTransporter(){
+        transporter.stopEngine();
+        transporter.setRampPos(Transporter.RampPosition.UP);
     }
 
     @Test
@@ -137,12 +146,25 @@ public class tests {
 
     @Test
     public void transporterSetRamp(){
-        Transporter transporter = new Transporter();
         transporter.startEngine();
         transporter.setRampPos(Transporter.RampPosition.DOWN);
         assertEquals(transporter.getRampPos(), Transporter.RampPosition.UP);
     }
 
+    @Test
+    public void loadTransporter(){
+        transporter.setRampPos(Transporter.RampPosition.DOWN);
+        transporter.loadTransporter(volvo240);
+        assertEquals(volvo240 ,transporter.getCargo().getFirst());
+    }
+
+    @Test
+    public void unloadTransporter(){
+        transporter.setRampPos(Transporter.RampPosition.DOWN);
+        transporter.loadTransporter(volvo240);
+        transporter.unloadTransporter();
+        assertEquals(null, transporter.getCargo().peek());
+    }
 
 
 
