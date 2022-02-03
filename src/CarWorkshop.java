@@ -16,7 +16,7 @@ public class CarWorkshop <T extends Car>{
     private List<T> carWorkshop;
 
     /**
-     *The contructor of a car workshop.
+     *The constructor of a car workshop.
      * @param maxCapacity maximum capacity of this.
      */
     public CarWorkshop(int maxCapacity) {
