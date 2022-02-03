@@ -4,17 +4,17 @@ import java.util.List;
 public class CarWorkshop <T extends Car>{
     private double maxCapacity;
     private double nCarsInWorkshop = 0;
+    private List<T> carWorkshop;
 
-    public CarWorkshop(List<T> carWorkshop, int maxCapacity, int nCarsInWorkshop) {
-        this.carWorkshop = carWorkshop;
+    public CarWorkshop(int maxCapacity) {
         this.maxCapacity = maxCapacity;
-        this.nCarsInWorkshop = nCarsInWorkshop;
+        this.carWorkshop = new ArrayList<>(maxCapacity);
     }
 
-    private List<T> carWorkshop = new ArrayList<>(5);
 
 
-        T retrieveCar() {
+
+    T retrieveCar(T car) {
         return carWorkshop.remove(0);
     }
 
