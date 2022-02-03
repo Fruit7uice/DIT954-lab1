@@ -6,9 +6,8 @@ public class CarWorkshop<T extends Car> {
     private double nCarsInWorkshop = 0;
 
 
-    public CarWorkshop(int maxCapacity, int nCarsInWorkshop) {
+    public CarWorkshop(int maxCapacity) {
         this.maxCapacity = maxCapacity;
-        this.nCarsInWorkshop = nCarsInWorkshop;
     }
 
     private List<T> carWorkshop = new ArrayList<>(5);
@@ -43,8 +42,8 @@ public class CarWorkshop<T extends Car> {
         CarWorkshop<Saab95> saab95Workshop = new CarWorkshop<>(5,0);
         Volvo240 volvo240 = new Volvo240();
         Saab95 saab95 = new Saab95();
-        //saab95Workshop.handInCar(volvo240);
-        //saab95Workshop.handInCar(saab95);
-        //saab95Workshop.retrieveCar(volvo240);
+        saab95Workshop.handInCar(volvo240);
+        saab95Workshop.handInCar(saab95);
+        saab95Workshop.retrieveCar(volvo240);
     }
 }
