@@ -22,6 +22,9 @@ public class Transporter extends Truck{
         UP,DOWN;
     }
 
+    /**
+     * The deafault constructor of the transporter class.
+     */
     public Transporter() {
         super(0, 500, Color.BLACK, "Scania-R-Topline", 0, 0, 2.5, 4, 20, true, false);
         rampPos = RampPosition.UP;
@@ -29,8 +32,26 @@ public class Transporter extends Truck{
         this.maxCars = 10;
     }
 
-    public Transporter(double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord, double width, double height, double lenght, boolean hasTruckBed, boolean turboOn, RampPosition rampPos, boolean loadable, int maxCars) {
-        super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, lenght, hasTruckBed, turboOn);
+    /**
+     * A general constructor of the transporter class.
+     *
+     * @param currentSpeed
+     * @param enginePower the engine's power.
+     * @param color of the transporter model.
+     * @param modelName name of the transporter model.
+     * @param xCord X coordinate of this.
+     * @param yCord Y coordinate of this.
+     * @param width of this.
+     * @param height of this.
+     * @param length of this.
+     * @param hasTruckBed if the transporter has a truck bed.
+     * @param turboOn decides if the turbo is on.
+     * @param rampPos decides on the ramp position.
+     * @param loadable decides if this is loadable.
+     * @param maxCars maximum amount of cargo for the transporter.
+     */
+    public Transporter(double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord, double width, double height, double length, boolean hasTruckBed, boolean turboOn, RampPosition rampPos, boolean loadable, int maxCars) {
+        super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, length, hasTruckBed, turboOn);
         this.rampPos = rampPos;
         this.loadable = loadable;
         this.maxCars = maxCars;
@@ -77,7 +98,10 @@ public class Transporter extends Truck{
         return rampPos == RampPosition.DOWN;
     }
 
-
+    /**
+     * Loads the transporter with a car.
+     * @param car the car that gets loaded
+     */
     public void loadTransporter(Car car){
         if (isLoadable(car)){
             cargo.push(car);
@@ -86,7 +110,11 @@ public class Transporter extends Truck{
         }
     }
 
-
+    /**
+     * Unloads the transporter with the last car the got loaded is the first to get
+     * unloaded.
+     * @param car the cars that gets unloaded.
+     */
     public void unloadTransporter(Car car){
         if (isUnloadable()){
             cargo.pop();
@@ -95,6 +123,9 @@ public class Transporter extends Truck{
         car.setyCord(this.getyCord()+1);
     }
 
+    /**
+     * moves the transporter which only is possible if the ramp is up.
+     */
     @Override
     public void move() {
         if (rampPos == RampPosition.UP){
