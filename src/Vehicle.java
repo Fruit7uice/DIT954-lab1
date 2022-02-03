@@ -8,7 +8,7 @@ import java.awt.*;
  * @author Joel Leiditz Thorsson
  */
 
-public abstract class Vehicle implements iMoveable {
+public abstract class Vehicle implements IMoveable {
 
     public double currentSpeed; // The current speed of the car
     private double enginePower;
