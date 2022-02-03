@@ -12,14 +12,16 @@ import java.util.List;
  */
 public class CarWorkshop <T extends Car>{
     private double maxCapacity;
-    private double nCarsInWorkshop;
     private List<T> carWorkshop;
 
-    public CarWorkshop(List<T> carWorkshop, int maxCapacity, int nCarsInWorkshop) {
-        this.carWorkshop = carWorkshop;
+
+
+
+    public CarWorkshop(int maxCapacity) {
+        this.carWorkshop = new ArrayList<>(maxCapacity);
         this.maxCapacity = maxCapacity;
-        this.nCarsInWorkshop = nCarsInWorkshop;
     }
+
 
     /**
      * Retrieves the car that we want from the workshop.
@@ -46,30 +48,19 @@ public class CarWorkshop <T extends Car>{
         return maxCapacity;
     }
 
-    /**
-     * Sets the max capacity of a workshop.
-     * @param maxCapacity the maximum capacity of a workshop.
-     */
-    public void setMaxCapacity(double maxCapacity) {
-        this.maxCapacity = maxCapacity;
-    }
 
     public double getNCarsInWorkshop() {
-        return nCarsInWorkshop;
-    }
-
-    public void setNCarsInWorkshop(double nCarsInWorkshop) {
-        this.nCarsInWorkshop = nCarsInWorkshop;
+        return carWorkshop.size();
     }
 
     public static void main(String[] args) {
-        CarWorkshop<Saab95> saab95Workshop = new ArrayList<>();
+        CarWorkshop<Saab95> saab95Workshop = new CarWorkshop<>(5);
         Volvo240 volvo240 = new Volvo240();
         Saab95 saab95 = new Saab95();
         //saab95Workshop.handInCar(volvo240);
         saab95Workshop.handInCar(saab95);
         //saab95Workshop.retrieveCar(volvo240);
-        CarWorkshop<Car> workshop = new CarWorkshop<Car>(5);
+        CarWorkshop<Car> workshop = new CarWorkshop<>(5);
         workshop.handInCar(volvo240);
 
     }
