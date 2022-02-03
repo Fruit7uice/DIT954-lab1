@@ -15,6 +15,10 @@ public class CarWorkshop <T extends Car>{
     private double maxCapacity;
     private List<T> carWorkshop;
 
+    /**
+     *The constructor of a car workshop.
+     * @param maxCapacity maximum capacity of this.
+     */
     public CarWorkshop(int maxCapacity) {
         this.carWorkshop = new ArrayList<>(maxCapacity);
         this.maxCapacity = maxCapacity;
@@ -67,7 +71,7 @@ public class CarWorkshop <T extends Car>{
         Saab95 saab95 = new Saab95();
         saab95Workshop.handInCar(saab95);
         saab95Workshop.retrieveCar(saab95);
-
+        //saab95Workshop.handInCar(volvo240);
         CarWorkshop<Car> workshop = new CarWorkshop<>(5);
         workshop.handInCar(volvo240);
 

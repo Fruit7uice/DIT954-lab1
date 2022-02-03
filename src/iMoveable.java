@@ -1,4 +1,4 @@
-public interface Moveable {
+public interface iMoveable {
 
     void move();
 
