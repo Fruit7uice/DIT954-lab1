@@ -15,10 +15,14 @@ public class Scania extends Truck {
      * The constructor of the car class.
      */
     public Scania() {
-        super(true,2, 770, Color.WHITE, "Scania", 0, 0);
+        super(0, 770, Color.BLACK, "Scania", 0,0,2.5,4, 20, true, false);
         truckBedAngle = 0;
     }
 
+    public Scania(double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord, double width, double height, double lenght, boolean hasTruckBed, boolean turboOn) {
+        super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, lenght, hasTruckBed, turboOn);
+        this.truckBedAngle = 0;
+    }
 
     /**
      * Raises the truck bed with an angle of 10 degrees at a time. The truck bed
@@ -63,10 +67,18 @@ public class Scania extends Truck {
         }
     }
 
+    /**
+     * Gets the truck's bed angle in degrees.
+     * @return truckBedAngle the angle of the truck bed
+     */
     public double getTruckBedAngle() {
         return truckBedAngle;
     }
 
+    /**
+     * Sets the angle of the truck bed.
+     * @param truckBedAngle The angle of the truck bed.
+     */
     public void setTruckBedAngle(double truckBedAngle) {
         this.truckBedAngle = truckBedAngle;
     }

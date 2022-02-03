@@ -15,6 +15,9 @@ public class Transporter extends Truck{
     private Deque<Car> cargo = new ArrayDeque<>(maxCars);
 
 
+    /**
+     * The position of the ramp can either be up or down.
+     */
     private enum RampPosition{
         UP,DOWN;
     }
@@ -33,16 +36,30 @@ public class Transporter extends Truck{
         this.maxCars = maxCars;
     }
 
+    /**
+     * Gets the rammp's position.
+     * @return the position of the ramp.
+     */
     public RampPosition getRampPos() {
         return rampPos;
     }
 
+    /**
+     * Sets the position of the ramp. The veichle must stand still to be able to set the ramp's position.
+     * @param rampPos The position of the ramp.
+     */
     public void setRampPos(RampPosition rampPos) {
         if (getCurrentSpeed() == 0){
             this.rampPos = rampPos;
         }
     }
 
+    /**
+     * Decides if a car is loadable on the transporter. The distance between the transporter and the car
+     * must be maximum 1.0 meters away and the position of the ramp must be down.
+     * @param car Only cars are loadable on the car transporter.
+     * @return true if and only if the car is loadable.
+     */
     private boolean isLoadable(Car car){
         double deltaX = (getxCord() - car.getxCord());
         double deltaY = (getyCord() - car.getyCord());
@@ -52,6 +69,10 @@ public class Transporter extends Truck{
         } else return false;
     }
 
+    /**
+     * Decides if something is unloadable.
+     * @return true if and only if the ramp position is down.
+     */
     private boolean isUnloadable(){
         return rampPos == RampPosition.DOWN;
     }
