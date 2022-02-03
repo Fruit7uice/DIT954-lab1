@@ -41,9 +41,9 @@ public class CarWorkshop<T extends Car> {
         CarWorkshop<Saab95> saab95Workshop = new CarWorkshop<>(5);
         Volvo240 volvo240 = new Volvo240();
         Saab95 saab95 = new Saab95();
-        saab95Workshop.handInCar(volvo240);
+        //saab95Workshop.handInCar(volvo240);
         saab95Workshop.handInCar(saab95);
-        saab95Workshop.retrieveCar(volvo240);
+        //saab95Workshop.retrieveCar(volvo240);
         CarWorkshop<Car> workshop = new CarWorkshop<>(5);
         workshop.handInCar(volvo240);
 
