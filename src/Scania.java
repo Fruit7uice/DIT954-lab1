@@ -19,7 +19,6 @@ public class Scania extends Truck {
         truckBedAngle = 0;
     }
 
-
     /**
      * Raises the truck bed with an angle of 10 degrees at a time. The truck bed
      * cannot be raised more than 70 degrees and the car has to stand still.
@@ -63,10 +62,18 @@ public class Scania extends Truck {
         }
     }
 
+    /**
+     * Gets the truck's bed angle in degrees.
+     * @return truckBedAngle the angle of the truck bed
+     */
     public double getTruckBedAngle() {
         return truckBedAngle;
     }
 
+    /**
+     * Sets the angle of the truck bed.
+     * @param truckBedAngle The angle of the truck bed.
+     */
     public void setTruckBedAngle(double truckBedAngle) {
         this.truckBedAngle = truckBedAngle;
     }
