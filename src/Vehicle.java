@@ -1,6 +1,14 @@
 import java.awt.*;
 
-public abstract class Vehicle implements Moveable{
+/**
+ * A representation of what attributes and methods a vehicle should have.
+ *
+ * @author Johannes Höher
+ * @author Jeffrey Wolff
+ * @author Joel Leiditz Thorsson
+ */
+
+public abstract class Vehicle implements Moveable {
 
     public double currentSpeed; // The current speed of the car
     private double enginePower;
@@ -13,6 +21,20 @@ public abstract class Vehicle implements Moveable{
     private double width;
     private double height;
     private double length;
+
+    /**
+     * The constructor for the Vehicle class
+     *
+     * @param currentSpeed initial speed.
+     * @param enginePower  power of the engine
+     * @param color        color of the vehicle.
+     * @param modelName    name of the vehicle.
+     * @param xCord        x coordinate of the vehicle.
+     * @param yCord        y coordinate of the vehicle.
+     * @param width        width of the vehicle.
+     * @param height       height of the vehicle.
+     * @param length       length of the vehicle.
+     */
 
     public Vehicle(double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord,
                    double width, double height, double length) {
@@ -31,6 +53,7 @@ public abstract class Vehicle implements Moveable{
 
     /**
      * Gets the color of a car
+     *
      * @return color for a given car
      */
     public Color getColor() {
@@ -39,6 +62,7 @@ public abstract class Vehicle implements Moveable{
 
     /**
      * Sets the color of the car to whatever is the input
+     *
      * @param clr is the color which is inputted.
      */
     public void setColor(Color clr) {
@@ -48,7 +72,7 @@ public abstract class Vehicle implements Moveable{
 
     /**
      * Moves the car in a direction.
-     *
+     * <p>
      * At any given time the method is going to set the coordinates of the car.
      * It will do this by getting the previous coordinates x and y, of the car, and by then adding
      * the product of the direction * currentSpeed individually to the coordinates of x and y.
@@ -57,7 +81,6 @@ public abstract class Vehicle implements Moveable{
         setxCord(getxCord() + dX * currentSpeed);
         setyCord(getyCord() + dY * currentSpeed);
     }
-
 
 
     /**
@@ -88,11 +111,9 @@ public abstract class Vehicle implements Moveable{
     }
 
 
-
-
-
     /**
      * A getter for the cars current X-Coordinate in a Cartesian coordinate system.
+     *
      * @return current X-Coordinate
      */
     public double getxCord() {
@@ -110,6 +131,7 @@ public abstract class Vehicle implements Moveable{
 
     /**
      * A getter for the cars current Y-Coordinate in a Cartesian coordinate system.
+     *
      * @return current Y-Coordinate
      */
     public double getyCord() {
@@ -126,11 +148,13 @@ public abstract class Vehicle implements Moveable{
 
     /**
      * A getter for the cars current representation of X-Coordinate direction where dX belongs [-1, 1] and dX belongs N
+     *
      * @return current representation of X-Coordinate direction
      */
     public double getdX() {
         return dX;
     }
+
     /**
      * A setter for the direction of the car regarding the dY-direction.
      */
@@ -141,11 +165,13 @@ public abstract class Vehicle implements Moveable{
 
     /**
      * A getter for the cars current representation of Y-Coordinate direction where dY belongs [-1, 1] and dY belongs N
+     *
      * @return current representation of Y-Coordinate direction
      */
     public double getdY() {
         return dY;
     }
+
     /**
      * A setter for the direction of the car regarding the dX-direction.
      */
@@ -156,6 +182,7 @@ public abstract class Vehicle implements Moveable{
 
     /**
      * Gets the enginePower of a car, it then
+     *
      * @return enginePower for a given car.
      */
     public double getEnginePower() {
@@ -164,6 +191,7 @@ public abstract class Vehicle implements Moveable{
 
     /**
      * Gets the current speed of the car.
+     *
      * @return currentSpeed of the car.
      */
     public double getCurrentSpeed() {
@@ -214,6 +242,7 @@ public abstract class Vehicle implements Moveable{
 
     /**
      * Sets the speed(increasing) of the car controlled by the amount inputted.
+     *
      * @param amount is the restricted amount which can be multiplied to increase speed.
      */
     private void incrementSpeed(double amount) {
@@ -222,12 +251,18 @@ public abstract class Vehicle implements Moveable{
 
     /**
      * Sets the speed(decreasing) of the car controlled by the amount inputted.
+     *
      * @param amount is the restricted amount which can be multiplied to decrease speed.
      */
     private void decrementSpeed(double amount) {
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
     }
 
+    /**
+     * Represents a factor which can be used to increase the speed of the vehicle.
+     *
+     * @return the calculated factor of which the speed increases by.
+     */
     protected abstract double speedFactor();
 
 }
