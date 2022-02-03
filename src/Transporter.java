@@ -58,7 +58,7 @@ public class Transporter extends Truck{
     }
 
     /**
-     * Gets the rammp's position.
+     * Gets the ramps position.
      * @return the position of the ramp.
      */
     public RampPosition getRampPos() {
