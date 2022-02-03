@@ -144,6 +144,10 @@ public class Transporter extends Truck{
         }
     }
 
+    /**
+     * Getter for the current cargo of the transporter.
+     * @return the cargo in form of a Deque.
+     */
 
     public Deque<Car> getCargo() {
         return cargo;
