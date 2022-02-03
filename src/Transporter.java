@@ -82,10 +82,13 @@ public class Transporter extends Truck{
      * @return true if and only if the car is loadable.
      */
     private boolean isLoadable(Car car){
+        boolean isCorrectSize = (car.getWidth() <= maxCarWidth &&
+                car.getHeight() <= maxCarHeight && car.getLength() <= maxCarLength);
+
         double deltaX = (getxCord() - car.getxCord());
         double deltaY = (getyCord() - car.getyCord());
         boolean closeEnough = (Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2))) <= loadingDistance;
-        if (rampPos == RampPosition.DOWN && closeEnough){
+        if (rampPos == RampPosition.DOWN && closeEnough && isCorrectSize){
             return true;
         } else return false;
     }
@@ -110,17 +113,19 @@ public class Transporter extends Truck{
         }
     }
 
+    
     /**
      * Unloads the transporter with the last car the got loaded is the first to get
      * unloaded.
-     * @param car the cars that gets unloaded.
      */
-    public void unloadTransporter(Car car){
+    public void unloadTransporter(){
+        Car car;
         if (isUnloadable()){
-            cargo.pop();
+            car = cargo.pop();
+            car.setxCord(this.getxCord()+1);
+            car.setyCord(this.getyCord()+1);
         }
-        car.setxCord(this.getxCord()+1);
-        car.setyCord(this.getyCord()+1);
+
     }
 
     /**
@@ -133,4 +138,8 @@ public class Transporter extends Truck{
         }
     }
 
+
+    public Deque<Car> getCargo() {
+        return cargo;
+    }
 }
