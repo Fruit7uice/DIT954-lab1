@@ -135,6 +135,15 @@ public class tests {
     }
 
 
+    @Test
+    public void transporterSetRamp(){
+        Transporter transporter = new Transporter();
+        transporter.startEngine();
+        transporter.setRampPos(Transporter.RampPosition.DOWN);
+        assertEquals(transporter.getRampPos(), Transporter.RampPosition.UP);
+    }
+
+
 
 
 
