@@ -16,7 +16,7 @@ public interface ILoadable<T extends Car> {
 
     void unload();
 
-    Deque<Car> getCargo();
+    Deque<T> getCargo();
 
 
 

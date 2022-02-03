@@ -106,7 +106,7 @@ public class CarFerry<T extends Car> extends Vehicle implements ILoadable<T> {
     }
 
     @Override
-    public Deque<Car> getCargo() {
-        return (Deque<Car>) ferryCargo;
+    public Deque<T> getCargo() {
+        return ferryCargo;
     }
 }
