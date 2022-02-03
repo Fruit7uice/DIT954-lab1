@@ -2,7 +2,13 @@ import java.awt.*;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-
+/**
+ * A specification of a transporter which is a type of truck.
+ *
+ * @author Jeffrey Wolff
+ * @author Johannes Höher
+ * @author Joel Leiditz Thorsson
+ */
 public class Transporter extends Truck{
 
     private RampPosition rampPos;
