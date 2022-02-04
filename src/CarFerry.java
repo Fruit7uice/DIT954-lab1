@@ -59,15 +59,31 @@ public class CarFerry extends Vehicle implements ITransporter<Car> {
         return 5;
     }
 
+    /**
+     * Getter for the position of the ramp.
+     * @return the position of the ramp, ramp is either up or down.
+     */
+
 
     public RampPosition getRampPos() {
         return rampPos;
     }
 
+    /**
+     * Setter for the position of the ramp.
+     * @param rampPos is the position of the ramp.
+     */
+
 
     public void setRampPos(RampPosition rampPos) {
         this.rampPos = rampPos;
     }
+
+    /**
+     * Checks if a car is loadable or not
+     * @param car The car that is supposed to be loaded onto a transporter.
+     * @return True if the car is able to be transported.
+     */
 
     @Override
     public boolean isLoadable(Car car) {
@@ -79,6 +95,11 @@ public class CarFerry extends Vehicle implements ITransporter<Car> {
             return true;
         } else return false;
     }
+
+    /**
+     * Checks if a car is unLoadable or not
+     * @return True if the car is able to be unloaded.
+     */
 
     @Override
     public boolean isUnloadable() {
