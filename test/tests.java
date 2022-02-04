@@ -1,6 +1,5 @@
 import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.awt.*;
@@ -57,15 +56,15 @@ public class tests {
     @Test
     public void testMove() {
         volvo240.startEngine();
-        volvo240.setxCord(1);
-        volvo240.setyCord(1);
+        volvo240.setXCord(1);
+        volvo240.setYCord(1);
         volvo240.setdX(0);
         volvo240.setdY(1);
         volvo240.gas(1);
         volvo240.move();
-        System.out.println(volvo240.getxCord());
-        System.out.println(volvo240.getyCord());
-        assertTrue(volvo240.getxCord() == 1 && volvo240.getyCord() == 2.35);
+        System.out.println(volvo240.getXCord());
+        System.out.println(volvo240.getYCord());
+        assertTrue(volvo240.getXCord() == 1 && volvo240.getYCord() == 2.35);
     }
 
 

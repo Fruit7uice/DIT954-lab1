@@ -5,4 +5,5 @@ public interface IMoveable {
     void turnLeft();
 
     void turnRight();
+    
 }

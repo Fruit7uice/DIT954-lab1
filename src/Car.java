@@ -7,13 +7,13 @@ import java.awt.*;
  * @author Jeffrey Wolff
  * @author Joel Leiditz Thorsson
  */
-public abstract class Car extends Vehicle {
+public abstract class Car extends Vehicle implements ITransportable {
 
     private int nrDoors; // Number of doors on the car
 
 
     /**
-     * * The constructor of the car class.
+     * * The constructor of the car class.T
      *
      * @param currentSpeed initial speed.
      * @param enginePower Power of the engine.

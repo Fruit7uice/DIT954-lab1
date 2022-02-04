@@ -104,8 +104,8 @@ public abstract class Vehicle implements IMoveable {
      * the product of the direction * currentSpeed individually to the coordinates of x and y.
      */
     public void move() {
-        setxCord(getxCord() + dX * currentSpeed);
-        setyCord(getyCord() + dY * currentSpeed);
+        setXCord(getXCord() + dX * currentSpeed);
+        setYCord(getYCord() + dY * currentSpeed);
     }
 
 
@@ -142,7 +142,7 @@ public abstract class Vehicle implements IMoveable {
      *
      * @return current X-Coordinate
      */
-    public double getxCord() {
+    public double getXCord() {
         return xCord;
     }
 
@@ -151,7 +151,7 @@ public abstract class Vehicle implements IMoveable {
      * A setter for the coordinate of the car regarding the x-position.
      */
 
-    public void setxCord(double xCord) {
+    public void setXCord(double xCord) {
         this.xCord = xCord;
     }
 
@@ -159,7 +159,7 @@ public abstract class Vehicle implements IMoveable {
      * A getter for the cars current Y-Coordinate in a Cartesian coordinate system.
      * @return current Y-Coordinate
      */
-    public double getyCord() {
+    public double getYCord() {
         return yCord;
     }
 
@@ -167,7 +167,7 @@ public abstract class Vehicle implements IMoveable {
      * A setter for the coordinate of the car regarding the y-position.
      */
 
-    public void setyCord(double yCord) {
+    public void setYCord(double yCord) {
         this.yCord = yCord;
     }
 
