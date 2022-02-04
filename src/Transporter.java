@@ -118,6 +118,12 @@ public class Transporter extends Truck implements ITransporter<Car> {
         }
     }
 
+    private void updateCargoCord(){
+        for (Car c:cargo) {
+            c.setXCord(this.getXCord());
+            c.setYCord(this.getYCord());
+        }
+    }
     
     /**
      * Unloads the transporter with the last car the got loaded is the first to get
@@ -129,6 +135,7 @@ public class Transporter extends Truck implements ITransporter<Car> {
             car = cargo.pop();
             car.setXCord(this.getXCord()+1);
             car.setYCord(this.getYCord()+1);
+
         }
     }
 
