@@ -147,6 +147,7 @@ public class Transporter extends Truck implements ITransporter<Car> {
         if (rampPos == RampPosition.UP){
             super.move();
         }
+        updateCargoCord();
     }
 
     /**
