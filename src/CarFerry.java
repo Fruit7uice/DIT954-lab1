@@ -85,6 +85,10 @@ public class CarFerry extends Vehicle implements ITransporter<Car> {
         return (rampPos == RampPosition.DOWN && currentSpeed == 0);
     }
 
+    /**
+     * Loads the cargo of this.
+     * @param car Cars are the only cargo of a car ferry.
+     */
     @Override
     public void load(Car car) {
         if (isLoadable(car)){
@@ -94,6 +98,9 @@ public class CarFerry extends Vehicle implements ITransporter<Car> {
         }
     }
 
+    /**
+     * Unloads the cargo of this.
+     */
     @Override
     public void unload() {
         Car car;
@@ -105,6 +112,10 @@ public class CarFerry extends Vehicle implements ITransporter<Car> {
 
     }
 
+    /**
+     * Gets the cargo of the ferry. A car ferry can only take cars as cargo.
+     * @return ferryCargo the cargo.
+     */
     @Override
     public Deque<Car> getCargo() {
         return ferryCargo;
