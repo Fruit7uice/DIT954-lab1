@@ -9,7 +9,7 @@ import java.util.Deque;
  * @author Johannes Höher
  * @author Joel Leiditz Thorsson
  */
-public class Transporter extends Truck implements ILoadable{
+public class Transporter extends Truck implements ITransporter<Car> {
 
     private RampPosition rampPos;
     private boolean loadable;
@@ -101,7 +101,7 @@ public class Transporter extends Truck implements ILoadable{
      */
     @Override
     public boolean isUnloadable(){
-        return rampPos == RampPosition.DOWN;
+        return (rampPos == RampPosition.DOWN && currentSpeed == 0);
     }
 
 

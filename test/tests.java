@@ -166,6 +166,14 @@ public class tests {
         assertEquals(null, transporter.getCargo().peek());
     }
 
+    @Test
+    public void testWorkshop(){
+        CarWorkshop<Saab95> saab95Workshop = new CarWorkshop<>(5);
+        saab95Workshop.handInCar(saab95);
+        saab95Workshop.retrieveCar(saab95);
+        assertEquals(0, saab95Workshop.getNCarsInWorkshop(), 0.0);
+    }
+
 
 
 

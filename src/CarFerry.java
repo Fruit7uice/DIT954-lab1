@@ -5,18 +5,17 @@ import java.util.Deque;
 /**
  * A representation of what attributes and method a car ferry should have.
  * A car ferry type para meter allows for different type of cars to get loaded.
- * @param <T> a type of car.
  *
  * @author Johannes Höher
  * @author Jeffrey Wolff
  * @author Joel Leiditz Thorsson
  */
-public class CarFerry<T extends Car> extends Vehicle implements ILoadable<T> {
+public class CarFerry extends Vehicle implements ITransporter<Car> {
 
 
     private RampPosition rampPos;
     private double maxCapacity;
-    private Deque<T> ferryCargo;
+    private Deque<Car> ferryCargo;
     private double loadingDistance = 1;
 
     /**
@@ -60,12 +59,12 @@ public class CarFerry<T extends Car> extends Vehicle implements ILoadable<T> {
         return 5;
     }
 
-    @Override
+
     public RampPosition getRampPos() {
         return rampPos;
     }
 
-    @Override
+
     public void setRampPos(RampPosition rampPos) {
         this.rampPos = rampPos;
     }
@@ -87,7 +86,7 @@ public class CarFerry<T extends Car> extends Vehicle implements ILoadable<T> {
     }
 
     @Override
-    public void load(T car) {
+    public void load(Car car) {
         if (isLoadable(car)){
             ferryCargo.addLast(car);
             car.setxCord(this.getxCord());
@@ -103,10 +102,11 @@ public class CarFerry<T extends Car> extends Vehicle implements ILoadable<T> {
             car.setxCord(this.getxCord()+1);
             car.setyCord(this.getyCord()+1);
         }
+
     }
 
     @Override
-    public Deque<T> getCargo() {
+    public Deque<Car> getCargo() {
         return ferryCargo;
     }
 }
