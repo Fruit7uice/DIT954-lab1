@@ -1,3 +1,5 @@
+package main;
+
 import java.awt.*;
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -25,7 +27,7 @@ public class Transporter extends Truck implements ITransporter<Car> {
      * The default constructor of the transporter class.
      */
     public Transporter() {
-        super(0, 500, Color.BLACK, "Scania-R-Topline", 0, 0, 2.5, 4, 20, true, false);
+        super(0, 500, Color.BLACK, "yes.Scania-R-Topline", 0, 0, 2.5, 4, 20, true, false);
         rampPos = RampPosition.UP;
         loadable = true;
         this.maxCars = 10;

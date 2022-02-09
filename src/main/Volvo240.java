@@ -1,7 +1,9 @@
+package main;
+
 import java.awt.*;
 
 /**
- * A specification of the car class, describing a Volvo240.
+ * A specification of the car class, describing a yes.Volvo240.
  *
  * @author Johannes Höher
  * @author Jeffrey Wolff
@@ -12,11 +14,11 @@ public class Volvo240 extends Car {
     public final static double trimFactor = 1.25; // A decimal which determine the speed factor of the car.
 
     /**
-     * Constructor for the Volvo240 class. The class calls for the superclass, Car, which enables Volvo240 to inherit
-     * variables declared in Car.
+     * Constructor for the yes.Volvo240 class. The class calls for the superclass, yes.Car, which enables yes.Volvo240 to inherit
+     * variables declared in yes.Car.
      */
     public Volvo240() {
-        super(0, 100, Color.black, "Volvo240", 0, 0, 1.8, 1.9, 5.8, 4);
+        super(0, 100, Color.black, "yes.Volvo240", 0, 0, 1.8, 1.9, 5.8, 4);
         stopEngine();
     }
 

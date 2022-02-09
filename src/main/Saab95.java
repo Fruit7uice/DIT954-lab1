@@ -1,7 +1,9 @@
+package main;
+
 import java.awt.*;
 
 /**
- * A specification of the car class, describing a Saab95.
+ * A specification of the car class, describing a yes.Saab95.
  *
  * @author Johannes Höher
  * @author Jeffrey Wolff
@@ -15,11 +17,11 @@ public class Saab95 extends Car{
     private boolean turboOn;
 
     /**
-     * Constructor for the Saab95 class. The class calls for the superclass, Car, which enables Saab95 to inherit
-     * variables declared in Car.
+     * Constructor for the yes.Saab95 class. The class calls for the superclass, yes.Car, which enables yes.Saab95 to inherit
+     * variables declared in yes.Car.
      */
     public Saab95(){
-        super(0, 125, Color.red, "Saab95", 0, 0, 2, 1.9, 5.9, 4);
+        super(0, 125, Color.red, "yes.Saab95", 0, 0, 2, 1.9, 5.9, 4);
         turboOn = false;
         stopEngine();
     }

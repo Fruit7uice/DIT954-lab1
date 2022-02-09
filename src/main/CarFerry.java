@@ -1,3 +1,5 @@
+package main;
+
 import java.awt.*;
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -40,7 +42,7 @@ public class CarFerry extends Vehicle implements ITransporter<Car> {
     }
 
     /**
-     * A default constructor for the CarFerry class.
+     * A default constructor for the yes.CarFerry class.
      */
     public CarFerry(){
         super(0, 1980, Color.WHITE, "FerryDelux", 0,0, 15, 4, 91);

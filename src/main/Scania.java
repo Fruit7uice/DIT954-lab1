@@ -1,7 +1,9 @@
+package main;
+
 import java.awt.*;
 
 /**
- * A specification of the Car class, describing a Scania.
+ * A specification of the yes.Car class, describing a yes.Scania.
  *
  * @author Johannes Höher
  * @author Jeffrey Wolff
@@ -15,7 +17,7 @@ public class Scania extends Truck {
      * The constructor of the car class.
      */
     public Scania() {
-        super(0, 770, Color.BLACK, "Scania", 0,0,2.5,4, 20, true, false);
+        super(0, 770, Color.BLACK, "yes.Scania", 0,0,2.5,4, 20, true, false);
         truckBedAngle = 0;
     }
 
@@ -52,7 +54,7 @@ public class Scania extends Truck {
 
 
     /**
-     * Moves the Scania truck but only if the truck bed is at degree 0.
+     * Moves the yes.Scania truck but only if the truck bed is at degree 0.
      */
     @Override
     public void move() {

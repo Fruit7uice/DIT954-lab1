@@ -1,3 +1,5 @@
+package main;
+
 import java.awt.*;
 
 /**
@@ -49,7 +51,7 @@ public abstract class Vehicle implements IMoveable {
     }
 
     /**
-     * The constructor for the Vehicle class
+     * The constructor for the yes.Vehicle class
      *
      * @param currentSpeed initial speed.
      * @param enginePower  power of the engine

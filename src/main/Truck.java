@@ -1,3 +1,5 @@
+package main;
+
 import java.awt.*;
 
 /**
@@ -13,7 +15,7 @@ public abstract class Truck extends Vehicle {
     private boolean turboOn;
 
     /**
-     * Constructor for the Truck-class.
+     * Constructor for the yes.Truck-class.
      */
 
     public Truck(double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord, double width, double height, double lenght, boolean hasTruckBed, boolean turboOn) {
