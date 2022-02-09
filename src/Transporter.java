@@ -118,12 +118,7 @@ public class Transporter extends Truck implements ITransporter<Car> {
         }
     }
 
-    private void updateCargoCord(){
-        for (Car c:cargo) {
-            c.setXCord(this.getXCord());
-            c.setYCord(this.getYCord());
-        }
-    }
+
     
     /**
      * Unloads the transporter with the last car the got loaded is the first to get
@@ -139,6 +134,13 @@ public class Transporter extends Truck implements ITransporter<Car> {
         }
     }
 
+    private void updateCargoCord(){
+        for (Car c:cargo) {
+            c.setXCord(this.getXCord());
+            c.setYCord(this.getYCord());
+        }
+    }
+
     /**
      * moves the transporter which only is possible if the ramp is up.
      */
@@ -147,6 +149,7 @@ public class Transporter extends Truck implements ITransporter<Car> {
         if (rampPos == RampPosition.UP){
             super.move();
         }
+        updateCargoCord();
     }
 
     /**
