@@ -18,7 +18,7 @@ public abstract class Vehicle implements IMoveable {
     public String modelName; // The car model name
     private double xCord;
     private double yCord;
-    private double dX;
+    private double dX = 1;
     private double dY;
     private double width;
     private double height;

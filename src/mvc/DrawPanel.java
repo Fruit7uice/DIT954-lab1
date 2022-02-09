@@ -13,10 +13,12 @@ public class DrawPanel extends JPanel {
 
     // Just a single image, TODO: Generalize
     BufferedImage volvoImage;
-    // To keep track of a singel cars position
+    BufferedImage saabImage;
+    // To keep track of a single cars position
     Point volvoPoint = new Point();
+    Point saabPoint = new Point();
 
-    // TODO: Make this genereal for all cars
+    // TODO: Make this general for all cars
     void moveit(int x, int y) {
         volvoPoint.x = x;
         volvoPoint.y = y;
@@ -26,7 +28,7 @@ public class DrawPanel extends JPanel {
     public DrawPanel(int x, int y) {
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
-        this.setBackground(Color.green);
+        this.setBackground(Color.RED);
         // Print an error message in case file is not found with a try/catch block
         try {
             // You can remove the "pics" part if running outside of IntelliJ and
@@ -35,7 +37,8 @@ public class DrawPanel extends JPanel {
 
             // Rememember to rightclick src New -> Package -> name: pics -> MOVE *.jpg to pics.
             // if you are starting in IntelliJ.
-            volvoImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/yes.Volvo240.jpg"));
+            volvoImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg"));
+            saabImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg"));
         } catch (IOException ex) {
             ex.printStackTrace();
         }

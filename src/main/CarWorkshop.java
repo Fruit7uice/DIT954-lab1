@@ -41,7 +41,7 @@ public class CarWorkshop <T extends Car>{
      * Hands the car into a workshop.
      * @param car the car to be added into the workshop.
      */
-    void handInCar(T car) {
+    public void handInCar(T car) {
         if (carWorkshop.size() >= maxCapacity){
             System.out.println("The workshop is full");
         }else {
@@ -66,7 +66,7 @@ public class CarWorkshop <T extends Car>{
         return carWorkshop.size();
     }
 
-
+/*
     public static void main(String[] args) {
         CarWorkshop<Saab95> saab95Workshop = new CarWorkshop<>(5);
         Volvo240 volvo240 = new Volvo240();
@@ -76,7 +76,7 @@ public class CarWorkshop <T extends Car>{
         //saab95Workshop.handInCar(volvo240);
         CarWorkshop<Car> workshop = new CarWorkshop<>(5);
         workshop.handInCar(volvo240);
-
-
     }
+
+ */
 }
