@@ -29,7 +29,7 @@ public class CarView extends JFrame{
     JPanel gasPanel = new JPanel();
     JSpinner gasSpinner = new JSpinner();
     int gasAmount = 0;
-    int brakeAmount = 40;
+    int brakeAmount = 50;
     JLabel gasLabel = new JLabel("Amount of gas");
 
     JButton gasButton = new JButton("Gas");
@@ -114,7 +114,7 @@ public class CarView extends JFrame{
         brakeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                vehicleV.brake(brakeAmount/100);
+                vehicleV.brake(brakeAmount);
             }
         });
 
