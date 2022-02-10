@@ -20,7 +20,7 @@ public class CarView extends JFrame{
     private static final int Y = 800;
 
     // The controller member
-    CarController carC;
+    CarController vehicleV;
 
     DrawPanel drawPanel = new DrawPanel(X, Y-240);
 
@@ -44,7 +44,7 @@ public class CarView extends JFrame{
 
     // Constructor
     public CarView(String framename, CarController cc){
-        this.carC = cc;
+        this.vehicleV = cc;
         initComponents(framename);
     }
 
@@ -107,28 +107,28 @@ public class CarView extends JFrame{
         gasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.gas(gasAmount);
+                vehicleV.gas(gasAmount);
             }
         });
 
         brakeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.brake(brakeAmount/100);
+                vehicleV.brake(brakeAmount/100);
             }
         });
 
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.startEngine();
+                vehicleV.startEngine();
             }
         });
 
         stopButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.stopEngine();
+                vehicleV.stopEngine();
             }
         });
 
@@ -136,16 +136,35 @@ public class CarView extends JFrame{
         turboOnButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.setTurboOn();
+                vehicleV.setTurboOn();
             }
         });
 
         turboOffButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                carC.setTurboOff();
+                vehicleV.setTurboOff();
             }
         });
+
+        liftBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                vehicleV.raiseTruckbed();
+            }
+        });
+
+        lowerBedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                vehicleV.lowerTruckBed();
+            }
+        });
+
+
+
+
+
 
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();
