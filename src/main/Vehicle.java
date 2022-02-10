@@ -10,45 +10,18 @@ import java.awt.*;
  * @author Joel Leiditz Thorsson
  */
 
-public abstract class Vehicle implements IMoveable {
+public abstract class Vehicle extends collideable implements IMoveable {
 
     public double currentSpeed; // The current speed of the car
     private double enginePower;
     private Color color; // Color of the car
     public String modelName; // The car model name
-    private double xCord;
-    private double yCord;
     private double dX = 1;
     private double dY;
-    private double width;
-    private double height;
     private double length;
+    public CollisionDir latestCollision = CollisionDir.NONE;
 
-    /**
-     * Getter for the width of the vehicle.
-     * @return the width of the vehicle.
-     */
-    public double getWidth() {
-        return width;
-    }
 
-    /**
-     * Getter for the height of the vehicle.
-     * @return the height of the vehicle.
-     */
-
-    public double getHeight() {
-        return height;
-    }
-
-    /**
-     * Getter for the length of the vehicle.
-     * @return the length of the vehicle.
-     */
-
-    public double getLength() {
-        return length;
-    }
 
     /**
      * The constructor for the yes.Vehicle class
@@ -66,15 +39,11 @@ public abstract class Vehicle implements IMoveable {
 
     public Vehicle(double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord,
                    double width, double height, double length) {
-
+        super(xCord, yCord, width, height);
         this.currentSpeed = currentSpeed;
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
-        this.xCord = xCord;
-        this.yCord = yCord;
-        this.width = width;
-        this.height = height;
         this.length = length;
     }
 
@@ -138,40 +107,16 @@ public abstract class Vehicle implements IMoveable {
         }
     }
 
-
     /**
-     * A getter for the cars current X-Coordinate in a Cartesian coordinate system.
-     *
-     * @return current X-Coordinate
+     * Getter for the length of the vehicle.
+     * @return the length of the vehicle.
      */
-    public double getXCord() {
-        return xCord;
+
+    public double getLength() {
+        return length;
     }
 
 
-    /**
-     * A setter for the coordinate of the car regarding the x-position.
-     */
-
-    public void setXCord(double xCord) {
-        this.xCord = xCord;
-    }
-
-    /**
-     * A getter for the cars current Y-Coordinate in a Cartesian coordinate system.
-     * @return current Y-Coordinate
-     */
-    public double getYCord() {
-        return yCord;
-    }
-
-    /**
-     * A setter for the coordinate of the car regarding the y-position.
-     */
-
-    public void setYCord(double yCord) {
-        this.yCord = yCord;
-    }
 
     /**
      * A getter for the cars current representation of X-Coordinate direction where dX belongs [-1, 1] and dX belongs N
@@ -291,5 +236,30 @@ public abstract class Vehicle implements IMoveable {
      * @return the calculated factor of which the speed increases by.
      */
     protected abstract double speedFactor();
+
+
+    public boolean isCollision(collideable other) {
+        boolean above = other.getMaxY() < getYCord();
+        boolean below = other.getYCord() > getMaxY();
+        boolean leftOf = other.getMaxX() < getXCord();
+        boolean rightOf = other.getXCord() > getMaxX();
+        if (above){
+            latestCollision = CollisionDir.ABOVE;
+        } else if (below){
+            latestCollision = CollisionDir.BELOW;
+        } else if (leftOf){
+            latestCollision = CollisionDir.LEFT;
+        } else if (rightOf){
+            latestCollision = CollisionDir.RIGHT;
+        } else{
+            latestCollision = CollisionDir.NONE;
+        }
+        return !(above || below || leftOf || rightOf);
+    }
+
+
+    public enum CollisionDir{
+        ABOVE,BELOW,LEFT,RIGHT, NONE;
+    }
 
 }

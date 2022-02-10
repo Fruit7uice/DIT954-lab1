@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 /*
  * This class represents the Controller part in the MVC pattern.
@@ -14,7 +15,13 @@ import java.util.ArrayList;
  */
 
 public class CarController {
+
+    public CarController(List<collideable> walls) {
+        this.walls = walls;
+    }
+
     // member fields:
+    private List<collideable> walls = new ArrayList<>();
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
@@ -30,11 +37,18 @@ public class CarController {
     //methods:
 
     public static void main(String[] args) {
+        List<collideable> walls = new ArrayList<>();
+
+        walls.add(new Wall(700, 0, 10, 600)); // right wall
+        walls.add(new Wall(0, 0, 10, 600)); // Left Wall
+        walls.add(new Wall(0, 0, 800, 10)); // Top Wall
+        walls.add(new Wall(0, 600, 800, 10)); // Bottom Wall
+
         // Instance of this class
-        CarController cc = new CarController();
+        CarController cc = new CarController(walls);
 
         cc.vehicles.add(new Volvo240());
-        cc.vehicles.add(new Saab95());
+        //cc.vehicles.add(new Saab95());
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -43,12 +57,14 @@ public class CarController {
         cc.timer.start();
     }
 
+
     /* Each step the TimerListener moves all the cars in the list and tells the
      * view to update its images. Change this method to your needs.
      * */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             for (Vehicle vehicle : vehicles) {
+                checkCollision(vehicle, walls);
                 vehicle.move();
                 int x = (int) Math.round(vehicle.getXCord());
                 int y = (int) Math.round(vehicle.getYCord());
@@ -58,6 +74,31 @@ public class CarController {
             }
         }
     }
+
+    private void checkCollision(Vehicle vehicle, List<collideable> collideables){
+        for (collideable v: collideables) {
+            if (vehicle.isCollision(v)){
+                System.out.println("Collision detected");
+                vehicle.stopEngine();
+                collisionBehavior(vehicle);
+                vehicle.startEngine();
+            }
+        }
+    }
+
+    private void collisionBehavior(Vehicle vehicle) {
+        if (vehicle.latestCollision.equals(Vehicle.CollisionDir.ABOVE) ||
+                vehicle.latestCollision.equals(Vehicle.CollisionDir.BELOW)){
+
+            vehicle.setdY(-vehicle.getdY());
+        }
+        if (vehicle.latestCollision.equals(Vehicle.CollisionDir.LEFT) ||
+                vehicle.latestCollision.equals(Vehicle.CollisionDir.RIGHT)){
+
+            vehicle.setdX(-vehicle.getdX());
+        }
+    }
+
 
     // Calls the gas method for each car once
     void gas(int amount) {
