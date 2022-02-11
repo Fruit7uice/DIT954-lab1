@@ -10,7 +10,7 @@ import java.awt.*;
  * @author Joel Leiditz Thorsson
  */
 
-public abstract class Vehicle extends collideable implements IMoveable {
+public abstract class Vehicle extends Collideable implements IMoveable {
 
     public double currentSpeed; // The current speed of the car
     private double enginePower;
@@ -238,7 +238,7 @@ public abstract class Vehicle extends collideable implements IMoveable {
     protected abstract double speedFactor();
 
 
-    public boolean isCollision(collideable other) {
+    public boolean isCollision(Collideable other) {
         boolean above = other.getMaxY() < getYCord();
         boolean below = other.getYCord() > getMaxY();
         boolean leftOf = other.getMaxX() < getXCord();

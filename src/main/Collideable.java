@@ -1,12 +1,12 @@
 package main;
 
-public abstract class collideable {
+public abstract class Collideable {
     private double xCord;
     private double yCord;
     private double width;
     private double height;
 
-    public collideable(double xCord, double yCord, double width, double height) {
+    public Collideable(double xCord, double yCord, double width, double height) {
         this.xCord = xCord;
         this.yCord = yCord;
         this.width = width;

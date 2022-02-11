@@ -16,12 +16,12 @@ import java.util.List;
 
 public class CarController {
 
-    public CarController(List<collideable> walls) {
+    public CarController(List<Collideable> walls) {
         this.walls = walls;
     }
 
     // member fields:
-    private List<collideable> walls = new ArrayList<>();
+    private List<Collideable> walls = new ArrayList<>();
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
@@ -37,7 +37,7 @@ public class CarController {
     //methods:
 
     public static void main(String[] args) {
-        List<collideable> walls = new ArrayList<>();
+        List<Collideable> walls = new ArrayList<>();
 
         walls.add(new Wall(700, 0, 10, 600)); // right wall
         walls.add(new Wall(0, 0, 10, 600)); // Left Wall
@@ -75,8 +75,8 @@ public class CarController {
         }
     }
 
-    private void checkCollision(Vehicle vehicle, List<collideable> collideables){
-        for (collideable v: collideables) {
+    private void checkCollision(Vehicle vehicle, List<Collideable> collideables){
+        for (Collideable v: collideables) {
             if (vehicle.isCollision(v)){
                 System.out.println("Collision detected");
                 vehicle.stopEngine();
