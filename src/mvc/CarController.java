@@ -64,24 +64,26 @@ public class CarController {
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             for (Vehicle vehicle : vehicles) {
-                checkCollision(vehicle, walls);
                 vehicle.move();
                 int x = (int) Math.round(vehicle.getXCord());
                 int y = (int) Math.round(vehicle.getYCord());
                 frame.drawPanel.moveit(x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
+                validateCollision(vehicle, walls);
             }
         }
     }
 
-    private void checkCollision(Vehicle vehicle, List<Collideable> collideables){
-        for (Collideable v: collideables) {
-            if (vehicle.isCollision(v)){
+    private void validateCollision(Vehicle vehicle, List<Collideable> collideables){
+        for (Collideable c: collideables) {
+            if (vehicle.isCollisionWithOther(c)){
+                boolean test = vehicle.isCollisionWithOther(c);
                 System.out.println("Collision detected");
                 vehicle.stopEngine();
                 collisionBehavior(vehicle);
-                vehicle.startEngine();
+                //vehicle.startEngine();
+                System.out.println(vehicle.latestCollision);
             }
         }
     }
@@ -89,13 +91,12 @@ public class CarController {
     private void collisionBehavior(Vehicle vehicle) {
         if (vehicle.latestCollision.equals(Vehicle.CollisionDir.ABOVE) ||
                 vehicle.latestCollision.equals(Vehicle.CollisionDir.BELOW)){
-
-            vehicle.setdY(-vehicle.getdY());
+            vehicle.setdY(-vehicle.getdY()*-1);
         }
         if (vehicle.latestCollision.equals(Vehicle.CollisionDir.LEFT) ||
                 vehicle.latestCollision.equals(Vehicle.CollisionDir.RIGHT)){
-
-            vehicle.setdX(-vehicle.getdX());
+            vehicle.setdX(vehicle.getdX()*-1);
+            System.out.println("Direction inverted");
         }
     }
 
@@ -138,7 +139,7 @@ public class CarController {
     void setTurboOff() {
         for (Vehicle vehicle : vehicles) {
             if (vehicle.getClass().equals(Saab95.class)) {
-                ((Saab95) vehicle).setTurboOn();
+                ((Saab95) vehicle).setTurboOff();
             }
         }
     }
@@ -150,6 +151,7 @@ public class CarController {
             }
         }
     }
+
     void lowerTruckBed() {
         for (Vehicle vehicle : vehicles) {
             if (vehicle.getClass().equals((Scania.class))) {

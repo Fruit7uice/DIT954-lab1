@@ -218,7 +218,7 @@ public abstract class Vehicle extends Collideable implements IMoveable {
      * @param amount is the restricted amount which can be multiplied to increase speed.
      */
     private void incrementSpeed(double amount) {
-        currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower);
+        currentSpeed = Math.min(getCurrentSpeed() + this.speedFactor() * amount, enginePower);
     }
 
     /**
@@ -227,7 +227,7 @@ public abstract class Vehicle extends Collideable implements IMoveable {
      * @param amount is the restricted amount which can be multiplied to decrease speed.
      */
     private void decrementSpeed(double amount) {
-        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
+        currentSpeed = Math.max(getCurrentSpeed() - this.speedFactor() * amount, 0);
     }
 
     /**
@@ -235,26 +235,44 @@ public abstract class Vehicle extends Collideable implements IMoveable {
      *
      * @return the calculated factor of which the speed increases by.
      */
-    protected abstract double speedFactor();
+    abstract double speedFactor();
 
 
-    public boolean isCollision(Collideable other) {
-        boolean above = other.getMaxY() < getYCord();
-        boolean below = other.getYCord() > getMaxY();
-        boolean leftOf = other.getMaxX() < getXCord();
-        boolean rightOf = other.getXCord() > getMaxX();
-        if (above){
-            latestCollision = CollisionDir.ABOVE;
-        } else if (below){
+    public boolean isCollisionWithOther(Collideable other) {
+        /*
+        boolean above = other.getYCord() < this.getMaxY()+1;
+        boolean below = other.getMaxY() > this.getYCord()-1;
+        boolean rightOf = other.getXCord() < this.getMaxX()+1;
+        boolean leftOf = other.getMaxX() > this.getXCord()-1;
+        setLatestCollisionDirection(above, below, leftOf, rightOf);
+        return (above || below || leftOf || rightOf);
+         */
+
+        boolean above = other.getMaxY() < this.getYCord();
+        boolean below = other.getYCord() > this.getMaxY();
+        boolean leftOf = other.getMaxX() < this.getXCord();
+        boolean rightOf = other.getXCord() > this.getMaxX();
+        setLatestCollisionDirection(above, below, leftOf, rightOf);
+        return !(above || below || leftOf || rightOf);
+
+
+
+    }
+
+    private void setLatestCollisionDirection(boolean above, boolean below, boolean leftOf, boolean rightOf) {
+        if (!below){
             latestCollision = CollisionDir.BELOW;
-        } else if (leftOf){
+        } else if (!above){
+            latestCollision = CollisionDir.ABOVE;
+        }else if (!leftOf){
             latestCollision = CollisionDir.LEFT;
-        } else if (rightOf){
+        } else if (!rightOf){
             latestCollision = CollisionDir.RIGHT;
         } else{
             latestCollision = CollisionDir.NONE;
         }
-        return !(above || below || leftOf || rightOf);
+
+
     }
 
 
