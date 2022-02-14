@@ -39,16 +39,16 @@ public class CarController {
     public static void main(String[] args) {
         List<Collideable> walls = new ArrayList<>();
 
-        walls.add(new Wall(700, 0, 10, 600)); // right wall
-        walls.add(new Wall(0, 0, 10, 600)); // Left Wall
-        walls.add(new Wall(0, 0, 800, 10)); // Top Wall
-        walls.add(new Wall(0, 600, 800, 10)); // Bottom Wall
+        walls.add(new Wall(750, 0, 1, 600)); // right wall
+        walls.add(new Wall(0, 0, 1, 600)); // Left Wall
+        walls.add(new Wall(0, 0, 800, 1)); // Top Wall
+        walls.add(new Wall(0, 600, 800, 1)); // Bottom Wall
 
         // Instance of this class
         CarController cc = new CarController(walls);
 
-        cc.vehicles.add(new Volvo240());
-        //cc.vehicles.add(new Saab95());
+        //cc.vehicles.add(new Volvo240());
+        cc.vehicles.add(new Saab95());
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -64,38 +64,54 @@ public class CarController {
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             for (Vehicle vehicle : vehicles) {
+                validateCollision(vehicle, walls);
                 vehicle.move();
                 int x = (int) Math.round(vehicle.getXCord());
                 int y = (int) Math.round(vehicle.getYCord());
                 frame.drawPanel.moveit(x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
-                validateCollision(vehicle, walls);
+
             }
         }
     }
 
-    private void validateCollision(Vehicle vehicle, List<Collideable> collideables){
+    private void validateCollision(Vehicle vehicle, List<Collideable> collideables) {
+/*
         for (Collideable c: collideables) {
-            if (vehicle.isCollisionWithOther(c)){
-                boolean test = vehicle.isCollisionWithOther(c);
+            if (vehicle.isCollisionWithOther(c)) {
                 System.out.println("Collision detected");
-                vehicle.stopEngine();
                 collisionBehavior(vehicle);
-                //vehicle.startEngine();
+                vehicle.stopEngine();
+                vehicle.startEngine();
                 System.out.println(vehicle.latestCollision);
             }
         }
+        */
+
+        if (vehicle.isCollisionWithWalls()) {
+            System.out.println("Collision detected");
+            collisionBehavior(vehicle);
+            vehicle.stopEngine();
+
+            vehicle.startEngine();
+            System.out.println(vehicle.latestCollision);
+        }
+
+
+
     }
 
     private void collisionBehavior(Vehicle vehicle) {
         if (vehicle.latestCollision.equals(Vehicle.CollisionDir.ABOVE) ||
-                vehicle.latestCollision.equals(Vehicle.CollisionDir.BELOW)){
-            vehicle.setdY(-vehicle.getdY()*-1);
+                vehicle.latestCollision.equals(Vehicle.CollisionDir.BELOW)) {
+            vehicle.setdY(-vehicle.getdY());
+            vehicle.move();
         }
         if (vehicle.latestCollision.equals(Vehicle.CollisionDir.LEFT) ||
-                vehicle.latestCollision.equals(Vehicle.CollisionDir.RIGHT)){
-            vehicle.setdX(vehicle.getdX()*-1);
+                vehicle.latestCollision.equals(Vehicle.CollisionDir.RIGHT)) {
+            vehicle.setdX(-vehicle.getdX());
+            vehicle.move();
             System.out.println("Direction inverted");
         }
     }
@@ -159,8 +175,6 @@ public class CarController {
             }
         }
     }
-
-
 
 
 }

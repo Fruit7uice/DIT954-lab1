@@ -239,15 +239,6 @@ public abstract class Vehicle extends Collideable implements IMoveable {
 
 
     public boolean isCollisionWithOther(Collideable other) {
-        /*
-        boolean above = other.getYCord() < this.getMaxY()+1;
-        boolean below = other.getMaxY() > this.getYCord()-1;
-        boolean rightOf = other.getXCord() < this.getMaxX()+1;
-        boolean leftOf = other.getMaxX() > this.getXCord()-1;
-        setLatestCollisionDirection(above, below, leftOf, rightOf);
-        return (above || below || leftOf || rightOf);
-         */
-
         boolean above = other.getMaxY() < this.getYCord();
         boolean below = other.getYCord() > this.getMaxY();
         boolean leftOf = other.getMaxX() < this.getXCord();
@@ -255,7 +246,27 @@ public abstract class Vehicle extends Collideable implements IMoveable {
         setLatestCollisionDirection(above, below, leftOf, rightOf);
         return !(above || below || leftOf || rightOf);
 
+    }
 
+    public boolean isCollisionWithWalls() {
+        boolean toMuchRight = this.getMaxX() > 700;
+        boolean toMuchLeft = this.getXCord() < 0;
+        boolean toMuchUp = this.getYCord() < 0;
+        boolean toMuchDown = this.getMaxY() > 600;
+
+        if (toMuchRight){
+            latestCollision = CollisionDir.RIGHT;
+        } else if (toMuchLeft){
+            latestCollision = CollisionDir.LEFT;
+        } else if (toMuchUp){
+            latestCollision = CollisionDir.ABOVE;
+        } else if (toMuchDown){
+            latestCollision = CollisionDir.BELOW;
+        }else{
+            latestCollision = CollisionDir.NONE;
+        }
+
+        return (toMuchUp || toMuchDown || toMuchLeft || toMuchRight);
 
     }
 
