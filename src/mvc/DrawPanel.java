@@ -1,5 +1,10 @@
 package mvc;
 
+import main.Saab95;
+import main.Scania;
+import main.Vehicle;
+import main.Volvo240;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -14,23 +19,33 @@ public class DrawPanel extends JPanel {
     // Just a single image, TODO: Generalize
     BufferedImage volvoImage;
     BufferedImage saabImage;
+    BufferedImage scaniaImage;
     // To keep track of a single cars position
     Point volvoPoint = new Point();
     Point saabPoint = new Point();
+    Point scaniaPoint = new Point();
 
     // TODO: Make this general for all cars
-    void moveit(int x, int y) {
-        volvoPoint.x = x;
-        volvoPoint.y = y;
-        saabPoint.x = x;
-        saabPoint.y = y+100;
+    void moveit(Vehicle vehicle, int x, int y) {
+
+        if (vehicle.getClass().equals(Saab95.class)){
+            saabPoint.x = x;
+            saabPoint.y = y;
+        } else if (vehicle.getClass().equals(Volvo240.class)){
+            volvoPoint.x = x;
+            volvoPoint.y = y;
+        } else if (vehicle.getClass().equals(Scania.class)){
+            scaniaPoint.x = x;
+            scaniaPoint.y = y;
+        }
+
     }
 
     // Initializes the panel and reads the images
     public DrawPanel(int x, int y) {
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
-        this.setBackground(Color.RED);
+        this.setBackground(Color.BLUE);
         // Print an error message in case file is not found with a try/catch block
         try {
             // You can remove the "pics" part if running outside of IntelliJ and
@@ -41,6 +56,8 @@ public class DrawPanel extends JPanel {
             // if you are starting in IntelliJ.
             volvoImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg"));
             saabImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg"));
+            scaniaImage = ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Scania.jpg"));
+
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -54,5 +71,6 @@ public class DrawPanel extends JPanel {
         super.paintComponent(g);
         g.drawImage(volvoImage, volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
         g.drawImage(saabImage, saabPoint.x, saabPoint.y, null);
+        g.drawImage(scaniaImage, scaniaPoint.x, scaniaPoint.y, null);
     }
 }

@@ -18,7 +18,7 @@ public class Volvo240 extends Car {
      * variables declared in yes.Car.
      */
     public Volvo240() {
-        super(0, 100, Color.black, "Volvo240", 50, 50, 1.8, 1.9, 5.8, 4);
+        super(0, 100, Color.black, "Volvo240", 2, 0, 1.8, 1.9, 5.8, 4);
         stopEngine();
     }
 

@@ -17,7 +17,7 @@ public class Scania extends Truck {
      * The constructor of the car class.
      */
     public Scania() {
-        super(0, 770, Color.BLACK, "yes.Scania", 0,0,2.5,4, 20, true, false);
+        super(0, 770, Color.BLACK, "Scania", 2,200,2.5,4, 20, true, false);
         truckBedAngle = 0;
     }
 

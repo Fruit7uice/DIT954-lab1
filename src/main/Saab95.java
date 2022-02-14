@@ -21,7 +21,7 @@ public class Saab95 extends Car{
      * variables declared in yes.Car.
      */
     public Saab95(){
-        super(0, 125, Color.red, "yes.Saab95", 2, 2, 2, 1.9, 5.9, 4);
+        super(0, 125, Color.red, "Saab95", 2, 100, 2, 1.9, 5.9, 4);
         turboOn = false;
         stopEngine();
     }

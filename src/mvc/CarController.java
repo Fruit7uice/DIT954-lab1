@@ -47,8 +47,9 @@ public class CarController {
         // Instance of this class
         CarController cc = new CarController(walls);
 
-        //cc.vehicles.add(new Volvo240());
+        cc.vehicles.add(new Volvo240());
         cc.vehicles.add(new Saab95());
+        cc.vehicles.add(new Scania());
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
@@ -68,7 +69,7 @@ public class CarController {
                 vehicle.move();
                 int x = (int) Math.round(vehicle.getXCord());
                 int y = (int) Math.round(vehicle.getYCord());
-                frame.drawPanel.moveit(x, y);
+                frame.drawPanel.moveit(vehicle, x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
 
@@ -164,6 +165,7 @@ public class CarController {
         for (Vehicle vehicle : vehicles) {
             if (vehicle.getClass().equals((Scania.class))) {
                 ((Scania) vehicle).raiseTruckBed();
+                System.out.println("Joel ska bli slagen på bowling");
             }
         }
     }
@@ -172,6 +174,7 @@ public class CarController {
         for (Vehicle vehicle : vehicles) {
             if (vehicle.getClass().equals((Scania.class))) {
                 ((Scania) vehicle).lowerTruckBed();
+                System.out.println("Johannes ska bli slagen på bowling");
             }
         }
     }
