@@ -15,5 +15,8 @@ public interface ICollideable {
     double getMaxX();
 
 
+    // Kollisions metod här?
+
+
 
 }

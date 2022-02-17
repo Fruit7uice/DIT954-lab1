@@ -24,6 +24,9 @@ public class CarView extends JFrame{
 
     DrawPanel drawPanel = new DrawPanel(X, Y-240);
 
+    Object obj = new Object(); // has a
+    String s = new Object().toString(); // Usage dependecie
+
     JPanel controlPanel = new JPanel();
 
     JPanel gasPanel = new JPanel();
@@ -101,6 +104,8 @@ public class CarView extends JFrame{
         stopButton.setForeground(Color.black);
         stopButton.setPreferredSize(new Dimension(X/5-15,200));
         this.add(stopButton);
+
+        //TODO THIS IS CONTROLLER BEHAVIOR, CHANGE LATER!
 
         // This actionListener is for the gas button only
         // TODO: Create more for each component as necessary

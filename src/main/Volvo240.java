@@ -15,7 +15,7 @@ public class Volvo240 extends Car {
 
     /**
      * Constructor for the Volvo240 class. The class calls for the superclass, yes.Car, which enables yes.Volvo240 to inherit
-     * variables declared in yes.Car.
+     * variables declared in    Car.
      */
     public Volvo240() {
         super(0, 100, Color.black, "Volvo240", 2, 0, 1.8, 1.9, 5.8, 4);

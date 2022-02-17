@@ -17,12 +17,12 @@ import java.util.List;
 
 public class CarController {
 
-    public CarController(List<Collideable> walls) {
+    public CarController(List<Positionables> walls) {
         this.walls = walls;
     }
 
     // member fields:
-    private List<Collideable> walls = new ArrayList<>();
+    private List<Positionables> walls = new ArrayList<>();
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
@@ -38,7 +38,7 @@ public class CarController {
     //methods:
 
     public static void main(String[] args) {
-        List<Collideable> walls = new ArrayList<>();
+        List<Positionables> walls = new ArrayList<>();
 
         walls.add(new Wall(750, 0, 1, 600)); // right wall
         walls.add(new Wall(0, 0, 1, 600)); // Left Wall
@@ -78,7 +78,7 @@ public class CarController {
         }
     }
 
-    private void validateCollision(Vehicle vehicle, List<Collideable> collideables) {
+    private void validateCollision(Vehicle vehicle, List<Positionables> positionables) {
 /*
         for (Collideable c: collideables) {
             if (vehicle.isCollisionWithOther(c)) {
@@ -117,6 +117,9 @@ public class CarController {
             System.out.println("Direction inverted");
         }
     }
+
+
+    // TODO BELOW IS MODEL BEHAVIOR, CHANGE FOR FUTURE!
 
 
     // Calls the gas method for each car once
@@ -166,7 +169,6 @@ public class CarController {
         for (Vehicle vehicle : vehicles) {
             if (vehicle.getClass().equals((Scania.class))) {
                 ((Scania) vehicle).raiseTruckBed();
-                System.out.println("Joel ska bli slagen på bowling");
             }
         }
     }
@@ -175,7 +177,6 @@ public class CarController {
         for (Vehicle vehicle : vehicles) {
             if (vehicle.getClass().equals((Scania.class))) {
                 ((Scania) vehicle).lowerTruckBed();
-                System.out.println("Johannes ska bli slagen på bowling");
             }
         }
     }
