@@ -18,12 +18,17 @@ import java.util.List;
 public class CarController {
 
 
+    private final VehicleBehaviour vehicleBehaviour;
+    private List<Positionable> walls;
+
     public CarController(List<Positionable> walls) {
         this.walls = walls;
+        this.vehicleBehaviour = new VehicleBehaviour(vehicles);
+
     }
 
     // member fields:
-    private List<Positionable> walls;
+
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
@@ -33,8 +38,9 @@ public class CarController {
 
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
-    // A list of cars, modify if needed
-    ArrayList<Vehicle> vehicles = new ArrayList<>();
+    List<Vehicle> vehicles = new ArrayList<>();
+
+
 
     //methods:
 
@@ -48,13 +54,14 @@ public class CarController {
 
         // Instance of this class
         CarController cc = new CarController(walls);
-
         cc.vehicles.add(new Volvo240());
-        cc.vehicles.add(new Saab95());
         cc.vehicles.add(new Scania());
+        cc.vehicles.add(new Saab95());
+
 
         // Start a new view and send a reference of self
-        cc.frame = new CarView("CarSim 1.0", cc);
+        cc.frame = new CarView("CarSim 1.0");
+
 
         // Start the timer
         cc.timer.start();
@@ -65,12 +72,14 @@ public class CarController {
      * view to update its images. Change this method to your needs.
      * */
     private class TimerListener implements ActionListener {
+
+
         public void actionPerformed(ActionEvent e) {
             for (Vehicle vehicle : vehicles) {
                 validateCollision(vehicle, walls);
                 vehicle.move();
-                int x = (int) Math.round(vehicle.getX());
-                int y = (int) Math.round(vehicle.getY());
+                int x = Math.round(vehicle.getX());
+                int y = Math.round(vehicle.getY());
                 frame.drawPanel.moveit(vehicle, x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
@@ -89,75 +98,73 @@ public class CarController {
             vehicle.startEngine();
             System.out.println(vehicle.latestCollision);
         }
-
-
-
     }
 
 
 
+    /*
+    //TODO THIS IS CONTROLLER BEHAVIOR, CHANGE LATER!
 
-    // TODO BELOW IS MODEL BEHAVIOR, CHANGE FOR FUTURE!
-
-
-    // Calls the gas method for each car once
-    void gas(int amount) {
-        double gas = ((double) amount) / 100;
-        for (Vehicle vehicle : vehicles) {
-            vehicle.gas(gas);
+    // This actionListener is for the gas button only
+    // TODO: Create more for each component as necessary
+        gasButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            vehicleV.gas(gasAmount);
         }
-    }
+    });
 
-    void brake(int amount) {
-        double brake = ((double) amount / 100);
-        for (Vehicle vehicle : vehicles) {
-            vehicle.brake(brake);
+        brakeButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            vehicleV.brake(brakeAmount);
         }
-    }
+    });
 
-    void startEngine() {
-        for (Vehicle vehicle : vehicles) {
-            vehicle.startEngine();
+        startButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            vehicleV.startEngine();
         }
-    }
+    });
 
-    void stopEngine() {
-        for (Vehicle vehicle : vehicles) {
-            vehicle.stopEngine();
+        stopButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            vehicleV.stopEngine();
         }
-    }
+    });
 
-    void setTurboOn() {
-        for (Vehicle vehicle : vehicles) {
-            if (vehicle.getClass().equals(Saab95.class)) {
-                ((Saab95) vehicle).setTurboOn();
-            }
-        }
-    }
 
-    void setTurboOff() {
-        for (Vehicle vehicle : vehicles) {
-            if (vehicle.getClass().equals(Saab95.class)) {
-                ((Saab95) vehicle).setTurboOff();
-            }
+        turboOnButton.addActionListener(new ActionListener(){
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            vehicleV.setTurboOn();
         }
-    }
+    });
 
-    void raiseTruckbed() {
-        for (Vehicle vehicle : vehicles) {
-            if (vehicle.getClass().equals((Scania.class))) {
-                ((Scania) vehicle).raiseTruckBed();
-            }
+        turboOffButton.addActionListener(new ActionListener(){
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            vehicleV.setTurboOff();
         }
-    }
+    });
 
-    void lowerTruckBed() {
-        for (Vehicle vehicle : vehicles) {
-            if (vehicle.getClass().equals((Scania.class))) {
-                ((Scania) vehicle).lowerTruckBed();
-            }
+        liftBedButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            vehicleV.raiseTruckbed();
         }
-    }
+    });
+
+        lowerBedButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            vehicleV.lowerTruckBed();
+        }
+    });
+
+     */
 
 
 }
