@@ -88,8 +88,8 @@ public class Transporter extends Truck implements ITransporter<Car> {
         boolean isCorrectSize = (car.getWidth() <= maxCarWidth &&
                 car.getHeight() <= maxCarHeight && car.getLength() <= maxCarLength);
 
-        double deltaX = (getXCord() - car.getXCord());
-        double deltaY = (getYCord() - car.getYCord());
+        double deltaX = (getX() - car.getX());
+        double deltaY = (getY() - car.getY());
         boolean closeEnough = (Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2))) <= loadingDistance;
         if (rampPos == RampPosition.DOWN && closeEnough && isCorrectSize){
             return true;
@@ -115,8 +115,8 @@ public class Transporter extends Truck implements ITransporter<Car> {
     public void load(Car car){
         if (isLoadable(car)){
             cargo.push(car);
-            car.setXCord(this.getXCord());
-            car.setYCord(this.getYCord());
+            car.setXCord(this.getX());
+            car.setYCord(this.getY());
         }
     }
 
@@ -130,16 +130,16 @@ public class Transporter extends Truck implements ITransporter<Car> {
         Car car;
         if (isUnloadable()){
             car = cargo.pop();
-            car.setXCord(this.getXCord()+1);
-            car.setYCord(this.getYCord()+1);
+            car.setXCord(this.getX()+1);
+            car.setYCord(this.getY()+1);
 
         }
     }
 
     private void updateCargoCord(){
         for (Car c:cargo) {
-            c.setXCord(this.getXCord());
-            c.setYCord(this.getYCord());
+            c.setXCord(this.getX());
+            c.setYCord(this.getY());
         }
     }
 
