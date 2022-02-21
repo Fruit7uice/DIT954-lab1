@@ -78,4 +78,6 @@ public class Scania extends Truck {
     public void setTruckBedAngle(double truckBedAngle) {
         this.truckBedAngle = truckBedAngle;
     }
+
+
 }

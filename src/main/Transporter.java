@@ -162,4 +162,7 @@ public class Transporter extends Truck implements ITransporter<Car> {
     public Deque<Car> getCargo() {
         return cargo;
     }
+
+
+
 }

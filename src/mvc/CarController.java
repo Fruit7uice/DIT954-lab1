@@ -81,21 +81,10 @@ public class CarController {
     }
 
     private void validateCollision(Vehicle vehicle, List<Positionables> positionables) {
-/*
-        for (Collideable c: collideables) {
-            if (vehicle.isCollisionWithOther(c)) {
-                System.out.println("Collision detected");
-                collisionBehavior(vehicle);
-                vehicle.stopEngine();
-                vehicle.startEngine();
-                System.out.println(vehicle.latestCollision);
-            }
-        }
-        */
 
         if (vehicle.isCollisionWithWalls()) {
             System.out.println("Collision detected");
-            collisionBehavior(vehicle);
+            vehicle.collisionBehavior(vehicle);
             vehicle.stopEngine();
 
             vehicle.startEngine();
@@ -103,19 +92,7 @@ public class CarController {
         }
     }
 
-    private void collisionBehavior(Vehicle vehicle) {
-        if (vehicle.latestCollision.equals(Vehicle.CollisionDir.ABOVE) ||
-                vehicle.latestCollision.equals(Vehicle.CollisionDir.BELOW)) {
-            vehicle.setdY(-vehicle.getdY());
-            vehicle.move();
-        }
-        if (vehicle.latestCollision.equals(Vehicle.CollisionDir.LEFT) ||
-                vehicle.latestCollision.equals(Vehicle.CollisionDir.RIGHT)) {
-            vehicle.setdX(-vehicle.getdX());
-            vehicle.move();
-            System.out.println("Direction inverted");
-        }
-    }
+
 
     //TODO THIS IS CONTROLLER BEHAVIOR, CHANGE LATER!
 
