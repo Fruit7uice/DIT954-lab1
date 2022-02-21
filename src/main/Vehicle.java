@@ -10,7 +10,7 @@ import java.awt.*;
  * @author Joel Leiditz Thorsson
  */
 
-public abstract class Vehicle extends Positionables implements IMoveable {
+public abstract class Vehicle extends Collidable implements IMoveable {
 
     public double currentSpeed; // The current speed of the car
     private double enginePower;
@@ -19,7 +19,7 @@ public abstract class Vehicle extends Positionables implements IMoveable {
     private double dX = 1;
     private double dY;
     private double length;
-    public CollisionDir latestCollision = CollisionDir.NONE;
+
 
 
 
@@ -238,57 +238,6 @@ public abstract class Vehicle extends Positionables implements IMoveable {
     abstract double speedFactor();
 
 
-    public boolean isCollisionWithOther(Positionables other) {
-        boolean above = other.getMaxY() < this.getYCord();
-        boolean below = other.getYCord() > this.getMaxY();
-        boolean leftOf = other.getMaxX() < this.getXCord();
-        boolean rightOf = other.getXCord() > this.getMaxX();
-        setLatestCollisionDirection(above, below, leftOf, rightOf);
-        return !(above || below || leftOf || rightOf);
 
-    }
-
-    public boolean isCollisionWithWalls() {
-        boolean toMuchRight = this.getMaxX() > 700;
-        boolean toMuchLeft = this.getXCord() < 0;
-        boolean toMuchUp = this.getYCord() < 0;
-        boolean toMuchDown = this.getMaxY() > 600;
-
-        if (toMuchRight){
-            latestCollision = CollisionDir.RIGHT;
-        } else if (toMuchLeft){
-            latestCollision = CollisionDir.LEFT;
-        } else if (toMuchUp){
-            latestCollision = CollisionDir.ABOVE;
-        } else if (toMuchDown){
-            latestCollision = CollisionDir.BELOW;
-        }else{
-            latestCollision = CollisionDir.NONE;
-        }
-
-        return (toMuchUp || toMuchDown || toMuchLeft || toMuchRight);
-
-    }
-
-    private void setLatestCollisionDirection(boolean above, boolean below, boolean leftOf, boolean rightOf) {
-        if (!below){
-            latestCollision = CollisionDir.BELOW;
-        } else if (!above){
-            latestCollision = CollisionDir.ABOVE;
-        }else if (!leftOf){
-            latestCollision = CollisionDir.LEFT;
-        } else if (!rightOf){
-            latestCollision = CollisionDir.RIGHT;
-        } else{
-            latestCollision = CollisionDir.NONE;
-        }
-
-
-    }
-
-
-    public enum CollisionDir{
-        ABOVE,BELOW,LEFT,RIGHT, NONE;
-    }
 
 }

@@ -143,4 +143,7 @@ public class CarFerry extends Vehicle implements ITransporter<Car> {
     public Deque<Car> getCargo() {
         return ferryCargo;
     }
+
+
+
 }
