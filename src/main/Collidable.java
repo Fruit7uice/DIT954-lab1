@@ -1,9 +1,6 @@
 package main;
 
-public abstract class Collidable extends Positionables{
-
-
-
+public abstract class Collidable extends Positionables {
 
     public CollisionDir latestCollision = CollisionDir.NONE;
 
@@ -12,10 +9,10 @@ public abstract class Collidable extends Positionables{
     }
 
     public boolean isCollisionWithOther(Positionables other) {
-        boolean above = other.getMaxY() < this.getYCord();
-        boolean below = other.getYCord() > this.getMaxY();
-        boolean leftOf = other.getMaxX() < this.getXCord();
-        boolean rightOf = other.getXCord() > this.getMaxX();
+        boolean above = other.getMaxY() < this.getY();
+        boolean below = other.getY() > this.getMaxY();
+        boolean leftOf = other.getMaxX() < this.getX();
+        boolean rightOf = other.getX() > this.getMaxX();
         setLatestCollisionDirection(above, below, leftOf, rightOf);
         return !(above || below || leftOf || rightOf);
 
@@ -23,20 +20,20 @@ public abstract class Collidable extends Positionables{
 
     public boolean isCollisionWithWalls() {
         boolean toMuchRight = this.getMaxX() > 700;
-        boolean toMuchLeft = this.getXCord() < 0;
-        boolean toMuchUp = this.getYCord() < 0;
+        boolean toMuchLeft = this.getX() < 0;
+        boolean toMuchUp = this.getY() < 0;
         boolean toMuchDown = this.getMaxY() > 600;
 
 
-        if (toMuchRight){
+        if (toMuchRight) {
             latestCollision = CollisionDir.RIGHT;
-        } else if (toMuchLeft){
+        } else if (toMuchLeft) {
             latestCollision = CollisionDir.LEFT;
-        } else if (toMuchUp){
+        } else if (toMuchUp) {
             latestCollision = CollisionDir.ABOVE;
-        } else if (toMuchDown){
+        } else if (toMuchDown) {
             latestCollision = CollisionDir.BELOW;
-        }else{
+        } else {
             latestCollision = CollisionDir.NONE;
         }
 
@@ -45,15 +42,15 @@ public abstract class Collidable extends Positionables{
     }
 
     private void setLatestCollisionDirection(boolean above, boolean below, boolean leftOf, boolean rightOf) {
-        if (!below){
+        if (!below) {
             latestCollision = CollisionDir.BELOW;
-        } else if (!above){
+        } else if (!above) {
             latestCollision = CollisionDir.ABOVE;
-        }else if (!leftOf){
+        } else if (!leftOf) {
             latestCollision = CollisionDir.LEFT;
-        } else if (!rightOf){
+        } else if (!rightOf) {
             latestCollision = CollisionDir.RIGHT;
-        } else{
+        } else {
             latestCollision = CollisionDir.NONE;
         }
     }
@@ -73,20 +70,9 @@ public abstract class Collidable extends Positionables{
     }
 
 
-    public enum CollisionDir{
-        ABOVE,BELOW,LEFT,RIGHT, NONE;
+    public enum CollisionDir {
+        ABOVE, BELOW, LEFT, RIGHT, NONE;
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

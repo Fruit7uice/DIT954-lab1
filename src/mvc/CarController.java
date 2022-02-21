@@ -68,8 +68,8 @@ public class CarController {
             for (Vehicle vehicle : vehicles) {
                 validateCollision(vehicle, walls);
                 vehicle.move();
-                int x = (int) Math.round(vehicle.getXCord());
-                int y = (int) Math.round(vehicle.getYCord());
+                int x = (int) Math.round(vehicle.getX());
+                int y = (int) Math.round(vehicle.getY());
                 frame.drawPanel.moveit(vehicle, x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();

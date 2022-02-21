@@ -90,8 +90,8 @@ public class CarFerry extends Vehicle implements ITransporter<Car> {
     @Override
     public boolean isLoadable(Car car) {
         boolean isFull = maxCapacity <= ferryCargo.size();
-        double deltaX = (getXCord() - car.getXCord());
-        double deltaY = (getYCord() - car.getYCord());
+        double deltaX = (getX() - car.getX());
+        double deltaY = (getY() - car.getY());
         boolean closeEnough = (Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2))) <= loadingDistance;
         if (rampPos == RampPosition.DOWN && closeEnough && !isFull && currentSpeed == 0){
             return true;
@@ -116,8 +116,8 @@ public class CarFerry extends Vehicle implements ITransporter<Car> {
     public void load(Car car) {
         if (isLoadable(car)){
             ferryCargo.addLast(car);
-            car.setXCord(this.getXCord());
-            car.setYCord(this.getYCord());
+            car.setXCord(this.getX());
+            car.setYCord(this.getY());
         }
     }
 
@@ -129,8 +129,8 @@ public class CarFerry extends Vehicle implements ITransporter<Car> {
         Car car;
         if (isUnloadable()){
             car = ferryCargo.pop();
-            car.setXCord(this.getXCord()+1);
-            car.setYCord(this.getYCord()+1);
+            car.setXCord(this.getX()+1);
+            car.setYCord(this.getY()+1);
         }
 
     }

@@ -1,14 +1,14 @@
 package main;
 
 public abstract class Positionables { // Change name to Positionable
-    private double xCord;
-    private double yCord;
-    private double width;
-    private double height;
+    private int x;
+    private int y;
+    private final double width;
+    private final double height;
 
-    public Positionables(double xCord, double yCord, double width, double height) {
-        this.xCord = xCord;
-        this.yCord = yCord;
+    public Positionables(int xCord, int yCord, double width, double height) {
+        this.x = xCord;
+        this.y = yCord;
         this.width = width;
         this.height = height;
     }
@@ -25,7 +25,6 @@ public abstract class Positionables { // Change name to Positionable
      * Getter for the height of the vehicle.
      * @return the height of the vehicle.
      */
-
     public double getHeight() {
         return height;
     }
@@ -37,41 +36,39 @@ public abstract class Positionables { // Change name to Positionable
      *
      * @return current X-Coordinate
      */
-    public double getXCord() {
-        return xCord;
-    }
-
-
-    /**
-     * A setter for the coordinate of the car regarding the x-position.
-     */
-
-    public void setXCord(double xCord) {
-        this.xCord = xCord;
+    public int getX() {
+        return x;
     }
 
     /**
      * A getter for the cars current Y-Coordinate in a Cartesian coordinate system.
      * @return current Y-Coordinate
      */
-    public double getYCord() {
-        return yCord;
+    public int getY() {
+        return y;
     }
 
+
+    /**
+     * A setter for the coordinate of the car regarding the x-position.
+     */
+    public void setXCord(double xCord) {
+        this.x = (int) xCord;
+    }
+    
     /**
      * A setter for the coordinate of the car regarding the y-position.
      */
-
     public void setYCord(double yCord) {
-        this.yCord = yCord;
+        this.y = (int) yCord;
     }
 
     public double getMaxX() {
-        return xCord + width;
+        return x + width;
     }
 
     public double getMaxY() {
-        return yCord + height;
+        return y + height;
     }
 
 }

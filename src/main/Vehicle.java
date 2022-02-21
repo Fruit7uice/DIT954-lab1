@@ -75,8 +75,8 @@ public abstract class Vehicle extends Collidable implements IMoveable {
      * the product of the direction * currentSpeed individually to the coordinates of x and y.
      */
     public void move() {
-        setXCord(getXCord() + dX * currentSpeed);
-        setYCord(getYCord() + dY * currentSpeed);
+        setXCord(getX() + dX * currentSpeed);
+        setYCord(getY() + dY * currentSpeed);
     }
 
 

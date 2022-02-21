@@ -63,9 +63,9 @@ public class tests {
         volvo240.setdY(1);
         volvo240.gas(1);
         volvo240.move();
-        System.out.println(volvo240.getXCord());
-        System.out.println(volvo240.getYCord());
-        assertTrue(volvo240.getXCord() == 1 && volvo240.getYCord() == 2.35);
+        System.out.println(volvo240.getX());
+        System.out.println(volvo240.getY());
+        assertTrue(volvo240.getX() == 1 && volvo240.getY() == 2.35);
     }
 
 
