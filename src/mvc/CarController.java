@@ -17,13 +17,16 @@ import java.util.List;
 
 public class CarController {
 
+    VehicleBehaviour vehicleBehaviour;
+
     public CarController(List<Positionables> walls) {
         this.walls = walls;
+        this.vehicleBehaviour = new VehicleBehaviour(vehicles);
+
     }
 
     // member fields:
     private List<Positionables> walls = new ArrayList<>();
-    Vehicle vehicleV;
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
@@ -33,8 +36,9 @@ public class CarController {
 
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
-    // A list of cars, modify if needed
-    ArrayList<Vehicle> vehicles = new ArrayList<>();
+    List<Vehicle> vehicles = new ArrayList<>();
+
+
 
     //methods:
 
@@ -48,13 +52,14 @@ public class CarController {
 
         // Instance of this class
         CarController cc = new CarController(walls);
-
         cc.vehicles.add(new Volvo240());
-        cc.vehicles.add(new Saab95());
         cc.vehicles.add(new Scania());
+        cc.vehicles.add(new Saab95());
+
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0");
+
 
         // Start the timer
         cc.timer.start();
@@ -65,6 +70,7 @@ public class CarController {
      * view to update its images. Change this method to your needs.
      * */
     private class TimerListener implements ActionListener {
+
 
         public void actionPerformed(ActionEvent e) {
             for (Vehicle vehicle : vehicles) {

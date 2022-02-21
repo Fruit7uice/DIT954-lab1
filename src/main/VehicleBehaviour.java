@@ -1,13 +1,21 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class VehicleBehaviour{
 
     // TODO BELOW IS MODEL BEHAVIOR, CHANGE FOR FUTURE!
 
-    VehicleBehaviour vb;
+    VehicleBehaviour vehicleBehaviour;
 
-    public VehicleBehaviour(VehicleBehaviour vb) {
-        this.vb = vb;
+    List<Vehicle> vehicles = new ArrayList<>();
+    Saab95 saab95 = new Saab95();
+    Volvo240 volvo240 = new Volvo240();
+    Scania scania = new Scania();
+
+    public VehicleBehaviour(List<Vehicle> vehicles) {
+        this.vehicles = vehicles;
 
     }
 
