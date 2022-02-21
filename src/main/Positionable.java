@@ -1,32 +1,18 @@
 package main;
 
-public abstract class Positionables { // Change name to Positionable
+public abstract class Positionable implements IPositionable { // Change name to Positionable
     private int x;
     private int y;
     private final double width;
     private final double height;
+    private final double length;
 
-    public Positionables(int xCord, int yCord, double width, double height) {
+    public Positionable(int xCord, int yCord, double width, double height, double length) {
         this.x = xCord;
         this.y = yCord;
         this.width = width;
         this.height = height;
-    }
-
-    /**
-     * Getter for the width of the vehicle.
-     * @return the width of the vehicle.
-     */
-    public double getWidth() {
-        return width;
-    }
-
-    /**
-     * Getter for the height of the vehicle.
-     * @return the height of the vehicle.
-     */
-    public double getHeight() {
-        return height;
+        this.length = length;
     }
 
 
@@ -50,12 +36,37 @@ public abstract class Positionables { // Change name to Positionable
 
 
     /**
+     * Getter for the width of the vehicle.
+     * @return the width of the vehicle.
+     */
+    public double getWidth() {
+        return width;
+    }
+
+    /**
+     * Getter for the height of the vehicle.
+     * @return the height of the vehicle.
+     */
+    public double getHeight() {
+        return height;
+    }
+
+    /**
+     * Getter for the length of the vehicle.
+     * @return the length of the vehicle.
+     */
+    public double getLength(){
+        return length;
+    }
+
+
+    /**
      * A setter for the coordinate of the car regarding the x-position.
      */
     public void setXCord(double xCord) {
         this.x = (int) xCord;
     }
-    
+
     /**
      * A setter for the coordinate of the car regarding the y-position.
      */

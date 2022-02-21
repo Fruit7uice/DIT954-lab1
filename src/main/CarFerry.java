@@ -34,7 +34,7 @@ public class CarFerry extends Vehicle implements ITransporter<Car> {
      * @param length of this.
      * @param maxCapacity maximum capacity of this.
      */
-    public CarFerry(double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord, double width, double height, double length, int maxCapacity) {
+    public CarFerry(double currentSpeed, double enginePower, Color color, String modelName, int xCord, int yCord, double width, double height, double length, int maxCapacity) {
         super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, length);
         this.ferryCargo = new ArrayDeque<>(maxCapacity) {
         };

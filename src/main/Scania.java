@@ -21,7 +21,7 @@ public class Scania extends Truck {
         truckBedAngle = 0;
     }
 
-    public Scania(double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord, double width, double height, double lenght, boolean hasTruckBed, boolean turboOn) {
+    public Scania(double currentSpeed, double enginePower, Color color, String modelName, int xCord, int yCord, double width, double height, double lenght, boolean hasTruckBed, boolean turboOn) {
         super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, lenght, hasTruckBed, turboOn);
         this.truckBedAngle = 0;
     }

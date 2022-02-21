@@ -22,7 +22,7 @@ public class Volvo240 extends Car {
         stopEngine();
     }
 
-    public Volvo240(double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord, double width, double height, double lenght, int nrDoors) {
+    public Volvo240(double currentSpeed, double enginePower, Color color, String modelName, int xCord, int yCord, double width, double height, double lenght, int nrDoors) {
         super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, lenght, nrDoors);
         stopEngine();
     }

@@ -28,7 +28,7 @@ public abstract class Car extends Vehicle implements ITransportable {
      * @param lenght of the car.
      * @param nrDoors number of doors.
      */
-    public Car(double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord, double width, double height, double lenght, int nrDoors) {
+    public Car(double currentSpeed, double enginePower, Color color, String modelName, int xCord, int yCord, double width, double height, double lenght, int nrDoors) {
         super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, lenght);
         this.nrDoors = nrDoors;
     }

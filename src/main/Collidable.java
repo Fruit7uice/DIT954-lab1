@@ -1,14 +1,14 @@
 package main;
 
-public abstract class Collidable extends Positionables {
+public abstract class Collidable extends Positionable {
 
     public CollisionDir latestCollision = CollisionDir.NONE;
 
-    public Collidable(double xCord, double yCord, double width, double height) {
-        super(xCord, yCord, width, height);
+    public Collidable(int xCord, int yCord, double width, double height, double length) {
+        super(xCord, yCord, width, height, length);
     }
 
-    public boolean isCollisionWithOther(Positionables other) {
+    public boolean isCollisionWithOther(Positionable other) {
         boolean above = other.getMaxY() < this.getY();
         boolean below = other.getY() > this.getMaxY();
         boolean leftOf = other.getMaxX() < this.getX();

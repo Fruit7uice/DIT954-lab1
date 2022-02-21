@@ -1,10 +1,10 @@
 package main;
 
-public class Wall extends Positionables {
+public class Wall extends Positionable {
 
 
-    public Wall(double x, double y, double width, double height) {
-        super(x, y, width, height);
+    public Wall(int x, int y, double width, double height, double length) {
+        super(x, y, width, height, length);
     }
 
 }

@@ -51,7 +51,7 @@ public class Transporter extends Truck implements ITransporter<Car> {
      * @param loadable decides if this is loadable.
      * @param maxCars maximum amount of cargo for the transporter.
      */
-    public Transporter(double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord, double width, double height, double length, boolean hasTruckBed, boolean turboOn, RampPosition rampPos, boolean loadable, int maxCars) {
+    public Transporter(double currentSpeed, double enginePower, Color color, String modelName, int xCord, int yCord, double width, double height, double length, boolean hasTruckBed, boolean turboOn, RampPosition rampPos, boolean loadable, int maxCars) {
         super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, length, hasTruckBed, turboOn);
         this.rampPos = rampPos;
         this.loadable = loadable;

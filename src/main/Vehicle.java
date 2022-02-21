@@ -18,10 +18,6 @@ public abstract class Vehicle extends Collidable implements IMoveable {
     public String modelName; // The car model name
     private double dX = 1;
     private double dY;
-    private double length;
-
-
-
 
     /**
      * The constructor for the yes.Vehicle class
@@ -37,14 +33,13 @@ public abstract class Vehicle extends Collidable implements IMoveable {
      * @param length       length of the vehicle.
      */
 
-    public Vehicle(double currentSpeed, double enginePower, Color color, String modelName, double xCord, double yCord,
+    public Vehicle(double currentSpeed, double enginePower, Color color, String modelName, int xCord, int yCord,
                    double width, double height, double length) {
-        super(xCord, yCord, width, height);
+        super(xCord, yCord, width, height, length);
         this.currentSpeed = currentSpeed;
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
-        this.length = length;
     }
 
 
@@ -106,17 +101,6 @@ public abstract class Vehicle extends Collidable implements IMoveable {
             setdY(0);
         }
     }
-
-    /**
-     * Getter for the length of the vehicle.
-     * @return the length of the vehicle.
-     */
-
-    public double getLength() {
-        return length;
-    }
-
-
 
     /**
      * A getter for the cars current representation of X-Coordinate direction where dX belongs [-1, 1] and dX belongs N

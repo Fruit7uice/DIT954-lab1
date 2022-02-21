@@ -17,12 +17,13 @@ import java.util.List;
 
 public class CarController {
 
-    public CarController(List<Positionables> walls) {
+
+    public CarController(List<Positionable> walls) {
         this.walls = walls;
     }
 
     // member fields:
-    private List<Positionables> walls = new ArrayList<>();
+    private List<Positionable> walls;
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
@@ -38,12 +39,12 @@ public class CarController {
     //methods:
 
     public static void main(String[] args) {
-        List<Positionables> walls = new ArrayList<>();
+        List<Positionable> walls = new ArrayList<>();
 
-        walls.add(new Wall(750, 0, 1, 600)); // right wall
-        walls.add(new Wall(0, 0, 1, 600)); // Left Wall
-        walls.add(new Wall(0, 0, 800, 1)); // Top Wall
-        walls.add(new Wall(0, 600, 800, 1)); // Bottom Wall
+        walls.add(new Wall(750, 0, 1, 600, 0)); // right wall
+        walls.add(new Wall(0, 0, 1, 600, 0)); // Left Wall
+        walls.add(new Wall(0, 0, 800, 1, 0)); // Top Wall
+        walls.add(new Wall(0, 600, 800, 1, 0)); // Bottom Wall
 
         // Instance of this class
         CarController cc = new CarController(walls);
@@ -78,7 +79,7 @@ public class CarController {
         }
     }
 
-    private void validateCollision(Vehicle vehicle, List<Positionables> positionables) {
+    private void validateCollision(Vehicle vehicle, List<Positionable> positionables) {
 
         if (vehicle.isCollisionWithWalls()) {
             System.out.println("Collision detected");
