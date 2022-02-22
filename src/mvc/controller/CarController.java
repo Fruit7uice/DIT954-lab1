@@ -29,11 +29,6 @@ public class CarController {
     }
 
     // member fields:
-
-
-
-
-
     List<Vehicle> vehicles = new ArrayList<>();
     CarView frame;
 
@@ -84,66 +79,7 @@ public class CarController {
 
 
 
-    //TODO THIS IS CONTROLLER BEHAVIOR, CHANGE LATER!
 
-    // This actionListener is for the gas button only
-    // TODO: Create more for each component as necessary
-        frame.gasButton.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            vehicleV.gas(gasAmount);
-        }
-    });
-
-        brakeButton.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            vehicleV.brake(brakeAmount);
-        }
-    });
-
-        startButton.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            vehicleV.startEngine();
-        }
-    });
-
-        stopButton.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            vehicleV.stopEngine();
-        }
-    });
-
-
-        turboOnButton.addActionListener(new ActionListener(){
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            vehicleV.setTurboOn();
-        }
-    });
-
-        turboOffButton.addActionListener(new ActionListener(){
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            vehicleV.setTurboOff();
-        }
-    });
-
-        liftBedButton.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            vehicleV.raiseTruckbed();
-        }
-    });
-
-        lowerBedButton.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            vehicleV.lowerTruckBed();
-        }
-    });
 
 
 

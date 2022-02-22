@@ -2,5 +2,5 @@ package mvc;
 
 public interface Observer {
 
-    void notifyListeners();
+    void notifyUpdate();
 }
