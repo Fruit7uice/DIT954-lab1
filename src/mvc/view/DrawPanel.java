@@ -1,4 +1,4 @@
-package mvc;
+package mvc.view;
 
 import main.Saab95;
 import main.Scania;
@@ -7,7 +7,6 @@ import main.Volvo240;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -26,7 +25,7 @@ public class DrawPanel extends JPanel {
     Point scaniaPoint = new Point();
 
     // TODO: Make this general for all cars
-    void moveit(Vehicle vehicle, int x, int y) {
+    public void moveit(Vehicle vehicle, int x, int y) {
 
         if (vehicle.getClass().equals(Saab95.class)){
             saabPoint.x = x;

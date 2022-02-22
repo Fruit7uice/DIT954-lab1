@@ -1,6 +1,7 @@
-package mvc;
+package mvc.controller;
 
 import main.*;
+import mvc.view.CarView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -19,7 +20,7 @@ public class CarController {
 
 
     private final VehicleBehaviour vehicleBehaviour;
-    private List<Positionable> walls;
+    List<Positionable> walls;
 
     public CarController(List<Positionable> walls) {
         this.walls = walls;
@@ -30,16 +31,11 @@ public class CarController {
     // member fields:
 
 
-    // The delay (ms) corresponds to 20 updates a sec (hz)
-    private final int delay = 50;
-    // The timer is started with a listener (see below) that executes the statements
-    // each step between delays.
-    private Timer timer = new Timer(delay, new TimerListener());
 
-    // The frame that represents this instance View of the MVC pattern
-    CarView frame;
+
+
     List<Vehicle> vehicles = new ArrayList<>();
-
+    CarView frame;
 
 
     //methods:
@@ -71,24 +67,9 @@ public class CarController {
     /* Each step the TimerListener moves all the cars in the list and tells the
      * view to update its images. Change this method to your needs.
      * */
-    private class TimerListener implements ActionListener {
 
 
-        public void actionPerformed(ActionEvent e) {
-            for (Vehicle vehicle : vehicles) {
-                validateCollision(vehicle, walls);
-                vehicle.move();
-                int x = Math.round(vehicle.getX());
-                int y = Math.round(vehicle.getY());
-                frame.drawPanel.moveit(vehicle, x, y);
-                // repaint() calls the paintComponent method of the panel
-                frame.drawPanel.repaint();
-
-            }
-        }
-    }
-
-    private void validateCollision(Vehicle vehicle, List<Positionable> positionables) {
+    void validateCollision(Vehicle vehicle, List<Positionable> positionables) {
 
         if (vehicle.isCollisionWithWalls()) {
             System.out.println("Collision detected");
@@ -102,12 +83,12 @@ public class CarController {
 
 
 
-    /*
+
     //TODO THIS IS CONTROLLER BEHAVIOR, CHANGE LATER!
 
     // This actionListener is for the gas button only
     // TODO: Create more for each component as necessary
-        gasButton.addActionListener(new ActionListener() {
+        frame.gasButton.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             vehicleV.gas(gasAmount);
@@ -164,7 +145,7 @@ public class CarController {
         }
     });
 
-     */
+
 
 
 }
