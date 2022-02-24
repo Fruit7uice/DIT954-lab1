@@ -5,14 +5,12 @@ import mvc.Observer;
 import mvc.view.*;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TimerListener implements Observer {
+public class UpdateAnimation {
 
-    List<Observer> observers = new ArrayList<Observer>();
+    List<Observer> observers = new ArrayList<>();
     CarController controller;
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
@@ -22,9 +20,9 @@ public class TimerListener implements Observer {
     private final int delay = 50;
     // The timer is started with a listener (see below) that executes the statements
     // each step between delays.
-    private Timer timer = new Timer(delay, new TimerListener(controller));
+    private Timer timer = new Timer(delay, new UpdateAnimation(controller));
 
-    public TimerListener(CarController controller) {
+    public UpdateAnimation(CarController controller) {
         this.controller = controller;
         this.frame = controller.frame;
         //this.drawPanel = frame.drawPanel;
@@ -43,10 +41,6 @@ public class TimerListener implements Observer {
         }
     }
 
-    @Override
-    public void notifyListeners() {
-
-    }
 
     public void addObserver(Observer o) {
         observers.add(o);
@@ -58,7 +52,7 @@ public class TimerListener implements Observer {
 
     private void notifyObservers() {
         for (Observer o:observers) {
-            o.notifyListeners();
+            o.notifyUpdate();
         }
     }
 

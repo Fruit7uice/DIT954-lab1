@@ -3,7 +3,7 @@ package mvc.view;
 
 
 import mvc.Observer;
-import mvc.controller.TimerListener;
+import mvc.controller.UpdateAnimation;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -47,9 +47,9 @@ public class CarView extends JFrame implements Observer {
     JButton stopButton = new JButton("Stop all cars");
 
     // Constructor
-    public CarView(String frameName, TimerListener timerListener){
+    public CarView(String frameName, UpdateAnimation updateAnimation){
         initComponents(frameName);
-        timerListener.addObserver(this);
+        updateAnimation.addObserver(this);
     }
 
     // Sets everything in place and fits everything
@@ -121,7 +121,7 @@ public class CarView extends JFrame implements Observer {
 
 
     @Override
-    public void notifyListeners() {
+    public void notifyUpdate() {
         drawPanel.repaint();
     }
 }
