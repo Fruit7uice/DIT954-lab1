@@ -1,6 +1,7 @@
 package main;
 
 import java.util.List;
+import java.util.Random;
 
 public class VehicleBehaviour{
 
@@ -10,6 +11,10 @@ public class VehicleBehaviour{
     //Saab95 saab95 = new Saab95();
     //Volvo240 volvo240 = new Volvo240();
     //Scania scania = new Scania();
+
+    Random random = new Random();
+    int next = random.nextInt();
+
 
     public VehicleBehaviour(List<Vehicle> vehicles) {
         this.vehicles = vehicles;
@@ -73,6 +78,20 @@ public class VehicleBehaviour{
             if (vehicle.getClass().equals((Scania.class))) {
                 ((Scania) vehicle).lowerTruckBed();
             }
+        }
+    }
+
+    public void addCar(){
+        if(vehicles.size() > 10){
+            Vehicle newVehicle = new Saab95();
+            newVehicle.setXCord(random.nextInt(0,800));
+            newVehicle.setYCord(random.nextInt(0,600));
+        }
+    }
+
+    public void removeCar(){
+        if(vehicles.size() > 0){
+            vehicles.remove(0);
         }
     }
 
