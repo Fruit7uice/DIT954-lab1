@@ -12,6 +12,10 @@ public class SpeedometerPanel extends JPanel {
     GridLayout grid = new GridLayout(3,1);
 
     public SpeedometerPanel() {
+
+        this.setDoubleBuffered(true);
+        this.setPreferredSize(new Dimension(100, 100));
+        this.setBackground(Color.GREEN);
         initPanel();
     }
 
@@ -31,10 +35,11 @@ public class SpeedometerPanel extends JPanel {
         }
     }
 
-    // TODO: Change to suit your needs.
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        //updateView();
+        //updateLabels();
     }
+
+
 }

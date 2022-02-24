@@ -72,6 +72,7 @@ public class CarView extends JFrame implements Observer {
 
         this.add(drawPanel);
 
+        // SPEEDOMETER
         speedometerPanel.view = this;
         this.add(speedometerPanel.speedometerPanel);
         // ENDING OF SPEEDOMETER
@@ -116,9 +117,6 @@ public class CarView extends JFrame implements Observer {
         stopButton.setForeground(Color.black);
         stopButton.setPreferredSize(new Dimension(X/5-15,200));
         this.add(stopButton);
-
-
-
 
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();

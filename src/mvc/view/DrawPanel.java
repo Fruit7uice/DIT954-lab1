@@ -11,10 +11,10 @@ import javax.swing.*;
 
 public class DrawPanel extends JPanel {
 
-    // Just a single image, TODO: Generalize
     BufferedImage vehicleImage;
 
     List<Vehicle> vehicles;
+
     // To keep track of a single cars position
     Point vehiclePoint = new Point();
 
