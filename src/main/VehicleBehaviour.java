@@ -8,12 +8,8 @@ public class VehicleBehaviour{
     // TODO BELOW IS MODEL BEHAVIOR, CHANGE FOR FUTURE!
 
     List<Vehicle> vehicles;
-    //Saab95 saab95 = new Saab95();
-    //Volvo240 volvo240 = new Volvo240();
-    //Scania scania = new Scania();
 
     Random random = new Random();
-    int next = random.nextInt();
 
 
     public VehicleBehaviour(List<Vehicle> vehicles) {
