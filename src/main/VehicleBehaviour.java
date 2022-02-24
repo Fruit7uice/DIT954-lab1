@@ -82,13 +82,27 @@ public class VehicleBehaviour{
     }
 
     public void addCar(){
-        if(vehicles.size() > 10){
+        if(vehicles.size() < 10){
             Vehicle newVehicle =  VehicleFactory.createScania();
             newVehicle.setXCord(random.nextInt(0,800));
             newVehicle.setYCord(random.nextInt(0,600));
-
+            newVehicle.setdX(random.nextInt(-1,1));
+            newVehicle.setdY(random.nextInt(-1,1));
+            directionBehaviour(newVehicle);
+            vehicles.add(newVehicle);
         }
     }
+
+    public void directionBehaviour(Vehicle newVehicle){
+        while(newVehicle.getdX() == 0 && newVehicle.getdY() == 0) {
+            newVehicle.setdX(random.nextInt(-1, 1));
+            newVehicle.setdY(random.nextInt(-1, 1));
+        }
+
+    }
+
+
+
 
     public void removeCar(){
         if(vehicles.size() > 0){

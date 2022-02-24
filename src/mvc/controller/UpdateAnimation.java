@@ -47,6 +47,8 @@ public class UpdateAnimation implements ActionListener {
             int y = Math.round(vehicle.getY());
             moveit(vehicle, x, y);
             System.out.println(vehicles.size());
+            System.out.println();
+
 /*
             if (vehicle.getClass().equals(Volvo240.class)){
                 System.out.println("Volvo: " + vehicle.getY());
