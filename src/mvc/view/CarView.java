@@ -25,6 +25,7 @@ public class CarView extends JFrame implements Observer {
     private static final int X = 850;
     private static final int Y = 850;
 
+    List<Vehicle> vehicles;
     // The controller member
     public DrawPanel drawPanel = new DrawPanel(X, Y-240);
 
@@ -52,8 +53,11 @@ public class CarView extends JFrame implements Observer {
     public JButton startButton = new JButton("Start all cars");
     public JButton stopButton = new JButton("Stop all cars");
 
+
+    SpeedometerPanel speedometerPanel = new SpeedometerPanel();
     // Constructor
-    public CarView(String frameName, UpdateAnimation updateAnimation){
+    public CarView(String frameName, UpdateAnimation updateAnimation, List<Vehicle> vs){
+        this.vehicles = vs;
         initComponents(frameName);
         updateAnimation.addObserver(this);
     }
@@ -68,7 +72,9 @@ public class CarView extends JFrame implements Observer {
 
         this.add(drawPanel);
 
-
+        speedometerPanel.view = this;
+        this.add(speedometerPanel.speedometerPanel);
+        // ENDING OF SPEEDOMETER
 
         SpinnerModel spinnerModel =
                 new SpinnerNumberModel(0, //initial value
@@ -76,11 +82,7 @@ public class CarView extends JFrame implements Observer {
                         100, //max
                         1);//step
         gasSpinner = new JSpinner(spinnerModel);
-        gasSpinner.addChangeListener(new ChangeListener() {
-            public void stateChanged(ChangeEvent e) {
-                gasAmount = (int) ((JSpinner)e.getSource()).getValue();
-            }
-        });
+        gasSpinner.addChangeListener(e -> gasAmount = (int) ((JSpinner)e.getSource()).getValue());
 
         gasPanel.setLayout(new BorderLayout());
         gasPanel.add(gasLabel, BorderLayout.PAGE_START);
@@ -115,6 +117,9 @@ public class CarView extends JFrame implements Observer {
         stopButton.setPreferredSize(new Dimension(X/5-15,200));
         this.add(stopButton);
 
+
+
+
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();
 
@@ -128,12 +133,14 @@ public class CarView extends JFrame implements Observer {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-
-
     @Override
     public void notifyUpdate(List<Vehicle> vehicles) {
+        this.vehicles = vehicles;
         drawPanel.updateVehicleList(vehicles);
         drawPanel.repaint();
+
+        speedometerPanel.updateLabels();
+        speedometerPanel.repaint();
 
     }
 }

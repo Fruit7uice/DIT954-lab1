@@ -33,10 +33,9 @@ public class CarController {
         vehicleBehaviour = new VehicleBehaviour(vehicles);
         animation = new UpdateAnimation(vehicles);
         // Start a new view and send a reference of self
-        frame = new CarView("CarSim 1.0", animation);
+        frame = new CarView("CarSim 1.0", animation, vehicles);
 
         EventHandler eventHandler = new EventHandler(this, frame);
-        eventHandler.addActionsToButtons();
     }
 
 
