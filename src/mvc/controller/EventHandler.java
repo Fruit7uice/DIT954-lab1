@@ -31,6 +31,12 @@ public class EventHandler{
         cc.frame.liftBedButton.addActionListener(e -> cc.vehicleBehaviour.raiseTruckbed());
 
         cc.frame.lowerBedButton.addActionListener(e -> cc.vehicleBehaviour.setTurboOff());
+
+        cc.frame.addCarButton.addActionListener(e -> cc.vehicleBehaviour.addCar());
+
+        cc.frame.removeCarButton.addActionListener(e -> cc.vehicleBehaviour.removeCar());
+
+
     }
 
 }

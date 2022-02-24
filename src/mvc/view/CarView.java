@@ -44,6 +44,9 @@ public class CarView extends JFrame implements Observer {
     public JButton turboOffButton = new JButton("Saab Turbo off");
     public JButton liftBedButton = new JButton("Scania Lift Bed");
     public JButton lowerBedButton = new JButton("Lower Lift Bed");
+    public JButton addCarButton = new JButton("Add car");
+    public JButton removeCarButton = new JButton("Remove car");
+
 
     public JButton startButton = new JButton("Start all cars");
     public JButton stopButton = new JButton("Stop all cars");
@@ -84,7 +87,7 @@ public class CarView extends JFrame implements Observer {
 
         this.add(gasPanel);
 
-        controlPanel.setLayout(new GridLayout(2,4));
+        controlPanel.setLayout(new GridLayout(4,5));
 
         controlPanel.add(gasButton, 0);
         controlPanel.add(turboOnButton, 1);
@@ -92,6 +95,8 @@ public class CarView extends JFrame implements Observer {
         controlPanel.add(brakeButton, 3);
         controlPanel.add(turboOffButton, 4);
         controlPanel.add(lowerBedButton, 5);
+        controlPanel.add(addCarButton, 6);
+        controlPanel.add(removeCarButton, 7);
         controlPanel.setPreferredSize(new Dimension((X/2)+4, 200));
         this.add(controlPanel);
         controlPanel.setBackground(Color.CYAN);
@@ -107,6 +112,22 @@ public class CarView extends JFrame implements Observer {
         stopButton.setForeground(Color.black);
         stopButton.setPreferredSize(new Dimension(X/5-15,200));
         this.add(stopButton);
+
+        /*
+        addCarButton.setBackground(Color.MAGENTA);
+        addCarButton.setForeground(Color.BLACK);
+        addCarButton.setPreferredSize(new Dimension(X/5-15, 200));
+        this.add(addCarButton);
+
+         */
+
+/*
+        removeCarButton.setBackground(Color.MAGENTA);
+        removeCarButton.setForeground(Color.BLACK);
+        removeCarButton.setPreferredSize(new Dimension(X/5-15, 200));
+        this.add(removeCarButton);
+
+ */
 
         // Make the frame pack all it's components by respecting the sizes if possible.
         this.pack();
