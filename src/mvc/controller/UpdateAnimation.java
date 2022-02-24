@@ -42,6 +42,7 @@ public class UpdateAnimation implements ActionListener {
             //validateCollision(vehicle, controller.walls);
             //System.out.println("Collision checking?");
             vehicle.move();
+
             int x = Math.round(vehicle.getX());
             int y = Math.round(vehicle.getY());
             moveit(vehicle, x, y);
