@@ -39,7 +39,7 @@ public class UpdateAnimation implements ActionListener {
 
     public void update(){
         for (Vehicle vehicle : vehicles) {
-            //validateCollision(vehicle, controller.walls);
+            validateCollision(vehicle, CarController.walls);
             //System.out.println("Collision checking?");
             vehicle.move();
 

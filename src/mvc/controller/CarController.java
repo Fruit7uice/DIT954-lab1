@@ -16,7 +16,7 @@ public class CarController {
 
     // Model variables
     VehicleBehaviour vehicleBehaviour;
-    List<Positionable> walls;
+    static List<Positionable> walls;
     UpdateAnimation animation;
 
     // member fields:

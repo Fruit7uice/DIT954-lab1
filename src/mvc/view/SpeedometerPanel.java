@@ -16,9 +16,12 @@ public class SpeedometerPanel extends JPanel {
     }
 
 
+
     void initPanel(){
         speedometerPanel.setLayout(grid);
     }
+
+
 
     void updateLabels(){
         speedometerPanel.removeAll();
@@ -35,6 +38,7 @@ public class SpeedometerPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        updateLabels();
         //updateView();
     }
 }
