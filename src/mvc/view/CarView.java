@@ -126,12 +126,8 @@ public class CarView extends JFrame implements Observer {
     @Override
     public void notifyUpdate(List<Vehicle> vehicles) {
         //drawPanel.setVehicleImage(vehicle);
-
-        for (Vehicle vehicle:vehicles) {
-            drawPanel.initCarImages(vehicle);
-            drawPanel.updateVehiclePoint(vehicle);
+            drawPanel.updateVehicleList(vehicles);
             drawPanel.repaint();
-        }
 
     }
 }

@@ -4,6 +4,7 @@ import main.Vehicle;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.List;
 import javax.swing.*;
 
 // This panel represent the animated part of the view with the car images.
@@ -13,7 +14,7 @@ public class DrawPanel extends JPanel {
     // Just a single image, TODO: Generalize
     BufferedImage vehicleImage;
 
-
+    List<Vehicle> vehicles;
     // To keep track of a single cars position
     Point vehiclePoint = new Point();
 
@@ -38,18 +39,27 @@ public class DrawPanel extends JPanel {
         vehiclePoint.y = vehicle.point.y;
     }
 
+    void updateVehicleList(List<Vehicle> vehicles){
+        this.vehicles = vehicles;
+    }
+
+
     // This method is called each time the panel updates/refreshes/repaints itself
     // TODO: Change to suit your needs.
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(vehicleImage, vehiclePoint.x, vehiclePoint.y, null);
+        for (Vehicle vehicle:vehicles) {
+
+            initCarImages(vehicle);
+            updateVehiclePoint(vehicle);
+            g.drawImage(vehicleImage, vehiclePoint.x, vehiclePoint.y, null);
+        }
         //g.drawRect(vehiclePoint.x, vehiclePoint.y, 50, 50);
         /*
         g.drawImage(volvoImage, volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
         g.drawImage(saabImage, saabPoint.x, saabPoint.y, null);
         g.drawImage(scaniaImage, scaniaPoint.x, scaniaPoint.y, null);
-
          */
     }
 }
