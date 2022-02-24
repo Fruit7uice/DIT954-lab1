@@ -1,66 +1,36 @@
 package mvc.controller;
 
-public class EventHandler {
+import mvc.view.CarView;
+
+public class EventHandler{
+
+    CarController cc;
+    CarView view;
+    public EventHandler(CarController cc, CarView view) {
+        this.cc = cc;
+        this.view = view;
+        this.addActionsToButtons();
+    }
 
 
-    //TODO THIS IS CONTROLLER BEHAVIOR, CHANGE LATER!
 
-    // This actionListener is for the gas button only
-    // TODO: Create more for each component as necessary
-        gasButton.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            vehicleV.gas(gasAmount);
-        }
-    });
+    public void addActionsToButtons() {
 
-        brakeButton.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            vehicleV.brake(brakeAmount);
-        }
-    });
+        cc.frame.gasButton.addActionListener(e -> cc.vehicleBehaviour.gas(view.gasAmount));
 
-        startButton.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            vehicleV.startEngine();
-        }
-    });
+        cc.frame.brakeButton.addActionListener(e -> cc.vehicleBehaviour.brake(view.gasAmount));
 
-        stopButton.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            vehicleV.stopEngine();
-        }
-    });
+        cc.frame.startButton.addActionListener(e -> cc.vehicleBehaviour.startEngine());
 
+        cc.frame.stopButton.addActionListener(e -> cc.vehicleBehaviour.stopEngine());
 
-        turboOnButton.addActionListener(new ActionListener(){
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            vehicleV.setTurboOn();
-        }
-    });
+        cc.frame.turboOnButton.addActionListener(e -> cc.vehicleBehaviour.setTurboOn());
 
-        turboOffButton.addActionListener(new ActionListener(){
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            vehicleV.setTurboOff();
-        }
-    });
+        cc.frame.turboOffButton.addActionListener(e -> cc.vehicleBehaviour.setTurboOff());
 
-        liftBedButton.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            vehicleV.raiseTruckbed();
-        }
-    });
+        cc.frame.liftBedButton.addActionListener(e -> cc.vehicleBehaviour.raiseTruckbed());
 
-        lowerBedButton.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            vehicleV.lowerTruckBed();
-        }
-    });
+        cc.frame.lowerBedButton.addActionListener(e -> cc.vehicleBehaviour.setTurboOff());
+    }
+
 }

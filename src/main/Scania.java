@@ -17,12 +17,12 @@ public class Scania extends Truck {
      * The constructor of the car class.
      */
     public Scania() {
-        super(0, 770, Color.BLACK, "Scania", 2,200,2.5,4, 20, true, false);
+        super(0, 770, Color.BLACK, "Scania", 2,200,2.5,4, 20, true, false, "pics/Scania.jpg");
         truckBedAngle = 0;
     }
 
-    public Scania(double currentSpeed, double enginePower, Color color, String modelName, int xCord, int yCord, double width, double height, double lenght, boolean hasTruckBed, boolean turboOn) {
-        super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, lenght, hasTruckBed, turboOn);
+    public Scania(double currentSpeed, double enginePower, Color color, String modelName, int xCord, int yCord, double width, double height, double lenght, boolean hasTruckBed, boolean turboOn, String imagePath) {
+        super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, lenght, hasTruckBed, turboOn, imagePath);
         this.truckBedAngle = 0;
     }
 

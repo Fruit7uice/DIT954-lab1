@@ -2,6 +2,7 @@ package mvc.view;
 
 
 
+import main.Vehicle;
 import mvc.Observer;
 import mvc.controller.UpdateAnimation;
 
@@ -9,6 +10,7 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
+import java.util.List;
 
 
 /**
@@ -33,18 +35,18 @@ public class CarView extends JFrame implements Observer {
 
     JPanel gasPanel = new JPanel();
     JSpinner gasSpinner = new JSpinner();
-    int gasAmount = 0;
+    public int gasAmount = 0;
     JLabel gasLabel = new JLabel("Amount of gas");
 
-    JButton gasButton = new JButton("Gas");
-    JButton brakeButton = new JButton("Brake");
-    JButton turboOnButton = new JButton("Saab Turbo on");
-    JButton turboOffButton = new JButton("Saab Turbo off");
-    JButton liftBedButton = new JButton("Scania Lift Bed");
-    JButton lowerBedButton = new JButton("Lower Lift Bed");
+    public JButton gasButton = new JButton("Gas");
+    public JButton brakeButton = new JButton("Brake");
+    public JButton turboOnButton = new JButton("Saab Turbo on");
+    public JButton turboOffButton = new JButton("Saab Turbo off");
+    public JButton liftBedButton = new JButton("Scania Lift Bed");
+    public JButton lowerBedButton = new JButton("Lower Lift Bed");
 
-    JButton startButton = new JButton("Start all cars");
-    JButton stopButton = new JButton("Stop all cars");
+    public JButton startButton = new JButton("Start all cars");
+    public JButton stopButton = new JButton("Stop all cars");
 
     // Constructor
     public CarView(String frameName, UpdateAnimation updateAnimation){
@@ -120,8 +122,16 @@ public class CarView extends JFrame implements Observer {
     }
 
 
+
     @Override
-    public void notifyUpdate() {
-        drawPanel.repaint();
+    public void notifyUpdate(List<Vehicle> vehicles) {
+        //drawPanel.setVehicleImage(vehicle);
+
+        for (Vehicle vehicle:vehicles) {
+            drawPanel.initCarImages(vehicle);
+            drawPanel.updateVehiclePoint(vehicle);
+            drawPanel.repaint();
+        }
+
     }
 }

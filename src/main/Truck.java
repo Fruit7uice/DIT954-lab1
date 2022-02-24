@@ -18,8 +18,8 @@ public abstract class Truck extends Vehicle {
      * Constructor for the yes.Truck-class.
      */
 
-    public Truck(double currentSpeed, double enginePower, Color color, String modelName, int xCord, int yCord, double width, double height, double lenght, boolean hasTruckBed, boolean turboOn) {
-        super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, lenght);
+    public Truck(double currentSpeed, double enginePower, Color color, String modelName, int xCord, int yCord, double width, double height, double lenght, boolean hasTruckBed, boolean turboOn, String imagePath) {
+        super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, lenght, imagePath);
         this.hasTruckBed = hasTruckBed;
         this.turboOn = turboOn;
     }

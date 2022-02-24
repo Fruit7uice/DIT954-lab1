@@ -27,7 +27,7 @@ public class Transporter extends Truck implements ITransporter<Car> {
      * The default constructor of the transporter class.
      */
     public Transporter() {
-        super(0, 500, Color.BLACK, "yes.Scania-R-Topline", 0, 0, 2.5, 4, 20, true, false);
+        super(0, 500, Color.BLACK, "Scania-R-Topline", 0, 0, 2.5, 4, 20, true, true, "");
         rampPos = RampPosition.UP;
         loadable = true;
         this.maxCars = 10;
@@ -51,8 +51,8 @@ public class Transporter extends Truck implements ITransporter<Car> {
      * @param loadable decides if this is loadable.
      * @param maxCars maximum amount of cargo for the transporter.
      */
-    public Transporter(double currentSpeed, double enginePower, Color color, String modelName, int xCord, int yCord, double width, double height, double length, boolean hasTruckBed, boolean turboOn, RampPosition rampPos, boolean loadable, int maxCars) {
-        super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, length, hasTruckBed, turboOn);
+    public Transporter(double currentSpeed, double enginePower, Color color, String modelName, int xCord, int yCord, double width, double height, double length, boolean hasTruckBed, boolean turboOn, RampPosition rampPos, boolean loadable, int maxCars, String imagePath) {
+        super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, length, hasTruckBed, turboOn, imagePath);
         this.rampPos = rampPos;
         this.loadable = loadable;
         this.maxCars = maxCars;

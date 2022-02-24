@@ -34,8 +34,8 @@ public class CarFerry extends Vehicle implements ITransporter<Car> {
      * @param length of this.
      * @param maxCapacity maximum capacity of this.
      */
-    public CarFerry(double currentSpeed, double enginePower, Color color, String modelName, int xCord, int yCord, double width, double height, double length, int maxCapacity) {
-        super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, length);
+    public CarFerry(double currentSpeed, double enginePower, Color color, String modelName, int xCord, int yCord, double width, double height, double length, int maxCapacity, String imagePath) {
+        super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, length, imagePath);
         this.ferryCargo = new ArrayDeque<>(maxCapacity) {
         };
         rampPos = RampPosition.UP;
@@ -45,7 +45,7 @@ public class CarFerry extends Vehicle implements ITransporter<Car> {
      * A default constructor for the yes.CarFerry class.
      */
     public CarFerry(){
-        super(0, 1980, Color.WHITE, "FerryDelux", 0,0, 15, 4, 91);
+        super(0, 1980, Color.WHITE, "FerryDelux", 0,0, 15, 4, 91, "");
         maxCapacity = 75;
         this.ferryCargo = new ArrayDeque<>(75);
         rampPos = RampPosition.UP;

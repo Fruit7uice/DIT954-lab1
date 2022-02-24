@@ -1,6 +1,10 @@
 package main;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * A representation of what attributes and methods a vehicle should have.
@@ -18,6 +22,12 @@ public abstract class Vehicle extends Collidable implements IMoveable {
     public String modelName; // The car model name
     private double dX = 1;
     private double dY;
+    public Point point = new Point();
+    //public String imagePath;
+    BufferedImage vehicleImage;
+    //File imageFile;
+
+
 
     /**
      * The constructor for the yes.Vehicle class
@@ -34,14 +44,41 @@ public abstract class Vehicle extends Collidable implements IMoveable {
      */
 
     public Vehicle(double currentSpeed, double enginePower, Color color, String modelName, int xCord, int yCord,
-                   double width, double height, double length) {
+                   double width, double height, double length, String imagePath) {
         super(xCord, yCord, width, height, length);
         this.currentSpeed = currentSpeed;
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
+        point.x = xCord;
+        point.y = yCord;
+        //this.imagePath = imagePath;
+        //imageFile = createImageFile(imagePath);
+        assignImageToVehicle(imagePath);
+
     }
 
+
+    public BufferedImage getVehicleImage() {
+        return vehicleImage;
+    }
+
+    void assignImageToVehicle(String imagePath) {
+        try {
+            //vehicleImage = ImageIO.read(imageFile);
+            vehicleImage = ImageIO.read(Vehicle.class.getResourceAsStream(imagePath));
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /*
+    File createImageFile(String imagePath) {
+        this.imagePath = imagePath;
+        return new File(imagePath);
+    }
+
+     */
 
     /**
      * Gets the color of a car

@@ -1,6 +1,8 @@
 package main;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 /**
  * A specification of the car class, describing a yes.Saab95.
@@ -10,6 +12,8 @@ import java.awt.*;
  * @author Joel Leiditz Thorsson
  */
 public class Saab95 extends Car{
+    //public String imagePath = "pics/Saab95.jpg";
+
 
     /**
      * Variable that holds two possible values, the turbo is either on or not.
@@ -21,14 +25,17 @@ public class Saab95 extends Car{
      * variables declared in yes.Car.
      */
     public Saab95(){
-        super(0, 125, Color.red, "Saab95", 2, 100, 2, 1.9, 5.9, 4);
+        super(0, 125, Color.red, "Saab95", 2, 100, 2, 1.9, 5.9, 4, "pics/Saab95.jpg");
         turboOn = false;
         stopEngine();
+        //assignImageToVehicle(createImageFile(super.imagePath));
     }
 
-    public Saab95(double currentSpeed, double enginePower, Color color, String modelName, int xCord, int yCord, double width, double height, double lenght, int nrDoors, boolean turboOn) {
-        super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, lenght, nrDoors);
+    public Saab95(double currentSpeed, double enginePower, Color color, String modelName, int xCord, int yCord,
+                  double width, double height, double lenght, int nrDoors, boolean turboOn, String imagePath) {
+        super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, lenght, nrDoors, imagePath);
         this.turboOn = turboOn;
+        //assignImageToVehicle(createImageFile(imagePath));
     }
 
     /**
