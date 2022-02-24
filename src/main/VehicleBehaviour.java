@@ -83,9 +83,10 @@ public class VehicleBehaviour{
 
     public void addCar(){
         if(vehicles.size() > 10){
-            Vehicle newVehicle = new Saab95();
+            Vehicle newVehicle =  VehicleFactory.createScania();
             newVehicle.setXCord(random.nextInt(0,800));
             newVehicle.setYCord(random.nextInt(0,600));
+
         }
     }
 

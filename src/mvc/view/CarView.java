@@ -22,8 +22,8 @@ import java.util.List;
  **/
 
 public class CarView extends JFrame implements Observer {
-    private static final int X = 800;
-    private static final int Y = 800;
+    private static final int X = 850;
+    private static final int Y = 850;
 
     // The controller member
     public DrawPanel drawPanel = new DrawPanel(X, Y-240);
