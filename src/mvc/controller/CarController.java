@@ -41,20 +41,6 @@ public class CarController {
 
 
 
-    void validateCollision(Vehicle vehicle, List<Positionable> positionables) {
-
-        if (vehicle.isCollisionWithWalls()) {
-            System.out.println("Collision detected");
-            vehicle.collisionBehavior(vehicle);
-            vehicle.stopEngine();
-
-            vehicle.startEngine();
-            System.out.println(vehicle.latestCollision);
-        }
-    }
-
-
-
 
 
 

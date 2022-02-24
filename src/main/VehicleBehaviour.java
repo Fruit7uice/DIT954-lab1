@@ -26,8 +26,8 @@ public class VehicleBehaviour{
         double gas = ((double) amount) / 100;
         for (Vehicle vehicle : vehicles) {
             vehicle.gas(gas);
-            System.out.println("Gas amount");
         }
+        System.out.println("Gas amount");
     }
 
     public void brake(int amount) {
@@ -35,6 +35,7 @@ public class VehicleBehaviour{
         for (Vehicle vehicle : vehicles) {
             vehicle.brake(brake);
         }
+        System.out.println("brake");
     }
 
     public void startEngine() {
@@ -82,16 +83,21 @@ public class VehicleBehaviour{
     }
 
     public void addCar(){
-        if(vehicles.size() > 10){
+        if(vehicles.size() < 10){
             Vehicle newVehicle = new Saab95();
-            newVehicle.setXCord(random.nextInt(0,800));
-            newVehicle.setYCord(random.nextInt(0,600));
+            newVehicle.setXCord(random.nextInt(0,700));
+            newVehicle.setYCord(random.nextInt(0,500));
+            vehicles.add(newVehicle);
+
+
+
         }
     }
 
     public void removeCar(){
         if(vehicles.size() > 0){
-            vehicles.remove(0);
+            Vehicle first = vehicles.get(0);
+            vehicles.remove(first);
         }
     }
 

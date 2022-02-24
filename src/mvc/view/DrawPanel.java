@@ -29,12 +29,12 @@ public class DrawPanel extends JPanel {
 
     }
 
-    void initCarImages(Vehicle vehicle) {
+    private void updateVehicleImage(Vehicle vehicle) {
         vehicleImage = vehicle.getVehicleImage();
     }
 
 
-    void updateVehiclePoint(Vehicle vehicle){
+    private void updateVehiclePoint(Vehicle vehicle){
         vehiclePoint.x = vehicle.point.x;
         vehiclePoint.y = vehicle.point.y;
     }
@@ -50,16 +50,10 @@ public class DrawPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         for (Vehicle vehicle:vehicles) {
-
-            initCarImages(vehicle);
+            updateVehicleImage(vehicle);
             updateVehiclePoint(vehicle);
             g.drawImage(vehicleImage, vehiclePoint.x, vehiclePoint.y, null);
         }
         //g.drawRect(vehiclePoint.x, vehiclePoint.y, 50, 50);
-        /*
-        g.drawImage(volvoImage, volvoPoint.x, volvoPoint.y, null); // see javadoc for more info on the parameters
-        g.drawImage(saabImage, saabPoint.x, saabPoint.y, null);
-        g.drawImage(scaniaImage, scaniaPoint.x, scaniaPoint.y, null);
-         */
     }
 }

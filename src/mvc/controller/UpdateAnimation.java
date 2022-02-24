@@ -42,21 +42,10 @@ public class UpdateAnimation implements ActionListener {
             //validateCollision(vehicle, controller.walls);
             //System.out.println("Collision checking?");
             vehicle.move();
-            System.out.println(vehicle.point.x);
             int x = Math.round(vehicle.getX());
             int y = Math.round(vehicle.getY());
             moveit(vehicle, x, y);
             System.out.println(vehicles.size());
-/*
-            if (vehicle.getClass().equals(Volvo240.class)){
-                System.out.println("Volvo: " + vehicle.getY());
-            }else if (vehicle.getClass().equals(Saab95.class)){
-                System.out.println("Saab95: " + vehicle.getY());
-            }
-
- */
-
-
         }
         notifyObservers(vehicles);
 
@@ -66,6 +55,18 @@ public class UpdateAnimation implements ActionListener {
     public void moveit(Vehicle vehicle, int x, int y) {
         vehicle.point.x = x;
         vehicle.point.y = y;
+    }
+
+    void validateCollision(Vehicle vehicle, List<Positionable> positionables) {
+
+        if (vehicle.isCollisionWithWalls()) {
+            System.out.println("Collision detected");
+            vehicle.collisionBehavior(vehicle);
+            vehicle.stopEngine();
+
+            vehicle.startEngine();
+            System.out.println(vehicle.latestCollision);
+        }
     }
 
 
