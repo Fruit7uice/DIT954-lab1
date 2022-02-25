@@ -89,14 +89,6 @@ public abstract class Vehicle extends Collidable implements IMoveable {
         return color;
     }
 
-    /**
-     * Sets the color of the car to whatever is the input
-     *
-     * @param clr is the color which is inputted.
-     */
-    public void setColor(Color clr) {
-        color = clr;
-    }
 
 
     /**
