@@ -14,7 +14,6 @@ import java.util.Deque;
 public class Transporter extends Truck implements ITransporter<Car> {
 
     private RampPosition rampPos;
-    private boolean loadable;
     private int maxCars;
     private double maxCarWidth = 2.0;
     private double maxCarHeight = 2.0;
@@ -29,7 +28,6 @@ public class Transporter extends Truck implements ITransporter<Car> {
     public Transporter() {
         super(0, 500, Color.BLACK, "Scania-R-Topline", 0, 0, 2.5, 4, 20, true, true, "");
         rampPos = RampPosition.UP;
-        loadable = true;
         this.maxCars = 10;
     }
 
@@ -54,7 +52,6 @@ public class Transporter extends Truck implements ITransporter<Car> {
     public Transporter(double currentSpeed, double enginePower, Color color, String modelName, int xCord, int yCord, double width, double height, double length, boolean hasTruckBed, boolean turboOn, RampPosition rampPos, boolean loadable, int maxCars, String imagePath) {
         super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, length, hasTruckBed, turboOn, imagePath);
         this.rampPos = rampPos;
-        this.loadable = loadable;
         this.maxCars = maxCars;
     }
 

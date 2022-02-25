@@ -44,7 +44,7 @@ public class CarFerry extends Vehicle implements ITransporter<Car> {
     /**
      * A default constructor for the yes.CarFerry class.
      */
-    public CarFerry(){
+    protected CarFerry(){
         super(0, 1980, Color.WHITE, "FerryDelux", 0,0, 15, 4, 91, "");
         maxCapacity = 75;
         this.ferryCargo = new ArrayDeque<>(75);
@@ -59,26 +59,6 @@ public class CarFerry extends Vehicle implements ITransporter<Car> {
     @Override
     protected double speedFactor() {
         return 5;
-    }
-
-    /**
-     * Getter for the position of the ramp.
-     * @return the position of the ramp, ramp is either up or down.
-     */
-
-
-    public RampPosition getRampPos() {
-        return rampPos;
-    }
-
-    /**
-     * Setter for the position of the ramp.
-     * @param rampPos is the position of the ramp.
-     */
-
-
-    public void setRampPos(RampPosition rampPos) {
-        this.rampPos = rampPos;
     }
 
     /**
