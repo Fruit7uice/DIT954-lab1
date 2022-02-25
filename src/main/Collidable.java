@@ -3,35 +3,77 @@ package main;
 public abstract class Collidable extends Positionable {
 
     public CollisionDir latestCollision = CollisionDir.NONE;
+    private boolean isCollision = false;
 
     public Collidable(int xCord, int yCord, double width, double height, double length) {
         super(xCord, yCord, width, height, length);
     }
 
-    public boolean isCollisionWithOther(Positionable other) {
+    public boolean intersects(Collidable other) {
+        boolean above = other.getMaxY() < getY();
+        boolean below = other.getY() > getMaxY();
+        boolean leftOf = other.getMaxX() < getX();
+        boolean rightOf = other.getX() > getMaxX();
+        setLatestCollisionDirection(above, below, leftOf, rightOf);
+        return !(above || below || leftOf || rightOf);
+    }
+
+    public boolean isCollision(Collidable other) {
         boolean above = other.getMaxY() < this.getY();
         boolean below = other.getY() > this.getMaxY();
         boolean leftOf = other.getMaxX() < this.getX();
         boolean rightOf = other.getX() > this.getMaxX();
-        setLatestCollisionDirection(above, below, leftOf, rightOf);
-        return !(above || below || leftOf || rightOf);
+        if (!(above || below || leftOf || rightOf)){
+            isCollision = true;
+            setLatestCollisionDirection(above, below, leftOf, rightOf);
+        }
+        else {
+            isCollision = false;
+        }
+        return isCollision;
+    }
+
+
+    public void vehicleCollision(Vehicle vehicle, Collidable other) {
+        //check X movement bounce
+        if (getMaxX() + (vehicle.getdX()* vehicle.currentSpeed) > other.getX() && getX() + (vehicle.getdX()* vehicle.currentSpeed) < other.getMaxX() &&
+                getMaxY() > other.getY() && getY() < other.getMaxY()) {
+            vehicle.stopEngine();
+            vehicle.setdX(vehicle.getdX()* -1);
+            vehicle.startEngine();
+            vehicle.move();
+        }
+
+
+
+
+        //check Y movement bounce
+        if (getMaxX()> other.getX() && getX() < other.getMaxX() &&
+                getMaxY() + (vehicle.getdY()* vehicle.currentSpeed) > other.getY() && getY() + (vehicle.getdY()* vehicle.currentSpeed) < other.getMaxY()) {
+            vehicle.stopEngine();
+            vehicle.setdY(vehicle.getdY()*-1);
+            vehicle.startEngine();
+            vehicle.move();
+        }
+
 
     }
 
+    /*
     public boolean isCollisionWithWalls() {
-        boolean toMuchRight = this.getMaxX() > 700;
-        boolean toMuchLeft = this.getX() < 0;
-        boolean toMuchUp = this.getY() < 0;
-        boolean toMuchDown = this.getMaxY() > 600;
+        boolean toMuchRight = this.getMaxX() < 700;
+        boolean toMuchLeft = this.getX() > 0;
+        boolean toMuchUp = this.getY() > 0;
+        boolean toMuchDown = this.getMaxY() < 600;
 
 
-        if (toMuchRight) {
+        if (!toMuchRight) {
             latestCollision = CollisionDir.RIGHT;
-        } else if (toMuchLeft) {
+        } else if (!toMuchLeft) {
             latestCollision = CollisionDir.LEFT;
-        } else if (toMuchUp) {
+        } else if (!toMuchUp) {
             latestCollision = CollisionDir.ABOVE;
-        } else if (toMuchDown) {
+        } else if (!toMuchDown) {
             latestCollision = CollisionDir.BELOW;
         } else {
             latestCollision = CollisionDir.NONE;
@@ -41,37 +83,33 @@ public abstract class Collidable extends Positionable {
 
     }
 
+     */
+
     private void setLatestCollisionDirection(boolean above, boolean below, boolean leftOf, boolean rightOf) {
-        if (!below) {
-            latestCollision = CollisionDir.BELOW;
-        } else if (!above) {
-            latestCollision = CollisionDir.ABOVE;
-        } else if (!leftOf) {
-            latestCollision = CollisionDir.LEFT;
-        } else if (!rightOf) {
-            latestCollision = CollisionDir.RIGHT;
+        if ((above || below)) {
+            latestCollision = CollisionDir.HORISONTAL;
+        } else if ((leftOf || rightOf)) {
+            latestCollision = CollisionDir.VERTICAL;
         } else {
             latestCollision = CollisionDir.NONE;
         }
     }
 
     public void collisionBehavior(Vehicle vehicle) {
-        if (vehicle.latestCollision.equals(Vehicle.CollisionDir.ABOVE) ||
-                vehicle.latestCollision.equals(Vehicle.CollisionDir.BELOW)) {
+        if (vehicle.latestCollision.equals(CollisionDir.HORISONTAL)) {
             vehicle.setdY(-vehicle.getdY());
-            vehicle.move();
+            System.out.println("Y-Direction inverted");
         }
-        if (vehicle.latestCollision.equals(Vehicle.CollisionDir.LEFT) ||
-                vehicle.latestCollision.equals(Vehicle.CollisionDir.RIGHT)) {
+        if (vehicle.latestCollision.equals(CollisionDir.VERTICAL)) {
             vehicle.setdX(-vehicle.getdX());
             vehicle.move();
-            System.out.println("Direction inverted");
+            System.out.println("X-Direction inverted");
         }
     }
 
 
     public enum CollisionDir {
-        ABOVE, BELOW, LEFT, RIGHT, NONE;
+        VERTICAL, HORISONTAL, NONE;
     }
 
 
