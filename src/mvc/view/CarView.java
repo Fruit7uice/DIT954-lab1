@@ -4,7 +4,7 @@ package mvc.view;
 
 import main.Vehicle;
 import mvc.Observer;
-import mvc.controller.UpdateAnimation;
+import main.UpdateAnimation;
 
 import javax.swing.*;
 import java.awt.*;
