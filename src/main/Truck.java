@@ -15,7 +15,7 @@ public abstract class Truck extends Vehicle {
     private boolean turboOn;
 
     /**
-     * Constructor for the yes.Truck-class.
+     * Constructor for the Truck-class.
      */
 
     public Truck(double currentSpeed, double enginePower, Color color, String modelName, int xCord, int yCord, double width, double height, double lenght, boolean hasTruckBed, boolean turboOn, String imagePath) {
