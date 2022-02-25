@@ -4,11 +4,9 @@ package mvc.view;
 
 import main.Vehicle;
 import mvc.Observer;
-import mvc.controller.UpdateAnimation;
+import main.UpdateAnimation;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package mvc.controller;
+package main;
 
 import main.*;
 import mvc.Observer;
