@@ -81,8 +81,8 @@ public class VehicleBehaviour{
     public void addCar(){
         if(vehicles.size() < 10){
             Vehicle newVehicle =  VehicleFactory.createScania();
-            newVehicle.setXCord(random.nextInt(0,800));
-            newVehicle.setYCord(random.nextInt(0,600));
+            newVehicle.setXCord(random.nextInt(100,700));
+            newVehicle.setYCord(random.nextInt(100,500));
             newVehicle.setdX(random.nextInt(-1,1));
             newVehicle.setdY(random.nextInt(-1,1));
             directionBehaviour(newVehicle);
