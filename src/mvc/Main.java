@@ -12,10 +12,10 @@ public class Main {
     public static void main(String[] args) {
         List<Collidable> collidables = new ArrayList<>();
 
-        collidables.add(new Wall(800, 0, 100, 600, 0)); // right wall
-        collidables.add(new Wall(-100, 0, 100, 600, 0)); // Left Wall
-        collidables.add(new Wall(0, -100, 800, 100, 0)); // Top Wall
-        collidables.add(new Wall(0, 600, 800, 100, 0)); // Bottom Wall
+        collidables.add(new Wall(750, 0, 0, 600, 0)); // right wall
+        collidables.add(new Wall(0, 0, 0, 600, 0)); // Left Wall
+        collidables.add(new Wall(0, 0, 800, 0, 0)); // Top Wall
+        collidables.add(new Wall(0, 600, 800, 0, 0)); // Bottom Wall
 
         List<Vehicle> vehicles = new ArrayList<>();
 

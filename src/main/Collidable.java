@@ -36,7 +36,7 @@ public abstract class Collidable extends Positionable {
 
     public void vehicleCollision(Vehicle vehicle, Collidable other) {
         //check X movement bounce
-        if (getMaxX() + (vehicle.getdX()* vehicle.currentSpeed) > other.getX() && getX() + (vehicle.getdX()* vehicle.currentSpeed) < other.getMaxX() &&
+        if (getMaxX() + vehicle.getdX() > other.getX() && getX() + vehicle.getdX() < other.getMaxX() &&
                 getMaxY() > other.getY() && getY() < other.getMaxY()) {
             vehicle.stopEngine();
             vehicle.setdX(vehicle.getdX()* -1);
@@ -49,7 +49,7 @@ public abstract class Collidable extends Positionable {
 
         //check Y movement bounce
         if (getMaxX()> other.getX() && getX() < other.getMaxX() &&
-                getMaxY() + (vehicle.getdY()* vehicle.currentSpeed) > other.getY() && getY() + (vehicle.getdY()* vehicle.currentSpeed) < other.getMaxY()) {
+                getMaxY() + vehicle.getdY() > other.getY() && getY() + vehicle.getdY() < other.getMaxY()) {
             vehicle.stopEngine();
             vehicle.setdY(vehicle.getdY()*-1);
             vehicle.startEngine();
