@@ -7,8 +7,6 @@ import mvc.Observer;
 import mvc.controller.UpdateAnimation;
 
 import javax.swing.*;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.util.List;
 
@@ -27,7 +25,7 @@ public class CarView extends JFrame implements Observer {
 
     List<Vehicle> vehicles;
     // The controller member
-    public DrawPanel drawPanel = new DrawPanel(X, Y-240);
+    public DrawVehicle drawPanel = new DrawVehicle(X, Y-240);
 
     //Object obj = new Object(); // has a
     //String s = new Object().toString(); // Usage dependecie
