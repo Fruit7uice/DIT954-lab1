@@ -1,9 +1,6 @@
 package mvc.controller;
 
-import main.Positionable;
-import main.Saab95;
-import main.Vehicle;
-import main.Volvo240;
+import main.*;
 import mvc.Observer;
 import mvc.view.*;
 
@@ -23,6 +20,7 @@ public class UpdateAnimation implements ActionListener {
     //DrawPanel drawPanel;
 
     //EventHandler eventHandler = new EventHandler();
+    public List<Collidable> collidables;
 
     private List<Vehicle> vehicles;
     // The delay (ms) corresponds to 20 updates a sec (hz)
@@ -39,14 +37,14 @@ public class UpdateAnimation implements ActionListener {
 
     public void update(){
         for (Vehicle vehicle : vehicles) {
-            validateCollision(vehicle, CarController.walls);
+            validateCollision(vehicle, collidables);
             //System.out.println("Collision checking?");
             vehicle.move();
 
-            int x = Math.round(vehicle.getX());
-            int y = Math.round(vehicle.getY());
+            int x = (int)Math.round(vehicle.getX());
+            int y = (int)Math.round(vehicle.getY());
             moveit(vehicle, x, y);
-            System.out.println(vehicles.size());
+            //System.out.println(vehicles.size());
         }
         notifyObservers(vehicles);
 
@@ -58,18 +56,27 @@ public class UpdateAnimation implements ActionListener {
         vehicle.point.y = y;
     }
 
-    void validateCollision(Vehicle vehicle, List<Positionable> positionables) {
+    void validateCollision(Vehicle vehicle, List<Collidable> collidables) {
+        for (Collidable c:collidables) {
+            //Vehicle temp = new Volvo240((int) (vehicle.getX()+(1* vehicle.getdX())), (int) (vehicle.getY() + (1* vehicle.getdY())));
+            vehicle.vehicleCollision(vehicle, c);
+            /*
+            if (temp.intersects(c)) { // vehicle.isCollisionWithWalls()
+                System.out.println(vehicle.latestCollision);
+                //System.out.println("Collision detected");
+                vehicle.stopEngine();
+                vehicle.collisionBehavior(vehicle);
 
-        if (vehicle.isCollisionWithWalls()) {
-            System.out.println("Collision detected");
-            vehicle.collisionBehavior(vehicle);
-            vehicle.stopEngine();
+                vehicle.startEngine();
 
-            vehicle.startEngine();
-            System.out.println(vehicle.latestCollision);
+            }
+
+             */
         }
+
     }
 
+    //Observer methods.
 
     @Override
     public void actionPerformed(ActionEvent e) {

@@ -42,7 +42,7 @@ public class Saab95 extends Car{
      * Turns on the turbo for the created object
      * by calling for the rule of the variable turboOn to be TRUE.
      */
-    protected void setTurboOn(){
+    public void setTurboOn(){
         turboOn = true;
     }
 
@@ -50,7 +50,7 @@ public class Saab95 extends Car{
      * Turns off the turbo for the created object
      * by calling for the rule of the variable turboOn to be FALSE.
      */
-    protected void setTurboOff(){
+    public void setTurboOff(){
         turboOn = false;
     }
 
@@ -65,4 +65,7 @@ public class Saab95 extends Car{
         if(turboOn) turbo = 1.3;
         return getEnginePower() * 0.01 * turbo;
     }
+
+
+
 }

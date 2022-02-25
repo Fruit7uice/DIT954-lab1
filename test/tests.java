@@ -153,24 +153,20 @@ public class tests {
         assertEquals(transporter.getRampPos(), RampPosition.UP);
     }
 
-/*    @Test
+    @Test
     public void loadTransporter(){
         transporter.setRampPos(RampPosition.DOWN);
         transporter.load(volvo240);
         assertEquals(volvo240 ,transporter.getCargo().getFirst());
     }
 
- */
-
-/*    @Test
+    @Test
     public void unloadTransporter(){
         transporter.setRampPos(RampPosition.DOWN);
         transporter.load(volvo240);
         transporter.unload();
         assertEquals(null, transporter.getCargo().peek());
     }
-
- */
 
     @Test
     public void testWorkshop(){
