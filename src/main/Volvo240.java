@@ -28,6 +28,11 @@ public class Volvo240 extends Car {
 
     }
 
+    public Volvo240(int x, int y) {
+        super(0, 100, Color.black, "Volvo240", x, y, 1.8, 1.9, 5.8, 4, "pics/Volvo240.jpg");
+    }
+
+
 
     public Volvo240(double currentSpeed, double enginePower, Color color, String modelName, int xCord, int yCord, double width, double height, double lenght, int nrDoors, String imagePath) {
         super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, lenght, nrDoors, imagePath);

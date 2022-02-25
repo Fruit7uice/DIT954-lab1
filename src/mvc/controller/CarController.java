@@ -16,7 +16,7 @@ public class CarController {
 
     // Model variables
     VehicleBehaviour vehicleBehaviour;
-    static List<Positionable> walls;
+    List<Collidable> collidables;
     UpdateAnimation animation;
 
     // member fields:
@@ -24,14 +24,15 @@ public class CarController {
     public CarView frame;
 
 
-    public CarController(List<Positionable> walls, List<Vehicle> vehicles) {
-        this.walls = walls;
+    public CarController(List<Collidable> collidables, List<Vehicle> vehicles) {
+        this.collidables = collidables;
         this.vehicles = vehicles;
 
 
         // Model package
         vehicleBehaviour = new VehicleBehaviour(vehicles);
         animation = new UpdateAnimation(vehicles);
+        animation.collidables = collidables;
         // Start a new view and send a reference of self
         frame = new CarView("CarSim 1.0", animation, vehicles);
 
