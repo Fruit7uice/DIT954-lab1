@@ -20,9 +20,9 @@ public class Main {
         List<Vehicle> vehicles = new ArrayList<>();
 
 
-        vehicles.add(new Saab95());
-        vehicles.add(new Volvo240());
-        vehicles.add(new Scania());
+        vehicles.add(VehicleFactory.createVolvo240());
+        vehicles.add(VehicleFactory.createSaab95());
+        vehicles.add(VehicleFactory.createScania());
         // Instance of this class
         CarController cc = new CarController(walls, vehicles);
 
