@@ -9,7 +9,7 @@ import javax.swing.*;
 
 // This panel represent the animated part of the view with the car images.
 
-public class DrawPanel extends JPanel {
+public class DrawVehicle extends JPanel {
 
     BufferedImage vehicleImage;
 
@@ -20,7 +20,7 @@ public class DrawPanel extends JPanel {
 
 
     // Initializes the panel and reads the images
-    public DrawPanel(int x, int y) {
+    public DrawVehicle(int x, int y) {
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.MAGENTA);
