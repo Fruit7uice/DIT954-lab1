@@ -1,41 +1,58 @@
 package mvc.view;
 
+import main.UpdateAnimation;
 import main.Vehicle;
+import mvc.Observer;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 
-public class SpeedometerPanel extends JPanel {
+public class SpeedometerPanel extends JPanel{
 
-    JPanel speedometerPanel = new JPanel();
+    //JPanel panel = new JPanel();
     CarView view;
-    GridLayout grid = new GridLayout(3,1);
+    //GridLayout grid = new GridLayout(3,1);
 
-    public SpeedometerPanel() {
-        initPanel();
+    public SpeedometerPanel(int width, int height) {
+        initPanel(width, height);
     }
 
-
-    void initPanel(){
-        speedometerPanel.setLayout(grid);
+    void initPanel(int x, int y){
+        //panel.setLayout(grid);
+        this.setDoubleBuffered(true);
+        this.setPreferredSize(new Dimension(x, y));
+        this.setBackground(Color.ORANGE);
     }
 
+    /*
     void updateLabels(){
-        speedometerPanel.removeAll();
+         // TODO REMOVES ALL TO FAST FIX THIS
+        //panel.removeAll();
         grid.setRows(view.vehicles.size());
         grid.setColumns(1);
-        speedometerPanel.setLayout(grid);
+        panel.setLayout(grid);
         for (Vehicle v:view.vehicles) {
             JLabel vehicleSpeed = new JLabel(v.modelName + ": " + v.currentSpeed);
-            speedometerPanel.add(vehicleSpeed);
+            System.out.println(v.currentSpeed);
+            panel.add(vehicleSpeed);
         }
+        //panel.repaint();
+
     }
 
-    // TODO: Change to suit your needs.
+     */
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        updateLabels();
-        //updateView();
+        //updateLabels();
+        int y = 10;
+        for (Vehicle v: view.vehicles) {
+            g.drawString(String.valueOf(v.currentSpeed), 0, y);
+            y += 10;
+        }
     }
+
+
 }

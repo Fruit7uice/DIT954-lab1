@@ -52,12 +52,14 @@ public class CarView extends JFrame implements Observer {
     public JButton stopButton = new JButton("Stop all cars");
 
 
-    SpeedometerPanel speedometerPanel = new SpeedometerPanel();
+    SpeedometerPanel speedometerPanel;
     // Constructor
     public CarView(String frameName, UpdateAnimation updateAnimation, List<Vehicle> vs){
         this.vehicles = vs;
-        initComponents(frameName);
+        speedometerPanel = new SpeedometerPanel(50, 100);
+        speedometerPanel.view = this;
         updateAnimation.addObserver(this);
+        initComponents(frameName);
     }
 
     // Sets everything in place and fits everything
@@ -71,8 +73,9 @@ public class CarView extends JFrame implements Observer {
         this.add(drawPanel);
 
         // SPEEDOMETER
-        speedometerPanel.view = this;
-        this.add(speedometerPanel.speedometerPanel);
+
+        this.add(speedometerPanel);
+
         // ENDING OF SPEEDOMETER
 
         SpinnerModel spinnerModel =
@@ -135,8 +138,14 @@ public class CarView extends JFrame implements Observer {
         drawPanel.updateVehicleList(vehicles);
         drawPanel.repaint();
 
-        speedometerPanel.updateLabels();
-        speedometerPanel.repaint();
+        //Speedometer
+        updateSpeedometer();
 
+    }
+
+    public void updateSpeedometer() {
+        //speedometerPanel.panel.removeAll();
+        //speedometerPanel.updateLabels();
+        speedometerPanel.repaint();
     }
 }

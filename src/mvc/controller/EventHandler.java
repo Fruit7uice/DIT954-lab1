@@ -2,6 +2,9 @@ package mvc.controller;
 
 import mvc.view.CarView;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 public class EventHandler{
 
     CarController cc;
@@ -16,9 +19,19 @@ public class EventHandler{
 
     public void addActionsToButtons() {
 
-        cc.frame.gasButton.addActionListener(e -> cc.vehicleBehaviour.gas(view.gasAmount));
+        //cc.frame.gasButton.addActionListener(e -> cc.vehicleBehaviour.gas(view.gasAmount));
 
-        cc.frame.brakeButton.addActionListener(e -> cc.vehicleBehaviour.brake(view.gasAmount));
+        cc.frame.gasButton.addActionListener(e -> {
+            cc.vehicleBehaviour.gas(view.gasAmount);
+            view.updateSpeedometer();
+        });
+
+        //cc.frame.brakeButton.addActionListener(e -> cc.vehicleBehaviour.brake(view.gasAmount));
+
+        cc.frame.brakeButton.addActionListener(e -> {
+            cc.vehicleBehaviour.brake(view.gasAmount);
+            view.updateSpeedometer();
+        });
 
         cc.frame.startButton.addActionListener(e -> cc.vehicleBehaviour.startEngine());
 
