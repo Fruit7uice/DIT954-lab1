@@ -19,7 +19,7 @@ public class CarController {
 
     // Model variables
     VehicleBehaviour vehicleBehaviour;
-    UpdateAnimation animation;
+    private UpdateAnimation animation;
 
     protected CarView frame;
 

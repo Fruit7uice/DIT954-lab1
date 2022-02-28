@@ -12,25 +12,25 @@ import java.util.List;
 
 public class UpdateAnimation implements ActionListener {
 
-    private List<Observer> observers = new ArrayList<>();
+    private final List<Observer> observers = new ArrayList<>();
 
 
     // The frame that represents this instance View of the MVC pattern
     //CarView frame;
 
     //EventHandler eventHandler = new EventHandler();
-    private List<Collidable> collidables;
+    private final List<Collidable> collidables;
 
-    private List<Vehicle> vehicles;
-    // The delay (ms) corresponds to 20 updates a sec (hz)
-    private final int delay = 50;
-    // The timer is started with a listener (see below) that executes the statements
-    // each step between delays.
-    private Timer timer = new Timer(delay, this);
+    private final List<Vehicle> vehicles;
 
     public UpdateAnimation(List<Vehicle> vs, List<Collidable> collidables) {
         vehicles = vs;
         this.collidables = collidables;
+        // The timer is started with a listener (see below) that executes the statements
+        // each step between delays.
+        // The delay (ms) corresponds to 20 updates a sec (hz)
+        int delay = 50;
+        Timer timer = new Timer(delay, this);
         timer.start();
     }
 

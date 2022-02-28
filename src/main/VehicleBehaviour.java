@@ -1,6 +1,5 @@
 package main;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -8,7 +7,7 @@ public class VehicleBehaviour{
 
     // TODO BELOW IS MODEL BEHAVIOR, CHANGE FOR FUTURE!
 
-    List<Vehicle> vehicles;
+    private final List<Vehicle> vehicles;
 
     Random random = new Random();
 
