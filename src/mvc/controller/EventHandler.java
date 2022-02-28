@@ -17,21 +17,11 @@ public class EventHandler{
 
 
 
-    public void addActionsToButtons() {
+    private void addActionsToButtons() {
 
-        //cc.frame.gasButton.addActionListener(e -> cc.vehicleBehaviour.gas(view.gasAmount));
+        cc.frame.gasButton.addActionListener(e -> cc.vehicleBehaviour.gas(view.gasAmount));
 
-        cc.frame.gasButton.addActionListener(e -> {
-            cc.vehicleBehaviour.gas(view.gasAmount);
-            view.updateSpeedometer();
-        });
-
-        //cc.frame.brakeButton.addActionListener(e -> cc.vehicleBehaviour.brake(view.gasAmount));
-
-        cc.frame.brakeButton.addActionListener(e -> {
-            cc.vehicleBehaviour.brake(view.gasAmount);
-            view.updateSpeedometer();
-        });
+        cc.frame.brakeButton.addActionListener(e -> cc.vehicleBehaviour.brake(view.gasAmount));
 
         cc.frame.startButton.addActionListener(e -> cc.vehicleBehaviour.startEngine());
 

@@ -18,7 +18,7 @@ public class SpeedometerPanel extends JPanel{
         initPanel(width, height);
     }
 
-    void initPanel(int x, int y){
+    private void initPanel(int x, int y){
         //panel.setLayout(grid);
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));

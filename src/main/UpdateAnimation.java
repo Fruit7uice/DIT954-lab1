@@ -12,7 +12,7 @@ import java.util.List;
 
 public class UpdateAnimation implements ActionListener {
 
-    List<Observer> observers = new ArrayList<>();
+    private List<Observer> observers = new ArrayList<>();
 
     // The frame that represents this instance View of the MVC pattern
     //CarView frame;
@@ -35,7 +35,7 @@ public class UpdateAnimation implements ActionListener {
     }
 
 
-    public void update(){
+    private void update(){
         for (Vehicle vehicle : vehicles) {
             validateCollision(vehicle, collidables);
             vehicle.move();
@@ -50,12 +50,12 @@ public class UpdateAnimation implements ActionListener {
     }
 
 
-    public void moveit(Vehicle vehicle, int x, int y) {
+    private void moveit(Vehicle vehicle, int x, int y) {
         vehicle.point.x = x;
         vehicle.point.y = y;
     }
 
-    void validateCollision(Vehicle vehicle, List<Collidable> collidables) {
+    private void validateCollision(Vehicle vehicle, List<Collidable> collidables) {
         for (Collidable c:collidables) {
             //Vehicle temp = new Volvo240((int) (vehicle.getX()+(1* vehicle.getdX())), (int) (vehicle.getY() + (1* vehicle.getdY())));
             vehicle.vehicleCollision(vehicle, c);
