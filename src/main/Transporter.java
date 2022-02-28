@@ -115,8 +115,8 @@ public class Transporter extends Truck implements ITransporter<Car> {
     public void load(Car car){
         if (isLoadable(car)){
             cargo.push(car);
-            car.setXCord(this.getX());
-            car.setYCord(this.getY());
+            car.setX(this.getX());
+            car.setY(this.getY());
         }
     }
 
@@ -130,16 +130,16 @@ public class Transporter extends Truck implements ITransporter<Car> {
         Car car;
         if (isUnloadable()){
             car = cargo.pop();
-            car.setXCord(this.getX()+1);
-            car.setYCord(this.getY()+1);
+            car.setX(this.getX()+1);
+            car.setY(this.getY()+1);
 
         }
     }
 
     private void updateCargoCord(){
         for (Car c:cargo) {
-            c.setXCord(this.getX());
-            c.setYCord(this.getY());
+            c.setX(this.getX());
+            c.setY(this.getY());
         }
     }
 
@@ -160,7 +160,8 @@ public class Transporter extends Truck implements ITransporter<Car> {
      */
 
     public Deque<Car> getCargo() {
-        return cargo;
+        Deque<Car> copy = new ArrayDeque<>(cargo);
+        return copy;
     }
 
 

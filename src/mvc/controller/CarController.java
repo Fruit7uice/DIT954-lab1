@@ -3,6 +3,9 @@ package mvc.controller;
 import main.*;
 import mvc.view.CarView;
 
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 /*
@@ -16,28 +19,22 @@ public class CarController {
 
     // Model variables
     VehicleBehaviour vehicleBehaviour;
-    List<Collidable> collidables;
     UpdateAnimation animation;
 
-    // member fields:
-    public List<Vehicle> vehicles;
-    public CarView frame;
+    protected CarView frame;
 
 
     public CarController(List<Collidable> collidables, List<Vehicle> vehicles) {
-        this.collidables = collidables;
-        this.vehicles = vehicles;
-
-
         // Model package
+        animation = new UpdateAnimation(vehicles, collidables);
+
         vehicleBehaviour = new VehicleBehaviour(vehicles);
-        animation = new UpdateAnimation(vehicles);
-        animation.collidables = collidables;
         // Start a new view and send a reference of self
-        frame = new CarView("CarSim 1.0", animation, vehicles);
+        frame = new CarView("CarSim 1.0", animation, animation.getVehicles());
 
         EventHandler eventHandler = new EventHandler(this, frame);
     }
+
 
 
 

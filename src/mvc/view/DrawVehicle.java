@@ -11,35 +11,21 @@ import javax.swing.*;
 
 public class DrawVehicle extends JPanel {
 
-    BufferedImage vehicleImage;
-
-    List<Vehicle> vehicles;
-
-    // To keep track of a single cars position
-    Point vehiclePoint = new Point();
-
+    private BufferedImage vehicleImage;
+    private List<Vehicle> vehicles;
 
     // Initializes the panel and reads the images
     public DrawVehicle(int x, int y) {
         this.setDoubleBuffered(true);
         this.setPreferredSize(new Dimension(x, y));
         this.setBackground(Color.MAGENTA);
-        //this.setBackground(new Color(1, 0, 0, (float)0.1));
-        // Print an error message in case file is not found with a try/catch block
-
     }
 
     private void updateVehicleImage(Vehicle vehicle) {
         vehicleImage = vehicle.getVehicleImage();
     }
 
-
-    private void updateVehiclePoint(Vehicle vehicle){
-        vehiclePoint.x = vehicle.point.x;
-        vehiclePoint.y = vehicle.point.y;
-    }
-
-    void updateVehicleList(List<Vehicle> vehicles){
+    protected void updateVehicleList(List<Vehicle> vehicles){
         this.vehicles = vehicles;
     }
 
@@ -49,9 +35,7 @@ public class DrawVehicle extends JPanel {
         super.paintComponent(g);
         for (Vehicle vehicle:vehicles) {
             updateVehicleImage(vehicle);
-            updateVehiclePoint(vehicle);
-            g.drawImage(vehicleImage, vehiclePoint.x, vehiclePoint.y, null);
+            g.drawImage(vehicleImage, vehicle.getX(), vehicle.getY(), null);
         }
-        //g.drawRect(vehiclePoint.x, vehiclePoint.y, 50, 50);
     }
 }

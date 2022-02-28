@@ -28,14 +28,12 @@ public class Saab95 extends Car{
         super(0, 125, Color.red, "Saab95", 2, 100, 2, 1.9, 5.9, 4, "pics/Saab95.jpg");
         turboOn = false;
         stopEngine();
-        //assignImageToVehicle(createImageFile(super.imagePath));
     }
 
     public Saab95(double currentSpeed, double enginePower, Color color, String modelName, int xCord, int yCord,
-                  double width, double height, double lenght, int nrDoors, boolean turboOn, String imagePath) {
-        super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, lenght, nrDoors, imagePath);
+                  double width, double height, double length, int nrDoors, boolean turboOn, String imagePath) {
+        super(currentSpeed, enginePower, color, modelName, xCord, yCord, width, height, length, nrDoors, imagePath);
         this.turboOn = turboOn;
-        //assignImageToVehicle(createImageFile(imagePath));
     }
 
     /**

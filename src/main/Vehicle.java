@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.awt.image.WritableRaster;
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -24,11 +23,7 @@ public abstract class Vehicle extends Collidable implements IMoveable {
     public String modelName; // The car model name
     private double dX = 1;
     private double dY;
-    public Point point = new Point();
-    //public String imagePath;
-    BufferedImage vehicleImage;
-    //File imageFile;
-
+    private BufferedImage vehicleImage;
 
 
     /**
@@ -52,8 +47,6 @@ public abstract class Vehicle extends Collidable implements IMoveable {
         this.enginePower = enginePower;
         this.color = color;
         this.modelName = modelName;
-        point.x = xCord;
-        point.y = yCord;
         assignImageToVehicle(imagePath);
 
     }
@@ -94,8 +87,8 @@ public abstract class Vehicle extends Collidable implements IMoveable {
      * the product of the direction * currentSpeed individually to the coordinates of x and y.
      */
     public void move() {
-        setXCord(getX() + dX * currentSpeed);
-        setYCord(getY() + dY * currentSpeed);
+        setX(getX() + dX * currentSpeed);
+        setY(getY() + dY * currentSpeed);
     }
 
 
@@ -244,8 +237,5 @@ public abstract class Vehicle extends Collidable implements IMoveable {
      * @return the calculated factor of which the speed increases by.
      */
     abstract double speedFactor();
-
-
-
 
 }

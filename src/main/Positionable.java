@@ -15,8 +15,6 @@ public abstract class Positionable implements IPositionable { // Change name to 
         this.length = length;
     }
 
-
-
     /**
      * A getter for the cars current X-Coordinate in a Cartesian coordinate system.
      *
@@ -63,14 +61,14 @@ public abstract class Positionable implements IPositionable { // Change name to 
     /**
      * A setter for the coordinate of the car regarding the x-position.
      */
-    public void setXCord(double xCord) {
+    public void setX(double xCord) {
         this.x = (int) xCord;
     }
 
     /**
      * A setter for the coordinate of the car regarding the y-position.
      */
-    public void setYCord(double yCord) {
+    public void setY(double yCord) {
         this.y = (int) yCord;
     }
 

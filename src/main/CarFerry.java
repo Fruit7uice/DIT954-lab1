@@ -116,8 +116,8 @@ public class CarFerry extends Vehicle implements ITransporter<Car> {
     public void load(Car car) {
         if (isLoadable(car)){
             ferryCargo.addLast(car);
-            car.setXCord(this.getX());
-            car.setYCord(this.getY());
+            car.setX(this.getX());
+            car.setY(this.getY());
         }
     }
 
@@ -129,8 +129,8 @@ public class CarFerry extends Vehicle implements ITransporter<Car> {
         Car car;
         if (isUnloadable()){
             car = ferryCargo.pop();
-            car.setXCord(this.getX()+1);
-            car.setYCord(this.getY()+1);
+            car.setX(this.getX()+1);
+            car.setY(this.getY()+1);
         }
 
     }
