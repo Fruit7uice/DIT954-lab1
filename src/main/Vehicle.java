@@ -3,6 +3,8 @@ package main;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.ColorModel;
+import java.awt.image.WritableRaster;
 import java.io.File;
 import java.io.IOException;
 
@@ -52,18 +54,19 @@ public abstract class Vehicle extends Collidable implements IMoveable {
         this.modelName = modelName;
         point.x = xCord;
         point.y = yCord;
-        //this.imagePath = imagePath;
-        //imageFile = createImageFile(imagePath);
         assignImageToVehicle(imagePath);
 
     }
 
 
     public BufferedImage getVehicleImage() {
-        return vehicleImage;
+        ColorModel cm = vehicleImage.getColorModel();
+        boolean isAlphaPremultiplied = cm.isAlphaPremultiplied();
+        WritableRaster raster = vehicleImage.copyData(null);
+        return new BufferedImage(cm, raster, isAlphaPremultiplied, null);
     }
 
-    void assignImageToVehicle(String imagePath) {
+    private void assignImageToVehicle(String imagePath) {
         try {
             //vehicleImage = ImageIO.read(imageFile);
             vehicleImage = ImageIO.read(Vehicle.class.getResourceAsStream(imagePath));
@@ -71,14 +74,6 @@ public abstract class Vehicle extends Collidable implements IMoveable {
             ex.printStackTrace();
         }
     }
-
-    /*
-    File createImageFile(String imagePath) {
-        this.imagePath = imagePath;
-        return new File(imagePath);
-    }
-
-     */
 
     /**
      * Gets the color of a car
