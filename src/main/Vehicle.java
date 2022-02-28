@@ -86,7 +86,7 @@ public abstract class Vehicle extends Collidable implements IMoveable {
      * @return color for a given car
      */
     public Color getColor() {
-        return color;
+        return new Color(color.getRGB());
     }
 
 
